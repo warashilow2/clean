@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GAMING PC</title>
-    <meta name="description" content="Premium gaming PCs and components">
+    <title>Professional Cleaning Services</title>
+    <meta name="description" content="Premium cleaning services for homes and offices">
     <meta name="author" content="Nepran Ivan">
 
     <!-- Bootstrap CSS CDN -->
@@ -16,8 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
 </head>
 
 <body>
@@ -25,97 +23,111 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-burgundy">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <img src="images/logo.png" alt="Home" class="nav-logo">
+                <img src="images/logo.png" alt="Professional Cleaning Services" class="nav-logo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gpu">New GPU</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#callback">Callback</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-              <div class="calculator-dropdown">
-    <button class="btn btn-calculator-nav" type="button" data-toggle="modal" data-target="#calculatorModal">
-        <i class="fas fa-calculator me-2"></i>
-        <span class="calculator-text">Cost Calculator</span>
-        <i class="fas fa-bolt ms-2"></i>
-    </button>
-</div>
+                <div class="calculator-dropdown">
+                    <button class="btn btn-calculator-nav" type="button" data-toggle="modal" data-target="#calculatorModal">
+                        <i class="fas fa-calculator me-2"></i>
+                        <span class="calculator-text">Cost Calculator</span>
+                        <i class="fas fa-bolt ms-2"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Home Section with Carousel -->
-    <section id="home">
-        <div class="carousel-container">
-            <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel" data-interval="2000">
+<section id="home">
+         <div class="carousel-container">
+        <div id="mainCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+                    <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#mainCarousel" data-slide-to="1"></li>
+                    <li data-target="#mainCarousel" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active" data-color="red">
-                        <img class="d-block w-100" src="images/1111.jpg" alt="Red Dragon PC">
-                         </div>
-                    <div class="carousel-item" data-color="green">
-                        <img class="d-block w-100" src="images/2222.jpg" alt="Green Devil PC">
-                          </div>
-                    <div class="carousel-item" data-color="red">
-                        <img class="d-block w-100" src="images/3333.jpg" alt="Game Killer PC">
-                         </div>
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="images/1111.jpg" alt="Professional Kitchen Cleaning">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="images/2222.jpg" alt="Bathroom Deep Cleaning">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="images/3333.jpg" alt="Living Room Cleaning">
+                    </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
             </div>
         </div>
-    </section>
+</section>
 
-  <!-- Упрощенная версия - только переключение картинок -->
-<section class="cleaning-map-section">
+
+
+    <!-- Mobile Calculator Button -->
+    <div class="mobile-calculator-btn">
+        <button class="btn btn-calculator-mobile" type="button" data-toggle="modal" data-target="#calculatorModal">
+            <i class="fas fa-calculator me-2"></i>
+            Calculate Cleaning Cost
+            <i class="fas fa-bolt ms-2"></i>
+        </button>
+    </div>
+
+    <!-- Добавь этот блок после карусели или перед услугами -->
+<section id="special-offers" class="special-offers-section">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="section-header">
-    <h2 class="section-title-gold">What We Clean In Each Room</h2>
-    <div class="title-underline"></div>
-                 </div>
-                
-                <!-- Табы для переключения комнат -->
-                <div class="room-tabs">
-                    <button class="room-tab active" data-room="kit">
-                        <i class="fas fa-utensils me-2"></i>Kitchen
-                    </button>
-                    <button class="room-tab" data-room="bath">
-                        <i class="fas fa-bath me-2"></i>Bathroom
-                    </button>
-                    <button class="room-tab" data-room="bed">
-                        <i class="fas fa-bed me-2"></i>Bedroom
+        <div class="section-header">
+            <h2 class="section-title-gold">Special Offers</h2>
+            <div class="title-underline"></div>
+            <p class="section-subtitle">Save more with our exclusive deals</p>
+        </div>
+
+        <div class="offers-grid">
+            <!-- First Order Discount -->
+            <div class="offer-card first-order-card">
+                <div class="offer-badge">New Customers</div>
+                <div class="offer-content">
+                    <div class="offer-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="offer-title">First Clean <span class="highlight">15% OFF</span></h3>
+                    <p class="offer-description">Get professional cleaning at an unbeatable price for your first order. No codes needed - discount automatically applied!</p>
+                    <ul class="offer-features">
+                        <li><i class="fas fa-check"></i> All services included</li>
+                        <li><i class="fas fa-check"></i> No hidden fees</li>
+                        <li><i class="fas fa-check"></i> Easy online booking</li>
+                        <li><i class="fas fa-check"></i> Automatic discount</li>
+                    </ul>
+                    <button class="btn btn-offer" data-toggle="modal" data-target="#calculatorModal">
+                        Claim Your Discount
+                        <i class="fas fa-arrow-right ms-2"></i>
                     </button>
                 </div>
-
-                <!-- Контейнер для картинки -->
-                <div class="map-container">
-                    <div class="room-map active" id="kit-map">
-                        <img src="images/kit.png" alt="Kitchen Cleaning" class="room-image">
+                <div class="offer-visual">
+                    <div class="discount-circle">
+                        <span class="discount-amount">15%</span>
+                        <span class="discount-label">OFF</span>
                     </div>
-
-                    <div class="room-map" id="bath-map">
-                        <img src="images/bath.jpg" alt="Bathroom Cleaning" class="room-image">
-                    </div>
-
-                    <div class="room-map" id="bed-map">
-                        <img src="images/bed.jpg" alt="Bedroom Cleaning" class="room-image">
+                    <div class="offer-guarantee">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>No Codes Needed</span>
                     </div>
                 </div>
             </div>
@@ -123,78 +135,185 @@
     </div>
 </section>
 
-    <!-- Products Section -->
-    <section id="products" class="container mb-5">
-        <div class="row text-center row-eq-height">
-            <!-- Red Dragon -->
-            <div class="boxl col-sm-12 col-md-6 col-xl-3 mb-4 d-flex flex-column">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h2>Red Dragon</h2>
-                        <p class="mb-4">High performance with dragon-style cooling</p>
-                        <p><strong>Specs:</strong> CPU: i3-12100f; GPU: 1660S; RAM: 16gb</p>
+    <!-- Services Section -->
+    <section id="services" class="cleaning-map-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="section-header">
+                        <h2 class="section-title-gold">What We Clean In Each Room</h2>
+                        <div class="title-underline"></div>
                     </div>
-                    <div class="card-footer bg-transparent border-0 mt-auto">
-                        <button class="btn btn-pc-red w-75">
-                            <i class="fas fa-dragon me-2"></i>
-                            Learn More
+                    
+                    <!-- Room Tabs -->
+                    <div class="room-tabs">
+                        <button class="room-tab active" data-room="kit">
+                            <i class="fas fa-utensils me-2"></i>Kitchen
+                        </button>
+                        <button class="room-tab" data-room="bath">
+                            <i class="fas fa-bath me-2"></i>Bathroom
+                        </button>
+                        <button class="room-tab" data-room="bed">
+                            <i class="fas fa-bed me-2"></i>Bedroom
                         </button>
                     </div>
-                </div>
-            </div>
 
-            <!-- Green Devil -->
-            <div class="boxl col-sm-12 col-md-6 col-xl-3 mb-4 d-flex flex-column">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h2>Green Devil</h2>
-                        <p class="mb-4">Eco-friendly power for sustainable gaming</p>
-                        <p><strong>Specs:</strong> CPU: i5-12400k; GPU: rtx3070; RAM: 16gb</p>
+                    <!-- Room Maps -->
+                    <div class="room-map active" id="kit-map">
+                        <img src="images/kit.png" alt="Kitchen Cleaning Services" class="room-image">
+                        <div class="mobile-services">
+                            <h4>Kitchen Services</h4>
+                            <ul>
+                                <li>Oven & Stove Cleaning</li>
+                                <li>Refrigerator Cleaning</li>
+                                <li>Cabinets Inside/Outside</li>
+                                <li>Countertops Degreasing</li>
+                                <li>Sink & Faucet Polish</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="card-footer bg-transparent border-0 mt-auto">
-                        <button class="btn btn-pc-green w-75">
-                            <i class="fas fa-leaf me-2"></i>
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Red Blood -->
-            <div class="boxl col-sm-12 col-md-6 col-xl-3 mb-4 d-flex flex-column">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h2>Red Blood</h2>
-                        <p class="mb-4">Bleeding-edge technology in crimson design</p>
-                        <p><strong>Specs:</strong> CPU: i7-12700k; GPU: rtx4070S; RAM: 32gb</p>
+                    <div class="room-map" id="bath-map">
+                        <img src="images/bath.jpg" alt="Bathroom Cleaning Services" class="room-image">
+                        <div class="mobile-services">
+                            <h4>Bathroom Services</h4>
+                            <ul>
+                                <li>Shower & Tub Scrubbing</li>
+                                <li>Toilet Disinfection</li>
+                                <li>Mirror & Glass Polish</li>
+                                <li>Tile & Grout Cleaning</li>
+                                <li>Sink & Counter Sanitization</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="card-footer bg-transparent border-0 mt-auto">
-                        <button class="btn btn-pc-blood w-75">
-                            <i class="fas fa-tint me-2"></i>
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Game Killer -->
-            <div class="boxl col-sm-12 col-md-6 col-xl-3 mb-4 d-flex flex-column">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h2>Game Killer</h2>
-                        <p class="mb-4">Ultimate machine for competitive esports</p>
-                        <p><strong>Specs:</strong> CPU: i9-13700k; GPU: rtx5080; RAM: 32gb</p>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 mt-auto">
-                        <button class="btn btn-pc-killer w-75">
-                            <i class="fas fa-crosshairs me-2"></i>
-                            Learn More
-                        </button>
+                    <div class="room-map" id="bed-map">
+                        <img src="images/bed.jpg" alt="Bedroom Cleaning Services" class="room-image">
+                        <div class="mobile-services">
+                            <h4>Bedroom Services</h4>
+                            <ul>
+                                <li>Dusting All Surfaces</li>
+                                <li>Window Cleaning</li>
+                                <li>Vacuuming & Mopping</li>
+                                <li>Light Fixtures Dusting</li>
+                                <li>Baseboards Wiping</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
+    
+<!-- Add this block after services section and before pricing -->
+<section id="before-after" class="before-after-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="section-header">
+                    <h2 class="section-title-gold">Our Work Results</h2>
+                    <div class="title-underline"></div>
+                    <p class="section-subtitle">See the effectiveness of our cleaning</p>
+                </div>
+
+                <div class="comparison-slider">
+                    <!-- Slider 1 -->
+                    <div class="slider-item">
+                        <div class="slider-header">
+                            <h4>Kitchen After Renovation</h4>
+                            <span class="slider-badge">Deep Cleaning</span>
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-comparison">
+                                <img src="images/Слой 1.jpg" alt="Before cleaning" class="slider-image before-image">
+                                <img src="images/Фон копия.jpg" alt="After cleaning" class="slider-image after-image">
+                                <div class="slider-handle">
+                                    <div class="handle-line"></div>
+                                    <div class="handle-circle">
+                                        <i class="fas fa-arrows-left-right"></i>
+                                    </div>
+                                    <div class="handle-line"></div>
+                                </div>
+                            </div>
+                            <div class="slider-labels">
+                                <span class="label-before">Before</span>
+                                <span class="label-after">After</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slider 2 -->
+                    <div class="slider-item">
+                        <div class="slider-header">
+                            <h4>Bathroom Transformation</h4>
+                            <span class="slider-badge">Chemical Cleaning</span>
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-comparison">
+                                <img src="images/before.jpg" alt="Before cleaning" class="slider-image before-image">
+                                <img src="images/after.jpg" alt="After cleaning" class="slider-image after-image">
+                                <div class="slider-handle">
+                                    <div class="handle-line"></div>
+                                    <div class="handle-circle">
+                                        <i class="fas fa-arrows-left-right"></i>
+                                    </div>
+                                    <div class="handle-line"></div>
+                                </div>
+                            </div>
+                            <div class="slider-labels">
+                                <span class="label-before">Before</span>
+                                <span class="label-after">After</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slider 3 -->
+                    <div class="slider-item">
+                        <div class="slider-header">
+                            <h4>Living Room Makeover</h4>
+                            <span class="slider-badge">Standard Cleaning</span>
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-comparison">
+                                <img src="images/фффф.jpg" alt="Before cleaning" class="slider-image before-image">
+                                <img src="images/пппп.jpg" alt="After cleaning" class="slider-image after-image">
+                                <div class="slider-handle">
+                                    <div class="handle-line"></div>
+                                    <div class="handle-circle">
+                                        <i class="fas fa-arrows-left-right"></i>
+                                    </div>
+                                    <div class="handle-line"></div>
+                                </div>
+                            </div>
+                            <div class="slider-labels">
+                                <span class="label-before">Before</span>
+                                <span class="label-after">After</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Recommend Us</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Pricing Section -->
     <section id="pricing" class="container mb-5">
@@ -202,296 +321,378 @@
         <table class="table-custom">
             <thead>
                 <tr>
-                    <th>Computers</th>
-                    <th>Price</th>
+                    <th>Service Type</th>
+                    <th>Starting Price</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Red Dragon</td>
-                    <td>Start from €899</td>
+                    <td>Standard Cleaning</td>
+                    <td>From €131</td>
                 </tr>
                 <tr>
-                    <td>Green Devil</td>
-                    <td>Start from €1099</td>
+                    <td>Deep Cleaning</td>
+                    <td>From €196</td>
                 </tr>
                 <tr>
-                    <td>Blood</td>
-                    <td>Start from €1399</td>
-                </tr>
-                <tr>
-                    <td>Game Killer</td>
-                    <td>Start from €1799</td>
+                    <td>After Renovation</td>
+                    <td>From €210</td>
                 </tr>
             </tbody>
         </table>
     </section>
-  
-   <!-- Calculator Modal -->
-<div class="modal fade" id="calculatorModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content calculator-modal">
-            <div class="modal-header">
-                <h5 class="modal-title">Cost Calculator</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+
+    <!-- Calculator Modal -->
+    <div class="modal fade" id="calculatorModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content calculator-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cost Calculator</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    
+                    <!-- Price Panel -->
+                    <div class="price-panel">
+                        <div class="price-display">
+                            <span class="price-label">Total:</span>
+                            <span class="price-amount" id="totalAmount">€0</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Cleaning Type -->
+                    <div id="step1" class="calculator-step active">
+                        <h4 class="step-title">Select Cleaning Type</h4>
+                        
+                        <div class="cleaning-cards">
+                            <div class="cleaning-card" data-type="standard">
+                                <div class="card-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <h5>Standard</h5>
+                                <p>Regular maintenance cleaning</p>
+                                <div class="card-price">From €131</div>
+                            </div>
+                            
+                            <div class="cleaning-card" data-type="deep">
+                                <div class="card-icon">
+                                    <i class="fas fa-broom"></i>
+                                </div>
+                                <h5>Deep Cleaning</h5>
+                                <p>Thorough detailed cleaning</p>
+                                <div class="card-price">From €196</div>
+                            </div>
+                            
+                            <div class="cleaning-card" data-type="renovation">
+                                <div class="card-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h5>After Renovation</h5>
+                                <p>Post-construction cleanup</p>
+                                <div class="card-price">From €210</div>
+                            </div>
+                        </div>
+
+                        <!-- Room Selection -->
+                        <div class="rooms-selection fade-in">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="room-counter">
+                                        <label>Bedrooms</label>
+                                        <div class="counter-controls">
+                                            <button class="counter-btn" data-target="bedroom" data-action="decrease">-</button>
+                                            <span class="counter-value" id="bedroomCount">0</span>
+                                            <button class="counter-btn" data-target="bedroom" data-action="increase">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="room-counter">
+                                        <label>Bathrooms</label>
+                                        <div class="counter-controls">
+                                            <button class="counter-btn" data-target="bathroom" data-action="decrease">-</button>
+                                            <span class="counter-value" id="bathroomCount">0</span>
+                                            <button class="counter-btn" data-target="bathroom" data-action="increase">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="price-info">
+                            <div class="info-item">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Price includes 1 kitchen and 1 living room</span>
+                            </div>
+                        </div>
+
+                        <div class="step-navigation">
+                            <button class="btn btn-next" data-next="step2">
+                                Continue <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Additional Services -->
+                    <div id="step2" class="calculator-step">
+                        <h4 class="step-title">Additional Services</h4>
+                        
+                        <div class="services-grid">
+                            <div class="service-card" data-service="oven" data-price="51">
+                                <div class="service-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <span class="service-name">Oven Cleaning</span>
+                                <span class="service-price">+€51</span>
+                            </div>
+                            
+                            <div class="service-card" data-service="microwave" data-price="15">
+                                <div class="service-icon">
+                                    <i class="fas fa-radiation"></i>
+                                </div>
+                                <span class="service-name">Microwave</span>
+                                <span class="service-price">+€15</span>
+                            </div>
+                            
+                            <div class="service-card" data-service="fridge" data-price="11">
+                                <div class="service-icon">
+                                    <i class="fas fa-snowflake"></i>
+                                </div>
+                                <span class="service-name">Refrigerator</span>
+                                <span class="service-price">+€11</span>
+                            </div>
+                            
+                            <div class="service-card" data-service="chemical" data-price="40">
+                                <div class="service-icon">
+                                    <i class="fas fa-pump-soap"></i>
+                                </div>
+                                <span class="service-name">Chemical Clean</span>
+                                <span class="service-price">+€40</span>
+                            </div>
+                            
+                            <div class="service-card" data-service="cabinets" data-price="35">
+                                <div class="service-icon">
+                                    <i class="fas fa-archive"></i>
+                                </div>
+                                <span class="service-name">Kitchen Cabinets</span>
+                                <span class="service-price">+€35</span>
+                            </div>
+                        </div>
+
+                        <div class="step-navigation">
+                            <button class="btn btn-prev" data-prev="step1">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button class="btn btn-next" data-next="step3">
+                                Continue <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Windows -->
+                    <div id="step3" class="calculator-step">
+                        <h4 class="step-title">Window Cleaning</h4>
+                        
+                        <div class="windows-selection">
+                            <!-- Inside Windows -->
+                            <div class="window-category">
+                                <h5>Inside Windows</h5>
+                                <div class="window-options">
+                                    <div class="window-option" data-type="inside" data-count="1" data-price="8">
+                                        <span class="window-count">1 window</span>
+                                        <span class="window-price">€8</span>
+                                    </div>
+                                    <div class="window-option" data-type="inside" data-count="2" data-price="15">
+                                        <span class="window-count">2 windows</span>
+                                        <span class="window-price">€15</span>
+                                    </div>
+                                    <div class="window-option" data-type="inside" data-count="3" data-price="22">
+                                        <span class="window-count">3 windows</span>
+                                        <span class="window-price">€22</span>
+                                    </div>
+                                    <div class="window-option" data-type="inside" data-count="4" data-price="28">
+                                        <span class="window-count">4 windows</span>
+                                        <span class="window-price">€28</span>
+                                    </div>
+                                    <div class="window-option" data-type="inside" data-count="5" data-price="34">
+                                        <span class="window-count">5 windows</span>
+                                        <span class="window-price">€34</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Outside Windows -->
+                            <div class="window-category">
+                                <h5>Outside Windows</h5>
+                                <div class="window-options">
+                                    <div class="window-option" data-type="outside" data-count="1" data-price="11">
+                                        <span class="window-count">1 window</span>
+                                        <span class="window-price">€11</span>
+                                    </div>
+                                    <div class="window-option" data-type="outside" data-count="2" data-price="20">
+                                        <span class="window-count">2 windows</span>
+                                        <span class="window-price">€20</span>
+                                    </div>
+                                    <div class="window-option" data-type="outside" data-count="3" data-price="28">
+                                        <span class="window-count">3 windows</span>
+                                        <span class="window-price">€28</span>
+                                    </div>
+                                    <div class="window-option" data-type="outside" data-count="4" data-price="36">
+                                        <span class="window-count">4 windows</span>
+                                        <span class="window-price">€36</span>
+                                    </div>
+                                    <div class="window-option" data-type="outside" data-count="5" data-price="44">
+                                        <span class="window-count">5 windows</span>
+                                        <span class="window-price">€44</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Frames -->
+                            <div class="window-category">
+                                <h5>Window Frames</h5>
+                                <div class="frames-counter">
+                                    <div class="counter-controls">
+                                        <button class="counter-btn" data-target="frames" data-action="decrease">-</button>
+                                        <span class="counter-value" id="framesCount">0</span>
+                                        <button class="counter-btn" data-target="frames" data-action="increase">+</button>
+                                    </div>
+                                    <div class="frames-price">€10 per frame</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-navigation">
+                            <button class="btn btn-prev" data-prev="step2">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button class="btn btn-next" data-next="step4">
+                                Continue <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Confirmation -->
+                    <div id="step4" class="calculator-step">
+                        <h4 class="step-title">Order Summary</h4>
+                        
+                        <div class="summary-card">
+                            <div id="summaryContent">
+                                <!-- Summary will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="final-note">
+                            <div class="note-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="note-content">
+                                <strong>Note:</strong> This is an approximate price. Final cost may vary depending on additional rooms like hallway, dining room, storage room, etc.
+                            </div>
+                        </div>
+
+                        <div class="step-navigation">
+                            <button class="btn btn-prev" data-prev="step3">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button class="btn btn-order" id="finalOrder">
+                                <i class="fas fa-check"></i> Confirm Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                
-                <!-- Постоянная панель с ценой -->
-                <div class="price-panel">
-                    <div class="price-display">
-                        <span class="price-label">Total:</span>
-                        <span class="price-amount" id="totalAmount">€0</span>
-                    </div>
-                </div>
-
-                <!-- Шаг 1: Тип уборки -->
-                <div id="step1" class="calculator-step active">
-                    <h4 class="step-title">Select Cleaning Type</h4>
-                    
-                    <div class="cleaning-cards">
-                        <div class="cleaning-card" data-type="standard">
-                            <div class="card-icon">
-                                <i class="fas fa-home"></i>
-                            </div>
-                            <h5>Standard</h5>
-                            <p>Regular maintenance cleaning</p>
-                            <div class="card-price">From €131</div>
-                        </div>
-                        
-                        <div class="cleaning-card" data-type="deep">
-                            <div class="card-icon">
-                                <i class="fas fa-broom"></i>
-                            </div>
-                            <h5>Deep Cleaning</h5>
-                            <p>Thorough detailed cleaning</p>
-                            <div class="card-price">From €196</div>
-                        </div>
-                        
-                        <div class="cleaning-card" data-type="renovation">
-                            <div class="card-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <h5>After Renovation</h5>
-                            <p>Post-construction cleanup</p>
-                            <div class="card-price">From €210</div>
-                        </div>
-                    </div>
-
-                    <!-- Выбор комнат -->
-                    <div class="rooms-selection fade-in">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="room-counter">
-                                    <label>Bedrooms</label>
-                                    <div class="counter-controls">
-                                        <button class="counter-btn" data-target="bedroom" data-action="decrease">-</button>
-                                        <span class="counter-value" id="bedroomCount">0</span>
-                                        <button class="counter-btn" data-target="bedroom" data-action="increase">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="room-counter">
-                                    <label>Bathrooms</label>
-                                    <div class="counter-controls">
-                                        <button class="counter-btn" data-target="bathroom" data-action="decrease">-</button>
-                                        <span class="counter-value" id="bathroomCount">0</span>
-                                        <button class="counter-btn" data-target="bathroom" data-action="increase">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-navigation">
-                        <button class="btn btn-next" data-next="step2">
-                            Continue <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-                <!-- Добавь этот блок после счётчиков комнат -->
-<div class="price-info">
-    <div class="info-item">
-        <i class="fas fa-info-circle"></i>
-        <span>Price includes 1 kitchen and 1 living room</span>
+        </div>
     </div>
-</div>
-
-                <!-- Шаг 2: Дополнительные услуги -->
-                <div id="step2" class="calculator-step">
-                    <h4 class="step-title">Additional Services</h4>
-                    
-                    <div class="services-grid">
-                        <div class="service-card" data-service="oven" data-price="51">
-                            <div class="service-icon">
-                                <i class="fas fa-fire"></i>
-                            </div>
-                            <span class="service-name">Oven Cleaning</span>
-                            <span class="service-price">+€51</span>
-                        </div>
-                        
-                        <div class="service-card" data-service="microwave" data-price="15">
-                            <div class="service-icon">
-                                <i class="fas fa-radiation"></i>
-                            </div>
-                            <span class="service-name">Microwave</span>
-                            <span class="service-price">+€15</span>
-                        </div>
-                        
-                        <div class="service-card" data-service="fridge" data-price="11">
-                            <div class="service-icon">
-                                <i class="fas fa-snowflake"></i>
-                            </div>
-                            <span class="service-name">Refrigerator</span>
-                            <span class="service-price">+€11</span>
-                        </div>
-                        
-                        <div class="service-card" data-service="chemical" data-price="40">
-                            <div class="service-icon">
-                                <i class="fas fa-pump-soap"></i>
-                            </div>
-                            <span class="service-name">Chemical Clean</span>
-                            <span class="service-price">+€40</span>
-                        </div>
-                        
-                        <div class="service-card" data-service="cabinets" data-price="35">
-                            <div class="service-icon">
-                                <i class="fas fa-archive"></i>
-                            </div>
-                            <span class="service-name">Kitchen Cabinets</span>
-                            <span class="service-price">+€35</span>
-                        </div>
-                    </div>
-
-                    <div class="step-navigation">
-                        <button class="btn btn-prev" data-prev="step1">
-                            <i class="fas fa-arrow-left"></i> Back
-                        </button>
-                        <button class="btn btn-next" data-next="step3">
-                            Continue <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Шаг 3: Окна -->
-<div id="step3" class="calculator-step">
-    <h4 class="step-title">Window Cleaning</h4>
     
-    <div class="windows-selection">
-        <!-- Окна внутри -->
-        <div class="window-category">
-            <h5>Inside Windows</h5>
-            <div class="window-options">
-                <div class="window-option" data-type="inside" data-count="1" data-price="8">
-                    <span class="window-count">1 window</span>
-                    <span class="window-price">€8</span>
-                </div>
-                <div class="window-option" data-type="inside" data-count="2" data-price="15">
-                    <span class="window-count">2 windows</span>
-                    <span class="window-price">€15</span>
-                </div>
-                <div class="window-option" data-type="inside" data-count="3" data-price="22">
-                    <span class="window-count">3 windows</span>
-                    <span class="window-price">€22</span>
-                </div>
-                <div class="window-option" data-type="inside" data-count="4" data-price="28">
-                    <span class="window-count">4 windows</span>
-                    <span class="window-price">€28</span>
-                </div>
-                <div class="window-option" data-type="inside" data-count="5" data-price="34">
-                    <span class="window-count">5 windows</span>
-                    <span class="window-price">€34</span>
-                </div>
-            </div>
-        </div>
 
-        <!-- Окна снаружи -->
-        <div class="window-category">
-            <h5>Outside Windows</h5>
-            <div class="window-options">
-                <div class="window-option" data-type="outside" data-count="1" data-price="11">
-                    <span class="window-count">1 window</span>
-                    <span class="window-price">€11</span>
-                </div>
-                <div class="window-option" data-type="outside" data-count="2" data-price="20">
-                    <span class="window-count">2 windows</span>
-                    <span class="window-price">€20</span>
-                </div>
-                <div class="window-option" data-type="outside" data-count="3" data-price="28">
-                    <span class="window-count">3 windows</span>
-                    <span class="window-price">€28</span>
-                </div>
-                <div class="window-option" data-type="outside" data-count="4" data-price="36">
-                    <span class="window-count">4 windows</span>
-                    <span class="window-price">€36</span>
-                </div>
-                <div class="window-option" data-type="outside" data-count="5" data-price="44">
-                    <span class="window-count">5 windows</span>
-                    <span class="window-price">€44</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Фреймы -->
-        <div class="window-category">
-            <h5>Window Frames</h5>
-            <div class="frames-counter">
-                <div class="counter-controls">
-                    <button class="counter-btn" data-target="frames" data-action="decrease">-</button>
-                    <span class="counter-value" id="framesCount">0</span>
-                    <button class="counter-btn" data-target="frames" data-action="increase">+</button>
-                </div>
-                <div class="frames-price">€10 per frame</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="step-navigation">
-        <button class="btn btn-prev" data-prev="step2">
-            <i class="fas fa-arrow-left"></i> Back
-        </button>
-        <button class="btn btn-next" data-next="step4">
-            Continue <i class="fas fa-arrow-right"></i>
-        </button>
-    </div>
-</div>
-
-                <!-- Шаг 4: Подтверждение -->
-                <div id="step4" class="calculator-step">
-                    <h4 class="step-title">Order Summary</h4>
+        <!-- Callback Form Section -->
+    <section id="callback" class="callback-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-header">
+                        <h2 class="section-title-gold">Request a Callback</h2>
+                        <div class="title-underline"></div>
+                        <p class="section-subtitle">Fill out the form and we'll call you back within 30 minutes</p>
+                    </div>
                     
-                    <div class="summary-card">
-                        <div id="summaryContent">
-                            <!-- Summary will be populated here -->
+                    <div class="callback-form-wrapper">
+                        <form id="callbackForm" class="callback-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Your Name *</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                        <div class="invalid-feedback">Please enter your name</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number *</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                                        <div class="invalid-feedback">Please enter a valid phone number</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email">
+                                <small class="form-text text-muted">We'll send confirmation to this email</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select class="form-control" id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="standard">Standard Cleaning</option>
+                                    <option value="deep">Deep Cleaning</option>
+                                    <option value="renovation">After Renovation</option>
+                                    <option value="windows">Window Cleaning</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Additional Information</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Tell us about your cleaning needs..."></textarea>
+                            </div>
+                            
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="agree" name="agree" required>
+                                <label class="form-check-label" for="agree">
+                                    I agree to the processing of personal data *
+                                </label>
+                                <div class="invalid-feedback">You must agree before submitting</div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-callback">
+                                    <i class="fas fa-phone me-2"></i>
+                                    Request Callback
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div id="callbackSuccess" class="callback-success" style="display: none;">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h4>Thank You!</h4>
+                            <p>We've received your request and will call you back within 30 minutes.</p>
+                            <button class="btn btn-outline-gold" id="newRequest">
+                                <i class="fas fa-plus me-2"></i>
+                                New Request
+                            </button>
                         </div>
                     </div>
-                    <!-- Добавь этот блок перед step-navigation -->
-<div class="final-note">
-    <div class="note-icon">
-        <i class="fas fa-exclamation-triangle"></i>
-    </div>
-    <div class="note-content">
-        <strong>Note:</strong> This is an approximate price. Final cost may vary depending on additional rooms like hallway, dining room, storage room, etc.
-    </div>
-</div>
-
-                    <div class="step-navigation">
-                        <button class="btn btn-prev" data-prev="step2">
-                            <i class="fas fa-arrow-left"></i> Back
-                        </button>
-                        <button class="btn btn-order" id="finalOrder">
-                            <i class="fas fa-check"></i> Confirm Order
-                        </button>
-                    </div>
                 </div>
-
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
     <!-- Footer -->
     <footer id="contact">
@@ -529,282 +730,448 @@
                 });
             });
         });
-         window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 120) {
-            navbar.classList.add('navbar-scrolled');
-        } else {
-            navbar.classList.remove('navbar-scrolled');
-        }
-    });
-    </script>
 
-    <script>
- // Modern Calculator with Animations - FULLY FIXED VERSION
-// Modern Calculator with Animations - COMPLETELY FIXED VERSION
-const prices = {
-    standard: { bedroom: 20, bathroom: 35 },
-    deep: { bedroom: 30, bathroom: 52 },
-    renovation: { bedroom: 32, bathroom: 56 }
-};
-
-const fixedPrices = {
-    standard: { livingRoom: 26, kitchen: 50 },
-    deep: { livingRoom: 39, kitchen: 75 },
-    renovation: { livingRoom: 42, kitchen: 80 }
-};
-
-let currentStep = 'step1';
-let selectedServices = [];
-let currentCleaningType = 'standard';
-let roomCounts = { bedroom: 0, bathroom: 0, frames: 0 };
-let windowSelection = { inside: null, outside: null };
-
-// Initialize calculator
-function initCalculator() {
-    console.log('Calculator initialized');
-    
-    // Cleaning type selection
-    document.querySelectorAll('.cleaning-card').forEach(card => {
-        card.addEventListener('click', function() {
-            document.querySelectorAll('.cleaning-card').forEach(c => c.classList.remove('selected'));
-            this.classList.add('selected');
-            currentCleaningType = this.getAttribute('data-type');
-            calculateTotal();
-        });
-    });
-
-    // Service selection
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('click', function() {
-            this.classList.toggle('selected');
-            const service = this.getAttribute('data-service');
-            const price = parseInt(this.getAttribute('data-price'));
-            
-            if (this.classList.contains('selected')) {
-                selectedServices.push({ service, price });
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 120) {
+                navbar.classList.add('navbar-scrolled');
             } else {
-                selectedServices = selectedServices.filter(s => s.service !== service);
+                navbar.classList.remove('navbar-scrolled');
             }
-            calculateTotal();
         });
-    });
 
-    // Windows selection
-    document.querySelectorAll('.window-option').forEach(option => {
-        option.addEventListener('click', function() {
-            const type = this.getAttribute('data-type');
-            const count = this.getAttribute('data-count');
-            const price = parseInt(this.getAttribute('data-price'));
+        // Room Tabs Functionality
+        document.querySelectorAll('.room-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelectorAll('.room-map').forEach(map => map.classList.remove('active'));
+                
+                const roomId = this.getAttribute('data-room') + '-map';
+                document.getElementById(roomId).classList.add('active');
+            });
+        });
+
+        // Modern Calculator
+        const prices = {
+            standard: { bedroom: 20, bathroom: 35 },
+            deep: { bedroom: 30, bathroom: 52 },
+            renovation: { bedroom: 32, bathroom: 56 }
+        };
+
+        const fixedPrices = {
+            standard: { livingRoom: 26, kitchen: 50 },
+            deep: { livingRoom: 39, kitchen: 75 },
+            renovation: { livingRoom: 42, kitchen: 80 }
+        };
+
+        let currentStep = 'step1';
+        let selectedServices = [];
+        let currentCleaningType = 'standard';
+        let roomCounts = { bedroom: 0, bathroom: 0, frames: 0 };
+        let windowSelection = { inside: null, outside: null };
+
+        // Initialize calculator
+        function initCalculator() {
+            console.log('Calculator initialized');
             
-            if (this.classList.contains('selected')) {
-                this.classList.remove('selected');
-                windowSelection[type] = null;
-            } else {
-                document.querySelectorAll(`.window-option[data-type="${type}"]`).forEach(opt => {
-                    opt.classList.remove('selected');
+            // Cleaning type selection
+            document.querySelectorAll('.cleaning-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    document.querySelectorAll('.cleaning-card').forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    currentCleaningType = this.getAttribute('data-type');
+                    calculateTotal();
                 });
-                this.classList.add('selected');
-                windowSelection[type] = { count, price };
-            }
+            });
+
+            // Service selection
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                    const service = this.getAttribute('data-service');
+                    const price = parseInt(this.getAttribute('data-price'));
+                    
+                    if (this.classList.contains('selected')) {
+                        selectedServices.push({ service, price });
+                    } else {
+                        selectedServices = selectedServices.filter(s => s.service !== service);
+                    }
+                    calculateTotal();
+                });
+            });
+
+            // Windows selection
+            document.querySelectorAll('.window-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const type = this.getAttribute('data-type');
+                    const count = this.getAttribute('data-count');
+                    const price = parseInt(this.getAttribute('data-price'));
+                    
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        windowSelection[type] = null;
+                    } else {
+                        document.querySelectorAll(`.window-option[data-type="${type}"]`).forEach(opt => {
+                            opt.classList.remove('selected');
+                        });
+                        this.classList.add('selected');
+                        windowSelection[type] = { count, price };
+                    }
+                    calculateTotal();
+                });
+            });
+
+            // Navigation
+            document.querySelectorAll('.btn-next').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const nextStep = this.getAttribute('data-next');
+                    showStep(nextStep);
+                });
+            });
+
+            document.querySelectorAll('.btn-prev').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const prevStep = this.getAttribute('data-prev');
+                    showStep(prevStep);
+                });
+            });
+
+            // Final order
+            document.getElementById('finalOrder').addEventListener('click', function() {
+                const total = document.getElementById('totalAmount').textContent;
+                if(confirm(`Thank you for your order!\nTotal: ${total}\n\nClick OK to confirm.`)) {
+                    $('#calculatorModal').modal('hide');
+                    resetCalculator();
+                }
+            });
+
+            // Initialize
+            showStep('step1');
+            document.querySelector('.cleaning-card').classList.add('selected');
             calculateTotal();
-        });
-    });
-
-    // Navigation
-    document.querySelectorAll('.btn-next').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const nextStep = this.getAttribute('data-next');
-            showStep(nextStep);
-        });
-    });
-
-    document.querySelectorAll('.btn-prev').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const prevStep = this.getAttribute('data-prev');
-            showStep(prevStep);
-        });
-    });
-
-    // Final order
-    document.getElementById('finalOrder').addEventListener('click', function() {
-        const total = document.getElementById('totalAmount').textContent;
-        if(confirm(`Thank you for your order!\nTotal: ${total}\n\nClick OK to confirm.`)) {
-            $('#calculatorModal').modal('hide');
-            resetCalculator();
         }
-    });
 
-    // Initialize
-    showStep('step1');
-    document.querySelector('.cleaning-card').classList.add('selected');
-    calculateTotal();
-}
+        // Counter functions
+        function setupCounterHandlers() {
+            document.querySelectorAll('.counter-btn').forEach(btn => {
+                btn.replaceWith(btn.cloneNode(true));
+            });
+            
+            document.querySelectorAll('.counter-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const target = this.getAttribute('data-target');
+                    const action = this.getAttribute('data-action');
+                    
+                    if (action === 'increase') {
+                        roomCounts[target]++;
+                    } else if (action === 'decrease' && roomCounts[target] > 0) {
+                        roomCounts[target]--;
+                    }
+                    
+                    document.getElementById(`${target}Count`).textContent = roomCounts[target];
+                    calculateTotal();
+                });
+            });
+        }
 
-// Counter functions - SEPARATE from init to prevent double binding
-function setupCounterHandlers() {
-    // Remove existing handlers first
-    document.querySelectorAll('.counter-btn').forEach(btn => {
-        btn.replaceWith(btn.cloneNode(true));
-    });
-    
-    // Add new handlers
-    document.querySelectorAll('.counter-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
+        function showStep(step) {
+            document.querySelectorAll('.calculator-step').forEach(s => {
+                s.classList.remove('active');
+                s.style.display = 'none';
+            });
             
-            const target = this.getAttribute('data-target');
-            const action = this.getAttribute('data-action');
+            const currentStepElement = document.getElementById(step);
+            currentStepElement.style.display = 'block';
+            setTimeout(() => currentStepElement.classList.add('active'), 50);
             
-            if (action === 'increase') {
-                roomCounts[target]++;
-            } else if (action === 'decrease' && roomCounts[target] > 0) {
-                roomCounts[target]--;
+            currentStep = step;
+            
+            if (step === 'step1' || step === 'step3') {
+                setTimeout(setupCounterHandlers, 100);
             }
             
-            document.getElementById(`${target}Count`).textContent = roomCounts[target];
-            calculateTotal();
-        });
-    });
-}
+            if (step === 'step4') {
+                updateSummary();
+            }
+        }
 
-function showStep(step) {
-    document.querySelectorAll('.calculator-step').forEach(s => {
-        s.classList.remove('active');
-        s.style.display = 'none';
-    });
-    
-    const currentStepElement = document.getElementById(step);
-    currentStepElement.style.display = 'block';
-    setTimeout(() => currentStepElement.classList.add('active'), 50);
-    
-    currentStep = step;
-    
-    // Setup counters when entering steps that have them
-    if (step === 'step1' || step === 'step3') {
-        setTimeout(setupCounterHandlers, 100);
-    }
-    
-    if (step === 'step4') {
-        updateSummary();
-    }
-}
+        function calculateTotal() {
+            let total = 0;
+            
+            total += roomCounts.bedroom * prices[currentCleaningType].bedroom;
+            total += roomCounts.bathroom * prices[currentCleaningType].bathroom;
+            total += fixedPrices[currentCleaningType].livingRoom;
+            total += fixedPrices[currentCleaningType].kitchen;
+            
+            selectedServices.forEach(service => {
+                total += service.price;
+            });
+            
+            if (windowSelection.inside) {
+                total += windowSelection.inside.price;
+            }
+            if (windowSelection.outside) {
+                total += windowSelection.outside.price;
+            }
+            total += roomCounts.frames * 10;
+            
+            document.getElementById('totalAmount').textContent = `€${total}`;
+        }
 
-function calculateTotal() {
-    let total = 0;
+        function updateSummary() {
+    let subtotal = 0;
     
-    total += roomCounts.bedroom * prices[currentCleaningType].bedroom;
-    total += roomCounts.bathroom * prices[currentCleaningType].bathroom;
-    total += fixedPrices[currentCleaningType].livingRoom;
-    total += fixedPrices[currentCleaningType].kitchen;
+    // Рассчитываем общую сумму
+    subtotal += roomCounts.bedroom * prices[currentCleaningType].bedroom;
+    subtotal += roomCounts.bathroom * prices[currentCleaningType].bathroom;
+    subtotal += fixedPrices[currentCleaningType].livingRoom;
+    subtotal += fixedPrices[currentCleaningType].kitchen;
     
     selectedServices.forEach(service => {
-        total += service.price;
+        subtotal += service.price;
     });
     
     if (windowSelection.inside) {
-        total += windowSelection.inside.price;
+        subtotal += windowSelection.inside.price;
     }
     if (windowSelection.outside) {
-        total += windowSelection.outside.price;
+        subtotal += windowSelection.outside.price;
     }
-    total += roomCounts.frames * 10;
+    subtotal += roomCounts.frames * 10;
     
-    document.getElementById('totalAmount').textContent = `€${total}`;
-}
-
-function updateSummary() {
-    let summary = `
-        <div class="summary-item">
-            <strong>Cleaning Type:</strong> ${currentCleaningType.charAt(0).toUpperCase() + currentCleaningType.slice(1)}
-        </div>
-        <div class="summary-item">
-            <strong>Bedrooms:</strong> ${roomCounts.bedroom} × €${prices[currentCleaningType].bedroom} = €${roomCounts.bedroom * prices[currentCleaningType].bedroom}
-        </div>
-        <div class="summary-item">
-            <strong>Bathrooms:</strong> ${roomCounts.bathroom} × €${prices[currentCleaningType].bathroom} = €${roomCounts.bathroom * prices[currentCleaningType].bathroom}
-        </div>
-        <div class="summary-item">
-            <strong>Living Room:</strong> €${fixedPrices[currentCleaningType].livingRoom}
-        </div>
-        <div class="summary-item">
-            <strong>Kitchen:</strong> €${fixedPrices[currentCleaningType].kitchen}
+    // Показываем только итог
+    const summary = `
+        <div class="summary-total">
+            <div class="total-label">Your Cleaning Service Total</div>
+            <div class="total-amount">€${subtotal}</div>
+            <div class="total-note">
+                Thank you for your order!<br>
+                Price includes all selected services and taxes
+            </div>
         </div>
     `;
     
-    if (selectedServices.length > 0) {
-        summary += `<div class="summary-item"><strong>Additional Services:</strong></div>`;
-        selectedServices.forEach(service => {
-            summary += `<div class="summary-item">• ${service.service.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}: +€${service.price}</div>`;
-        });
-    }
-    
-    if (windowSelection.inside || windowSelection.outside || roomCounts.frames > 0) {
-        summary += `<div class="summary-item"><strong>Window Cleaning:</strong></div>`;
-    }
-    if (windowSelection.inside) {
-        summary += `<div class="summary-item">• Inside Windows (${windowSelection.inside.count}): +€${windowSelection.inside.price}</div>`;
-    }
-    if (windowSelection.outside) {
-        summary += `<div class="summary-item">• Outside Windows (${windowSelection.outside.count}): +€${windowSelection.outside.price}</div>`;
-    }
-    if (roomCounts.frames > 0) {
-        summary += `<div class="summary-item">• Window Frames (${roomCounts.frames}): +€${roomCounts.frames * 10}</div>`;
-    }
-    
     document.getElementById('summaryContent').innerHTML = summary;
 }
+        function resetCalculator() {
+            document.querySelectorAll('.cleaning-card').forEach(card => card.classList.remove('selected'));
+            document.querySelector('.cleaning-card').classList.add('selected');
+            document.querySelectorAll('.service-card').forEach(card => card.classList.remove('selected'));
+            document.querySelectorAll('.window-option').forEach(opt => opt.classList.remove('selected'));
+            
+            roomCounts = { bedroom: 0, bathroom: 0, frames: 0 };
+            document.getElementById('bedroomCount').textContent = '0';
+            document.getElementById('bathroomCount').textContent = '0';
+            document.getElementById('framesCount').textContent = '0';
+            
+            selectedServices = [];
+            windowSelection = { inside: null, outside: null };
+            currentCleaningType = 'standard';
+            
+            showStep('step1');
+            calculateTotal();
+        }
 
-function resetCalculator() {
-    document.querySelectorAll('.cleaning-card').forEach(card => card.classList.remove('selected'));
-    document.querySelector('.cleaning-card').classList.add('selected');
-    document.querySelectorAll('.service-card').forEach(card => card.classList.remove('selected'));
-    document.querySelectorAll('.window-option').forEach(opt => opt.classList.remove('selected'));
+        // Initialize calculator
+        let initialized = false;
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!initialized) {
+                $('#calculatorModal').on('shown.bs.modal', initCalculator);
+                $('#calculatorModal').on('hidden.bs.modal', resetCalculator);
+                initialized = true;
+            }
+        });
+        
+
+
+        // Callback Form Functionality
+function initCallbackForm() {
+    const callbackForm = document.getElementById('callbackForm');
+    const callbackSuccess = document.getElementById('callbackSuccess');
+    const newRequestBtn = document.getElementById('newRequest');
     
-    roomCounts = { bedroom: 0, bathroom: 0, frames: 0 };
-    document.getElementById('bedroomCount').textContent = '0';
-    document.getElementById('bathroomCount').textContent = '0';
-    document.getElementById('framesCount').textContent = '0';
+    if (!callbackForm) return;
     
-    selectedServices = [];
-    windowSelection = { inside: null, outside: null };
-    currentCleaningType = 'standard';
+    callbackForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Простая валидация
+        if (!this.checkValidity()) {
+            e.stopPropagation();
+            this.classList.add('was-validated');
+            return;
+        }
+        
+        // Собираем данные формы
+        const formData = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            service: document.getElementById('service').value,
+            message: document.getElementById('message').value,
+            timestamp: new Date().toISOString()
+        };
+        
+        // В реальном приложении здесь был бы AJAX запрос
+        console.log('Callback request:', formData);
+        
+        // Показываем успешное сообщение
+        callbackForm.style.display = 'none';
+        callbackSuccess.style.display = 'block';
+        
+        // Можно добавить отправку на email/telegram
+        // sendToTelegram(formData);
+    });
     
-    showStep('step1');
-    calculateTotal();
+    // Кнопка "Новый запрос"
+    newRequestBtn.addEventListener('click', function() {
+        callbackForm.reset();
+        callbackForm.classList.remove('was-validated');
+        callbackForm.style.display = 'block';
+        callbackSuccess.style.display = 'none';
+    });
+    
+    // Маска для телефона (опционально)
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                value = '+' + value;
+            }
+            e.target.value = value;
+        });
+    }
 }
 
-// Initialize only once
-let initialized = false;
+// Запускаем когда DOM загружен
 document.addEventListener('DOMContentLoaded', function() {
-    if (!initialized) {
-        $('#calculatorModal').on('shown.bs.modal', initCalculator);
-        $('#calculatorModal').on('hidden.bs.modal', resetCalculator);
-        initialized = true;
-    }
+    initCallbackForm();
 });
-</script>
-            <script>
-// Room Tabs Functionality
-document.querySelectorAll('.room-tab').forEach(tab => {
-    tab.addEventListener('click', function() {
-        // Remove active class from all tabs
-        document.querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
-        
-        // Add active class to clicked tab
-        this.classList.add('active');
-        
-        // Hide all room maps
-        document.querySelectorAll('.room-map').forEach(map => map.classList.remove('active'));
-        
-        // Show selected room map
-        const roomId = this.getAttribute('data-room') + '-map';
-        document.getElementById(roomId).classList.add('active');
+
+// Функция для отправки в Telegram (опционально)
+function sendToTelegram(formData) {
+    const botToken = 'YOUR_BOT_TOKEN';
+    const chatId = 'YOUR_CHAT_ID';
+    const message = `
+📞 New Callback Request:
+    
+👤 Name: ${formData.name}
+📱 Phone: ${formData.phone}
+📧 Email: ${formData.email}
+🧹 Service: ${formData.service}
+📝 Message: ${formData.message}
+    
+⏰ Time: ${new Date().toLocaleString()}
+    `;
+    
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: 'HTML'
+        })
     });
+}
+
+// Before/After Slider Functionality
+// Before/After Slider Functionality
+function initComparisonSliders() {
+    const sliders = document.querySelectorAll('.slider-comparison');
+    
+    sliders.forEach(slider => {
+        let isDragging = false;
+        const afterImage = slider.querySelector('.after-image');
+        const handle = slider.querySelector('.slider-handle');
+        
+        function updateSlider(x) {
+            const rect = slider.getBoundingClientRect();
+            let xPercent = ((x - rect.left) / rect.width) * 100;
+            
+            // Limit values between 5% and 95%
+            xPercent = Math.max(5, Math.min(95, xPercent));
+            
+            afterImage.style.clipPath = `polygon(0 0, ${xPercent}% 0, ${xPercent}% 100%, 0 100%)`;
+            handle.style.left = `${xPercent}%`;
+        }
+        
+        // Mouse events
+        slider.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            updateSlider(e.clientX);
+        });
+        
+        slider.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                updateSlider(e.clientX);
+            }
+        });
+        
+        slider.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            isDragging = false;
+        });
+        
+        // Touch events for mobile
+        slider.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            updateSlider(e.touches[0].clientX);
+        });
+        
+        slider.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                updateSlider(e.touches[0].clientX);
+            }
+        });
+        
+        slider.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+        
+        // Click to set position
+        slider.addEventListener('click', (e) => {
+            updateSlider(e.clientX);
+        });
+        
+        // Initialize at 50%
+        updateSlider(slider.getBoundingClientRect().left + (slider.getBoundingClientRect().width / 2));
+    });
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initComparisonSliders();
 });
-          </script>
-       
-          
+        
+// Copy Referral Code
+function copyReferralCode() {
+    const code = document.getElementById('referralCode').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+        const btn = event.target.closest('.btn-copy');
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i>';
+        btn.style.background = '#28a745';
+        
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = '';
+        }, 2000);
+    });
+}
+
+    </script>
 </body>
 </html>
