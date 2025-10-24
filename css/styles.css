@@ -696,7 +696,8 @@ a:focus-visible,
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:cover;
+  object-position: center;
 }
 
 .before-image {
@@ -1942,4 +1943,45 @@ footer {
   .navbar, .mobile-calculator-btn, .btn-calculator-nav { display: none !important; }
   body { padding-top: 0; }
   .carousel-inner { height: 300px; box-shadow: none; }
+}
+
+
+/* Плавающие иконки */
+.floating-social {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.floating-social a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.social-ig { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+.social-fb { background: #1877F2; }
+
+.floating-social a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.social-wa { 
+    background: #25D366; /* Зеленый WhatsApp */
+}
+
+/* Или градиент для красоты */
+.social-wa {
+    background: linear-gradient(45deg, #25D366, #128C7E);
 }
