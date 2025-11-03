@@ -571,7 +571,7 @@
 <button class="carousel-arrow next" aria-label="Next reviews">
     <i class="fas fa-chevron-right"></i>
 </button>
-                <!-- СТРОКИ ДОБАВИТЬ ЗДЕСЬ - после карусели, но до закрывающего div -->
+              
 <div class="carousel-progress-container">
         <div class="carousel-track">
             <div class="carousel-progress" style="width: 16.66%"></div>
@@ -841,7 +841,7 @@
                             
                             <div class="summary-card">
                                 <div id="summaryContent">
-                                      <!-- Будет заполняться через JavaScript -->
+                                      
                                 </div>
                             </div>
 
@@ -988,43 +988,43 @@
             <div class="collage-grid">
                 <!-- Row 1 -->
                 <div class="collage-item large" data-item="1">
-                    <img src="images/team/team1.jpg" alt="Anna cleaning kitchen" loading="lazy">
+                    <img src="images/team/per1.jpg" alt="Artut" loading="lazy">
                     <div class="item-overlay">
-                        <span>Anna - Kitchen Expert</span>
+                        <span>Getting ready to start work</span>
                     </div>
                 </div>
                 
                 <div class="collage-item" data-item="2">
-                    <img src="images/team/team2.jpg" alt="Mike with cleaning equipment" loading="lazy">
+                    <img src="images/team/2.jpg" alt="Clean windows" loading="lazy">
                     <div class="item-overlay">
-                        <span>Mike - Equipment Pro</span>
+                        <span>Clean windows make rooms brighter</span>
                     </div>
                 </div>
                 
                 <div class="collage-item tall" data-item="3">
-                    <img src="images/team/team3.jpg" alt="Sarah organizing supplies" loading="lazy">
+                    <img src="images/team/4.jpg" alt="didn’t even know" loading="lazy">
                     <div class="item-overlay">
-                        <span>Sarah - Organization</span>
+                        <span>They didn’t even know I was taking pictures of them😄</span>
                     </div>
                 </div>
 
                 <!-- Row 2 -->
                 <div class="collage-item" data-item="4">
-                    <img src="images/team/team4.jpg" alt="Team meeting" loading="lazy">
+                    <img src="images/team/3.jpg" alt="The shower" loading="lazy">
                     <div class="item-overlay">
-                        <span>Morning Briefing</span>
+                        <span>The shower looks like new after cleaning</span>
                     </div>
                 </div>
                 
                 <div class="collage-item large" data-item="5">
-                    <img src="images/team/team5.jpg" alt="John with window tools" loading="lazy">
+                    <img src="images/team/5.jpg" alt="Oven cleaning" loading="lazy">
                     <div class="item-overlay">
-                        <span>John - Window Master</span>
+                        <span>Oven cleaning</span>
                     </div>
                 </div>
                 
                 <div class="collage-item" data-item="6">
-                    <img src="images/team/team6.jpg" alt="Cleaning products" loading="lazy">
+                    <img src="images/team/per1.jpg" alt="Cleaning products" loading="lazy">
                     <div class="item-overlay">
                         <span>Eco-Friendly Products</span>
                     </div>
@@ -1032,59 +1032,30 @@
 
                 <!-- Row 3 -->
                 <div class="collage-item wide" data-item="7">
-                    <img src="images/team/team7.jpg" alt="Team having coffee" loading="lazy">
+                    <img src="images/team/per1.jpg" alt="Team having coffee" loading="lazy">
                     <div class="item-overlay">
                         <span>Team Coffee Break</span>
                     </div>
                 </div>
                 
                 <div class="collage-item" data-item="8">
-                    <img src="images/team/team8.jpg" alt="Quality check" loading="lazy">
+                    <img src="images/team/per1.jpg" alt="Quality check" loading="lazy">
                     <div class="item-overlay">
                         <span>Quality Control</span>
                     </div>
                 </div>
                 
                 <div class="collage-item tall" data-item="9">
-                    <img src="images/team/team9.jpg" alt="Deep cleaning" loading="lazy">
+                    <img src="images/team/6.jpg" alt="Deep cleaning" loading="lazy">
                     <div class="item-overlay">
-                        <span>Deep Clean Specialist</span>
+                        <span>❤</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Team Modal -->
-        <div class="team-modal-collage" id="teamModal">
-            <div class="modal-content-collage">
-                <button class="modal-close-collage" id="modalClose">&times;</button>
-                <div class="modal-image-collage">
-                    <img src="" alt="" id="modalImage">
-                </div>
-                <div class="modal-info-collage">
-                    <h3 id="modalName">Team Member</h3>
-                    <p class="modal-role-collage" id="modalRole">Position</p>
-                    <p class="modal-quote-collage" id="modalQuote">"Quote here"</p>
-                    <div class="modal-stats-collage">
-                        <div class="stat-collage">
-                            <span class="stat-value" id="modalExp">0</span>
-                            <span class="stat-label">Years Exp</span>
-                        </div>
-                        <div class="stat-collage">
-                            <span class="stat-value" id="modalSpecialty">---</span>
-                            <span class="stat-label">Specialty</span>
-                        </div>
-                        <div class="stat-collage">
-                            <span class="stat-value" id="modalStatus">Available</span>
-                            <span class="stat-label">Status</span>
-                        </div>
-                    </div>
-                    <div class="modal-bio-collage">
-                        <p id="modalBio">Bio information here</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </section>
         
@@ -2093,178 +2064,199 @@ document.addEventListener('DOMContentLoaded', initInteractiveBanner);
         });
     });
 
-; // конец document.addEventListener('DOMContentLoaded'
 
-// Team Collage Interaction
-function initTeamCollage() {
-    const collageItems = document.querySelectorAll('.collage-item');
-    const teamModal = document.getElementById('teamModal');
-    const modalClose = document.getElementById('modalClose');
+
+// Telegram Bot Configuration
+const TELEGRAM_BOT_TOKEN = '7977195166:AAE5vFG3KX_gqt4evOdK-YQN9xZtBNcFjAQ';
+const TELEGRAM_CHAT_ID = '435456990';
+
+// Function to send order to Telegram
+async function sendOrderToTelegram(orderData) {
+    let subtotal = 0;
+    subtotal += roomCounts.bedroom * prices[currentCleaningType].bedroom;
+    subtotal += roomCounts.bathroom * prices[currentCleaningType].bathroom;
+    subtotal += fixedPrices[currentCleaningType].livingRoom;
+    subtotal += fixedPrices[currentCleaningType].kitchen;
     
-    // Team data for modal
-    const teamData = {
-        1: {
-            name: "Anna",
-            role: "Kitchen Cleaning Expert",
-            image: "images/team/team1.jpg",
-            quote: "A clean kitchen is the heart of a happy home",
-            experience: "3",
-            specialty: "Deep Cleaning",
-            status: "Available",
-            bio: "Anna specializes in kitchen deep cleaning and organization. With 3 years of experience, she knows all the secrets to removing stubborn grease and making appliances shine."
-        },
-        2: {
-            name: "Mike",
-            role: "Equipment Specialist",
-            image: "images/team/team2.jpg", 
-            quote: "The right tools make perfect results",
-            experience: "2",
-            specialty: "Equipment",
-            status: "On Site",
-            bio: "Mike maintains all our professional cleaning equipment. He ensures every tool is in perfect condition for optimal cleaning performance."
-        },
-        3: {
-            name: "Sarah",
-            role: "Organization Pro",
-            image: "images/team/team3.jpg",
-            quote: "Order brings peace to any space",
-            experience: "4",
-            specialty: "Organization",
-            status: "Available", 
-            bio: "Sarah has a talent for transforming chaotic spaces into organized, peaceful environments. Her attention to detail is unmatched."
-        },
-        4: {
-            name: "Team Work",
-            role: "Daily Briefing",
-            image: "images/team/team4.jpg",
-            quote: "Great teamwork makes dream work",
-            experience: "---",
-            specialty: "Coordination",
-            status: "Planning",
-            bio: "Every morning our team meets to plan the day, discuss special requirements, and ensure we deliver the best service to every client."
-        },
-        5: {
-            name: "John",
-            role: "Window Cleaning Master",
-            image: "images/team/team5.jpg",
-            quote: "Crystal clear views for everyone",
-            experience: "5", 
-            specialty: "Windows",
-            status: "On Site",
-            bio: "John is our window specialist with 5 years of experience. He guarantees streak-free results on any type of window."
-        },
-        6: {
-            name: "Eco Products",
-            role: "Environmentally Friendly",
-            image: "images/team/team6.jpg",
-            quote: "Clean should be healthy too",
-            experience: "---",
-            specialty: "Eco Cleaning",
-            status: "Standard",
-            bio: "We use only eco-friendly cleaning products that are safe for children, pets, and the environment while delivering professional results."
-        },
-        7: {
-            name: "Team Spirit",
-            role: "Coffee Break",
-            image: "images/team/team7.jpg", 
-            quote: "Happy team, happy clients",
-            experience: "---",
-            specialty: "Teamwork",
-            status: "Break Time",
-            bio: "We believe that a happy, well-rested team delivers the best service. Regular breaks and team bonding are part of our culture."
-        },
-        8: {
-            name: "Quality Control",
-            role: "Final Inspection",
-            image: "images/team/team8.jpg",
-            quote: "Only perfection is good enough",
-            experience: "---",
-            specialty: "Quality",
-            status: "Checking",
-            bio: "Every cleaning job goes through rigorous quality control to ensure we meet our high standards and your expectations."
-        },
-        9: {
-            name: "Deep Clean Team",
-            role: "Specialist Cleaners",
-            image: "images/team/team9.jpg",
-            quote: "We handle the tough jobs",
-            experience: "4",
-            specialty: "Deep Cleaning",
-            status: "Available",
-            bio: "Our deep cleaning specialists handle the most challenging jobs, from post-construction cleanup to intensive spring cleaning."
-        }
-    };
-
-    // Click events for collage items
-    collageItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const itemId = this.getAttribute('data-item');
-            const memberData = teamData[itemId];
-            
-            if (memberData) {
-                openTeamModal(memberData);
-            }
-        });
+    selectedServices.forEach(service => {
+        subtotal += service.price;
     });
-
-    // Open modal function
-    function openTeamModal(data) {
-        document.getElementById('modalImage').src = data.image;
-        document.getElementById('modalImage').alt = data.name;
-        document.getElementById('modalName').textContent = data.name;
-        document.getElementById('modalRole').textContent = data.role;
-        document.getElementById('modalQuote').textContent = `"${data.quote}"`;
-        document.getElementById('modalExp').textContent = data.experience;
-        document.getElementById('modalSpecialty').textContent = data.specialty;
-        document.getElementById('modalStatus').textContent = data.status;
-        document.getElementById('modalBio').textContent = data.bio;
-        
-        teamModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Close modal function
-    function closeTeamModal() {
-        teamModal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Event listeners for modal
-    modalClose.addEventListener('click', closeTeamModal);
     
-    teamModal.addEventListener('click', function(e) {
-        if (e.target === teamModal) {
-            closeTeamModal();
-        }
-    });
+    if (windowSelection.inside) {
+        subtotal += windowSelection.inside.price;
+    }
+    if (windowSelection.outside) {
+        subtotal += windowSelection.outside.price;
+    }
+    subtotal += roomCounts.frames * 10;
+    
+    const discount = isFirstOrder && subtotal > 0 ? subtotal * 0.15 : 0;
+    const finalPrice = subtotal - discount;
 
-    // Keyboard support
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && teamModal.classList.contains('active')) {
-            closeTeamModal();
-        }
-    });
+    const message = `
+🆕 NEW ORDER FROM WEBSITE
 
-    // Add loading animation to images
-    const images = document.querySelectorAll('.collage-item img');
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
+🧹 Cleaning Type: ${getCleaningTypeName(orderData.cleaningType)}
+🏠 Rooms: ${orderData.bedrooms} bedrooms, ${orderData.bathrooms} bathrooms
+➕ Additional Services: ${orderData.additionalServices.join(', ') || 'none'}
+🪟 Windows: ${orderData.windows.inside || 0} inside, ${orderData.windows.outside || 0} outside, ${orderData.windows.frames || 0} frames
+
+💰 Price before discount: €${Math.round(subtotal)}
+🎁 15% Discount: -€${Math.round(discount)}
+💳 Final Price: €${Math.round(finalPrice)}
+
+${isFirstOrder ? '🎉 FIRST ORDER - 15% discount applied!' : ''}
+
+⏰ Order Time: ${new Date().toLocaleString('en-IE')}
+    `;
+
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: message
+            })
         });
-        
-        img.style.opacity = '0';
-        img.style.transition = 'opacity 0.3s ease';
-        
-        // Force load if already cached
-        if (img.complete) {
-            img.style.opacity = '1';
-        }
-    });
+        return await response.json();
+    } catch (error) {
+        console.error('Error:', error);
+        return {ok: false};
+    }
 }
 
-// Initialize team collage
-document.addEventListener('DOMContentLoaded', initTeamCollage);
+// Function to send callback to Telegram
+async function sendCallbackToTelegram(formData) {
+    const message = `
+📞 NEW CALLBACK REQUEST
 
+👤 Name: ${formData.name}
+📞 Phone: ${formData.phone}
+📧 Email: ${formData.email || 'not provided'}
+🧹 Service: ${getServiceName(formData.service) || 'not specified'}
+💬 Message: ${formData.message || 'no message'}
+
+⏰ Time: ${new Date().toLocaleString('en-IE')}
+    `;
+
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: message
+            })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Error:', error);
+        return {ok: false};
+    }
+}
+
+// Helper functions
+function getCleaningTypeName(type) {
+    const types = {
+        'standard': 'Standard Cleaning',
+        'deep': 'Deep Cleaning',
+        'renovation': 'After Renovation'
+    };
+    return types[type] || type;
+}
+
+function getServiceName(service) {
+    const services = {
+        'standard': 'Standard Cleaning',
+        'deep': 'Deep Cleaning',
+        'renovation': 'After Renovation',
+        'windows': 'Window Cleaning',
+        'other': 'Other',
+        'oven': 'Oven Cleaning',
+        'microwave': 'Microwave Cleaning',
+        'fridge': 'Fridge Cleaning',
+        'chemical': 'Chemical Cleaning',
+        'cabinets': 'Kitchen Cabinets',
+        '': 'Not specified'
+    };
+    return services[service] || service;
+}
+
+// Update calculator order button
+document.addEventListener('DOMContentLoaded', function() {
+    // Calculator
+    const finalOrderBtn = document.getElementById('finalOrder');
+    if (finalOrderBtn) {
+        finalOrderBtn.addEventListener('click', function() {
+            const orderData = {
+                cleaningType: currentCleaningType,
+                bedrooms: roomCounts.bedroom,
+                bathrooms: roomCounts.bathroom,
+                additionalServices: selectedServices.map(service => getServiceName(service.service)),
+                windows: {
+                    inside: windowSelection.inside ? windowSelection.inside.count : 0,
+                    outside: windowSelection.outside ? windowSelection.outside.count : 0,
+                    frames: roomCounts.frames
+                }
+            };
+
+            // Send to Telegram
+            sendOrderToTelegram(orderData);
+            
+            if(confirm(`Thank you for your order!\nWe will contact you soon!`)) {
+                $('#calculatorModal').modal('hide');
+                resetCalculator();
+            }
+        });
+    }
+
+    // Callback form
+    const callbackForm = document.getElementById('callbackForm');
+    const callbackSuccess = document.getElementById('callbackSuccess');
+    const newRequestBtn = document.getElementById('newRequest');
+    
+    if (callbackForm) {
+        callbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!this.checkValidity()) {
+                this.classList.add('was-validated');
+                return;
+            }
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Send to Telegram
+            sendCallbackToTelegram(formData);
+            
+            callbackForm.style.display = 'none';
+            callbackSuccess.style.display = 'block';
+            callbackSuccess.removeAttribute('hidden');
+        });
+    }
+    
+    if (newRequestBtn) {
+        newRequestBtn.addEventListener('click', function() {
+            callbackForm.reset();
+            callbackForm.classList.remove('was-validated');
+            callbackForm.style.display = 'block';
+            callbackSuccess.style.display = 'none';
+            callbackSuccess.setAttribute('hidden', 'true');
+        });
+    }
+});
+   
     </script>   
     
    <div class="floating-social">
@@ -2339,6 +2331,7 @@ document.addEventListener('DOMContentLoaded', initTeamCollage);
         </div>
     </div>
 </div>
+
     
 </body>
 </html>
