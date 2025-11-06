@@ -831,10 +831,10 @@ a:focus-visible,
 }
 @keyframes handle-move {
     0%, 100% {
-        transform: translateX(-50%) translateX(-4px);
+        transform: translateX(-50%) translateX(-15px);
     }
     50% {
-        transform: translateX(-50%) translateX(4px);
+        transform: translateX(-50%) translateX(15px);
     }
 }
 
@@ -3325,3 +3325,97 @@ img, .carousel-container, .room-image {
         font-weight: 600;
     }
 }   
+
+/* Добавь эти стили в CSS */
+.contact-fields {
+    background: linear-gradient(135deg, #fefaf0, #fff);
+    border: 2px solid var(--accent-gold);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+}
+
+.contact-title {
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--accent-gold);
+    padding-bottom: 10px;
+}
+
+.form-label {
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.contact-input {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: white;
+}
+
+.contact-input:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+}
+
+.contact-input.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.invalid-feedback-contact {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.contact-input.error + .invalid-feedback-contact {
+    display: block;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .contact-fields {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    
+    .contact-title {
+        font-size: 1.1rem;
+    }
+}
+
+.optional-text {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.optional-note {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.optional-note i {
+    color: var(--accent-gold);
+    margin-right: 8px;
+}
