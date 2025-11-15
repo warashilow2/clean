@@ -103,36 +103,45 @@
     <!-- Main Content -->
     <main id="main-content">
         <!-- Home Section with Carousel -->
-        <section id="home" itemprop="mainContentOfPage">
-            <div class="carousel-container">
-                <div id="mainCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
-                    <ol class="carousel-indicators">
-                        <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#mainCarousel" data-slide-to="1"></li>
-                        <li data-target="#mainCarousel" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="images/1111.jpg" alt="Professional Kitchen Cleaning Service in Dublin" width="1200" height="600" loading="lazy">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="images/2222.jpg" alt="Bathroom Deep Cleaning Service Dublin" width="1200" height="600" loading="lazy">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="images/3333.jpg" alt="Living Room Cleaning Service Dublin" width="1200" height="600" loading="lazy">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev" aria-label="Previous image">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next" aria-label="Next image">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+        <!-- Minimal Hero with Wow Effect -->
+<section id="home" class="minimal-hero">
+    <div class="hero-background"></div>
+    
+    <!-- Частицы как в slogan-banner -->
+    <div class="minimal-hero-particles" id="minimalParticles"></div>
+    
+    <div class="container">
+        <div class="hero-content text-center">
+            <!-- Главный заголовок - супер минимал -->
+            <h1 class="main-title">
+                <span class="title-line">Dublin's</span>
+                <span class="title-line accent">Premium</span>
+                <span class="title-line">Cleaning</span>
+            </h1>
+            
+            <!-- Живой счетчик - максимально просто -->
+            <div class="live-counter">
+                <div class="counter-number" id="liveCounter">5</div>
+                <div class="counter-text">spots left this week</div>
             </div>
-        </section>
+            
+            <!-- Единственная кнопка CTA -->
+            <button class="magnetic-btn" data-toggle="modal" data-target="#calculatorModal">
+                <span class="btn-text">Secure Your Spot</span>
+                <span class="btn-arrow">→</span>
+            </button>
+            
+            <!-- Микро-социальное доказательство -->
+            <div class="micro-proof">
+                ⭐ 4.7 • Booked 187+ times in Dublin
+            </div>
+        </div>
+    </div>
+    
+    <!-- Интерактивный элемент "вау" -->
+    <div class="floating-sparkle" id="sparkle"></div>
+</section>
+        
 
         <!-- Mobile Calculator Button -->
         <div class="mobile-calculator-btn">
@@ -193,11 +202,11 @@
                 <i class="fas fa-users" aria-hidden="true"></i>
             </div>
             <div class="offer-text">
-                <h3 class="offer-title">Refer a Friend <span class="highlight">Get Free Bedroom!</span></h3>
-                <p class="offer-description" itemprop="description">Your friend saves, you get free cleaning!</p>
+                <h3 class="offer-title">Refer a Friend <span class="highlight">& Get FREE Bedroom cleaning!</span></h3>
+                <p class="offer-description" itemprop="description">Your friend saves, you get free bedroom cleaning!</p>
                 <ul class="offer-features">
     <li><i class="fas fa-check" aria-hidden="true"></i> Friend gets <strong>15% OFF</strong></li>
-    <li><i class="fas fa-check" aria-hidden="true"></i> You get <strong>FREE BEDROOM</strong></li>
+    <li><i class="fas fa-check" aria-hidden="true"></i> You get <strong>FREE BEDROOM cleaning</strong></li>
     <li><i class="fas fa-check" aria-hidden="true"></i> Win-win for everyone</li>
                 </ul>
             </div>
@@ -232,7 +241,7 @@
                         
                         
                         <!-- Room Tabs -->
-                            <!-- Room Thumbnails -->
+                            
 <div class="ba-thumbnails">
     <div class="ba-thumb active" data-room="kit" role="button" aria-label="Show kitchen cleaning">
         <img src="images/kit.png" alt="Kitchen cleaning preview" width="70" height="70" loading="lazy">
@@ -842,25 +851,11 @@
                     <h4 class="step-title">Order Summary</h4>
                     
                     <!-- Contact Fields -->
-                    <div class="contact-fields">
-                        <h5 class="contact-title">Contact details to confirm your order</h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="clientName" class="form-label">Your Name *</label>
-                                    <input type="text" class="form-control contact-input" id="clientName" placeholder="Enter your name">
-                                    <div class="invalid-feedback-contact">Please enter your name</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="clientPhone" class="form-label">Phone Number *</label>
-                                    <input type="tel" class="form-control contact-input" id="clientPhone" placeholder="+353 __ _______">
-                                    <div class="invalid-feedback-contact">Please enter your phone number</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Contact Info -->
+<div class="contact-info text-center mb-4">
+    <h5 class="contact-title">Ready to Confirm Your Order?</h5>
+    <p class="text-muted">Click "Confirm Order" to provide your contact details</p>
+</div>
 
                     <!-- Summary Content -->
                     <div class="summary-card">
@@ -1568,42 +1563,84 @@ function initCalculator() {
         });
     });
 
-    // Final order - ПРОСТОЙ И РАБОЧИЙ ОБРАБОТЧИК
-    document.getElementById('finalOrder').addEventListener('click', function() {
-        const name = document.getElementById('clientName').value.trim();
-        const phone = document.getElementById('clientPhone').value;
-        
-        // Простая проверка
-        if (!name || !phone) {
-            // Подсвечиваем красным пустые поля
-            if (!name) document.getElementById('clientName').classList.add('error');
-            if (!phone) document.getElementById('clientPhone').classList.add('error');
-            return; // Просто выходим, ничего не делаем
-        }
-        
-        // Если все заполнено - отправляем
-        const contactData = { name, phone };
-        const orderData = {
-            cleaningType: currentCleaningType,
-            bedrooms: roomCounts.bedroom,
-            bathrooms: roomCounts.bathroom,
-            additionalServices: selectedServices.map(service => getServiceName(service.service)),
-            windows: {
-                inside: windowSelection.inside ? windowSelection.inside.count : 0,
-                outside: windowSelection.outside ? windowSelection.outside.count : 0,
-                frames: roomCounts.frames
-            },
-            contact: contactData
-        };
+    
+    // Final order - простое модальное окно
+// Final order - всегда показываем модальное окно
+document.getElementById('finalOrder').addEventListener('click', function() {
+    showSimpleModal();
+});
 
-        // Отправляем в Telegram
-        sendOrderToTelegram(orderData);
+// Функция показа простого модального окна
+function showSimpleModal() {
+    // Очищаем поля в модалке при каждом открытии
+    document.getElementById('modalName').value = '';
+    document.getElementById('modalPhone').value = '';
+    
+    // Убираем возможную подсветку ошибок
+    document.getElementById('modalName').classList.remove('error');
+    document.getElementById('modalPhone').classList.remove('error');
+    
+    // Показываем модальное окно
+    $('#validationModal').modal('show');
+}
+
+// Функция подтверждения заказа из модального окна
+document.getElementById('confirmFromModal').addEventListener('click', function() {
+    const name = document.getElementById('modalName').value.trim();
+    const phone = document.getElementById('modalPhone').value;
+    
+    if (name && phone) {
+        // Закрываем модальное окно
+        $('#validationModal').modal('hide');
         
-        if(confirm(`Thank you for your order, ${name}!\nWe will contact you shortly at ${phone}.`)) {
-            $('#calculatorModal').modal('hide');
-            resetCalculator();
+        // Отправляем заказ
+        submitOrder(name, phone);
+    } else {
+        // Подсвечиваем пустые поля в модалке
+        if (!name) {
+            document.getElementById('modalName').classList.add('error');
         }
-    });
+        if (!phone) {
+            document.getElementById('modalPhone').classList.add('error');
+        }
+        
+        alert('Please fill in both name and phone number.');
+    }
+});
+
+// Общая функция отправки заказа
+function submitOrder(name, phone) {
+    const contactData = { name, phone };
+    const orderData = {
+        cleaningType: currentCleaningType,
+        bedrooms: roomCounts.bedroom,
+        bathrooms: roomCounts.bathroom,
+        additionalServices: selectedServices.map(service => getServiceName(service.service)),
+        windows: {
+            inside: windowSelection.inside ? windowSelection.inside.count : 0,
+            outside: windowSelection.outside ? windowSelection.outside.count : 0,
+            frames: roomCounts.frames
+        },
+        contact: contactData
+    };
+
+    // Отправляем в Telegram
+    sendOrderToTelegram(orderData);
+    
+    if(confirm(`Thank you for your order, ${name}!\nWe will contact you shortly at ${phone}.`)) {
+        $('#calculatorModal').modal('hide');
+        resetCalculator();
+    }
+}
+
+// Убираем подсветку при фокусе в модальном окне
+document.getElementById('modalName').addEventListener('focus', function() {
+    this.classList.remove('error');
+});
+
+document.getElementById('modalPhone').addEventListener('focus', function() {
+    this.classList.remove('error');
+});
 
     // Initialize
     showStep('step1');
@@ -1738,47 +1775,14 @@ function updateSummary() {
     document.getElementById('summaryContent').innerHTML = summary;
 }
 
-function resetCalculator() {
-    document.querySelectorAll('.cleaning-card').forEach(card => {
-        card.classList.remove('selected');
-        card.setAttribute('aria-pressed', 'false');
-    });
-    document.querySelector('.cleaning-card').classList.add('selected');
-    document.querySelector('.cleaning-card').setAttribute('aria-pressed', 'true');
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.classList.remove('selected');
-        card.setAttribute('aria-pressed', 'false');
-    });
-    document.querySelectorAll('.window-option').forEach(opt => {
-        opt.classList.remove('selected');
-        opt.setAttribute('aria-pressed', 'false');
-    });
-    
-    roomCounts = { bedroom: 0, bathroom: 0, frames: 0 };
-    document.getElementById('bedroomCount').textContent = '0';
-    document.getElementById('bathroomCount').textContent = '0';
-    document.getElementById('framesCount').textContent = '0';
-    
-    selectedServices = [];
-    windowSelection = { inside: null, outside: null };
-    currentCleaningType = 'standard';
-    
-    // Сбрасываем контактные поля
-    document.getElementById('clientName').value = '';
-    document.getElementById('clientPhone').value = '';
-    document.getElementById('clientName').classList.remove('error');
-    document.getElementById('clientPhone').classList.remove('error');
-    
-    showStep('step1');
-    calculateTotal();
-}
+
 
 // Initialize calculator
 let initialized = false;
 document.addEventListener('DOMContentLoaded', function() {
     if (!initialized) {
         $('#calculatorModal').on('shown.bs.modal', initCalculator);
-        $('#calculatorModal').on('hidden.bs.modal', resetCalculator);
+        
         initialized = true;
     }
 });
@@ -2202,7 +2206,7 @@ function initInteractiveBanner() {
 document.addEventListener('DOMContentLoaded', initInteractiveBanner);
 
 
-    // ... весь твой существующий JavaScript ...
+    
 
     // Room Thumbnails Functionality for "What do we clean" section
     document.querySelectorAll('.ba-thumb').forEach(thumb => {
@@ -2231,6 +2235,166 @@ document.addEventListener('DOMContentLoaded', initInteractiveBanner);
         });
     });
 
+
+
+
+    // Minimal Hero Interactions
+function initMinimalHero() {
+    initMagneticButton();
+    initSparkleEffect();
+    initSlotsSystem();
+}
+
+// Магнитный эффект кнопки
+function initMagneticButton() {
+    const btn = document.querySelector('.magnetic-btn');
+    if (!btn) return;
+    
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const angleX = (y - centerY) / 10;
+        const angleY = (centerX - x) / 10;
+        
+        btn.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-2px)`;
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+    });
+}
+
+// Эффект искр при движении мыши
+function initSparkleEffect() {
+    const hero = document.querySelector('.minimal-hero');
+    if (!hero) return;
+    
+    hero.addEventListener('mousemove', (e) => {
+        if (Math.random() < 0.2) {
+            createSparkle(e.clientX, e.clientY);
+        }
+    });
+}
+
+function createSparkle(x, y) {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'floating-sparkle';
+    
+    const size = Math.random() * 3 + 2;
+    const duration = Math.random() * 2 + 1;
+    
+    sparkle.style.width = `${size}px`;
+    sparkle.style.height = `${size}px`;
+    sparkle.style.left = `${x}px`;
+    sparkle.style.top = `${y}px`;
+    sparkle.style.animation = `sparkle ${duration}s ease-out forwards`;
+    
+    document.querySelector('.minimal-hero').appendChild(sparkle);
+    
+    setTimeout(() => {
+        if (sparkle.parentNode) {
+            sparkle.parentNode.removeChild(sparkle);
+        }
+    }, duration * 1000);
+}
+
+// ПРОСТАЯ РУЧНАЯ СИСТЕМА СЛОТОВ
+function calculateLiveSlots() {
+    // Всегда используем ручное значение
+    const manualSlots = localStorage.getItem('manualSlots');
+    if (manualSlots !== null) {
+        return parseInt(manualSlots);
+    }
+    
+    // Если нет ручного значения - ставим 2 (суббота)
+    const defaultSlots = 2;
+    localStorage.setItem('manualSlots', defaultSlots.toString());
+    return defaultSlots;
+}
+
+function initSlotsSystem() {
+    updateLiveCounter();
+}
+
+function updateLiveCounter() {
+    const currentSlots = calculateLiveSlots();
+    const counter = document.getElementById('liveCounter');
+    
+    if (counter) {
+        counter.textContent = currentSlots;
+    }
+}
+
+function bookSlot() {
+    // Всегда работаем с ручным значением
+    const currentSlots = parseInt(localStorage.getItem('manualSlots') || '2');
+    const newSlots = Math.max(0, currentSlots - 1);
+    localStorage.setItem('manualSlots', newSlots.toString());
+    updateLiveCounter();
+}
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', function() {
+    initMinimalHero();
+});
+
+// Команды для консоли - ТОЛЬКО РУЧНОЕ УПРАВЛЕНИЕ
+window.setManualSlots = function(number) {
+    localStorage.setItem('manualSlots', number.toString());
+    updateLiveCounter();
+    console.log(`✅ Ручное значение установлено: ${number}`);
+}
+
+window.getCurrentSlots = function() {
+    const slots = localStorage.getItem('manualSlots') || '2';
+    console.log(`📊 Текущее значение: ${slots}`);
+    return slots;
+}
+
+window.decreaseSlots = function() {
+    bookSlot();
+    console.log('✅ Уменьшено на 1');
+}
+
+window.resetSlots = function() {
+    localStorage.removeItem('manualSlots');
+    updateLiveCounter();
+    console.log('✅ Сброшено к значению по умолчанию (2)');
+}
+
+function createMinimalParticles() {
+    const container = document.getElementById('minimalParticles');
+    if (!container) return;
+    
+    // Создаем частицы как в slogan-banner
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'minimal-hero-particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 6 + 's';
+        particle.style.animationDuration = (3 + Math.random() * 4) + 's';
+        container.appendChild(particle);
+    }
+}
+
+// Обновите функцию initMinimalHero
+function initMinimalHero() {
+    initMagneticButton();
+    initSparkleEffect();
+    initSlotsSystem();
+    createMinimalParticles(); // Добавляем создание частиц
+}
+
+// Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    initMinimalHero();
+});
 
 
 
@@ -2288,7 +2452,7 @@ document.addEventListener('DOMContentLoaded', initInteractiveBanner);
                     <div class="step-item">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h6>You Get FREE Bedroom Cleaning</h6>
+                            <h6>You Get one FREE Bedroom Cleaning</h6>
                             <p class="mb-0">After their booking, you get one bedroom cleaning FREE</p>
                         </div>
                     </div>
@@ -2308,6 +2472,38 @@ document.addEventListener('DOMContentLoaded', initInteractiveBanner);
             </div>
         </div>
     </div>
+</div>
+
+
+<!-- Simple Validation Modal -->
+<div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Complete Your Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Please fill in your name and phone number to confirm the order:</p>
+        
+        <div class="form-group">
+          <label for="modalName">Your Name *</label>
+          <input type="text" class="form-control" id="modalName" placeholder="Enter your name">
+        </div>
+        
+        <div class="form-group">
+          <label for="modalPhone">Phone Number *</label>
+          <input type="tel" class="form-control" id="modalPhone" placeholder="+353 __ _______">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="confirmFromModal">Confirm Order</button>
+      </div>
+    </div>
+  </div>
 </div>
 
     
