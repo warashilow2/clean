@@ -603,6 +603,155 @@ a:focus-visible,
   }
 }
 
+@media (max-width: 1024px) {
+  .offers-grid {
+    max-width: 900px;
+    gap: 25px;
+  }
+  
+  .offer-content {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 25px;
+  }
+  
+  .offer-title {
+    font-size: 1.6rem;
+  }
+  
+  .offer-description {
+    font-size: 1rem;
+  }
+}
+
+/* Планшеты (вертикальная ориентация) */
+@media (max-width: 768px) {
+  .special-offers-section {
+    padding: 50px 0;
+  }
+  
+  .offers-grid {
+    flex-direction: column;
+    gap: 30px;
+    max-width: 600px;
+    margin: 25px auto 0;
+  }
+  
+  .offer-card {
+    padding: 25px;
+  }
+  
+  .offer-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: center;
+  }
+  
+  .offer-main {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .offer-icon {
+    margin-top: 0;
+    font-size: 2.5rem;
+  }
+  
+  .offer-title {
+    font-size: 1.5rem;
+  }
+  
+  .offer-features li {
+    white-space: normal;
+    text-align: left;
+    justify-content: center;
+  }
+  
+  .discount-circle {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .discount-amount {
+    font-size: 1.6rem;
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 576px) {
+  .special-offers-section {
+    padding: 40px 0;
+  }
+  
+  .offers-grid {
+    gap: 25px;
+    margin: 20px auto 0;
+  }
+  
+  .offer-card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+  
+  .offer-badge {
+    padding: 6px 20px;
+    font-size: 0.8rem;
+  }
+  
+  .offer-content {
+    gap: 20px;
+  }
+  
+  .offer-main {
+    gap: 15px;
+  }
+  
+  .offer-icon {
+    font-size: 2.2rem;
+  }
+  
+  .offer-title {
+    font-size: 1.3rem;
+  }
+  
+  .offer-description {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+  
+  .offer-features {
+    gap: 6px;
+  }
+  
+  .offer-features li {
+    font-size: 0.9rem;
+  }
+  
+  .offer-action {
+    gap: 15px;
+  }
+  
+  .discount-circle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .discount-amount {
+    font-size: 1.4rem;
+  }
+  
+  .discount-label {
+    font-size: 0.7rem;
+  }
+  
+  .btn-offer {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    min-width: 120px;
+  }
+}
+
+
 /* ===== CLEANING MAP SECTION ===== */
 .cleaning-map-section {
   padding: 80px 0;
@@ -2735,30 +2884,48 @@ a:focus-visible,
 }
 
 /* Mobile Responsive */
-@media (max-width: 992px) {
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-}
-
+/* Why Choose Us Section - Horizontal Scroll Mobile */
 @media (max-width: 768px) {
     .why-us-section {
-        padding: 60px 0;
+        padding: 50px 0;
     }
     
     .features-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
         gap: 20px;
-        margin-top: 40px;
+        padding: 10px 0 20px;
+        margin: 30px -20px 0;
+        padding-left: 20px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .features-grid::-webkit-scrollbar {
+        display: none;
     }
     
     .feature-card {
-        padding: 30px 25px;
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+        min-width: 280px;
+        height: auto;
     }
     
     .feature-icon {
         font-size: 2.5rem;
+    }
+    
+    .feature-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .feature-card {
+        flex: 0 0 90%;
+        min-width: 260px;
     }
 }
 /* Interactive Slogan Banner */
@@ -3418,3 +3585,298 @@ img, .carousel-container, .room-image {
 }
 
 
+/* Simple Modal Styles */
+#validationModal .modal-content {
+    border-radius: 12px;
+    border: 2px solid var(--accent-gold);
+}
+
+#validationModal .modal-header {
+    background: var(--light-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#validationModal .btn-primary {
+    background: var(--gradient-gold);
+    color: var(--text-dark);
+    border: none;
+    font-weight: 600;
+}
+
+#validationModal .btn-primary:hover {
+    background: linear-gradient(135deg, #e6c158, #c9a42a);
+}
+
+
+/* Minimal Hero Styles */
+.minimal-hero {
+       position: relative;
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    overflow: hidden;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 40px;
+}
+
+
+/* Minimal Hero Particles - как в slogan-banner */
+.minimal-hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.minimal-hero-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: minimal-float 6s infinite linear;
+}
+
+@keyframes minimal-float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+    animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Главный заголовок */
+.main-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.title-line {
+    display: block;
+}
+
+.title-line.accent {
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+}
+
+/* Живой счетчик */
+.live-counter {
+    margin: 4rem 0;
+    position: relative;
+}
+
+
+
+.counter-number {
+    font-size: 5rem;
+    font-weight: 200;
+    color: #d4af37;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.counter-text {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Магнитная кнопка */
+.magnetic-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    padding: 1.5rem 3rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.magnetic-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.magnetic-btn:hover::before {
+    left: 100%;
+}
+
+.magnetic-btn:hover {
+    border-color: #d4af37;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.btn-text {
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.btn-arrow {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.magnetic-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* Микро-социальное доказательство */
+.micro-proof {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+
+/* Плавающая искра "вау-эффект" */
+.floating-sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #d4af37;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(1px);
+}
+
+/* Анимация появления искр при движении мыши */
+@keyframes sparkle {
+    0% {
+        opacity: 0;
+        transform: scale(0) translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) translateY(-20px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) translateY(-40px);
+    }
+}
+
+/* Магнитный эффект кнопки */
+.magnetic-btn {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .minimal-hero {
+           margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 60vh;
+        min-height: 400px;
+        padding: 1rem 0;
+        border-radius: 20px;
+        display: flex ;
+    }
+    
+    .main-title {
+        margin-bottom: 3.5rem;
+    }
+    
+    .counter-number {
+        font-size: 3.5rem;
+    }
+    
+    .live-counter {
+        margin: 3rem 0;
+    }
+    
+    .magnetic-btn {
+        padding: 1.2rem 2rem;
+        font-size: 1rem;
+    }
+}
+@media (max-width: 576px) {
+    .minimal-hero {
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 50vh;
+        min-height: 350px;
+        border-radius: 15px;
+    }
+    
+    .counter-number {
+        font-size: 3rem;
+    }
+    
+    .magnetic-btn {
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .micro-proof {
+        font-size: 0.8rem;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+    .minimal-hero {
+        height: 45vh;
+        min-height: 300px;
+    }
+    
+    .counter-number {
+        font-size: 2.5rem;
+    }
+}
