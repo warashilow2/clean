@@ -185,169 +185,7 @@ a:focus-visible,
   font-family:Georgia, 'Times New Roman', Times, serif
 }
 
-/* ===== CAROUSEL ===== */
-.carousel-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  padding: 0 320px
-}
 
-.carousel-inner {
-  border-radius: 20px;
-  overflow: hidden;
-  height: 600px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-}
-
-.carousel-item {
-  height: 100%;
-  position: relative;
-}
-
-.carousel-item img {
- width: 100%;
-  height: 100%;
-  object-fit: contain; /* Всегда показываем всю картинку */
-  object-position: center;
-  background: #f8f9fa; /* Фон для пустых областей */
-}
-
-
-.carousel-item:hover img {
-  transform: scale(1.03);
-}
-
-.carousel-indicators {
-  bottom: 20px;
-}
-
-.carousel-indicators li {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.7);
-  margin: 0 6px;
-  transition: var(--transition);
-}
-
-.carousel-indicators .active {
-  background-color: var(--white);
-  transform: scale(1.2);
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  width: 50px;
-  height: 50px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.7;
-  transition: var(--transition);
-  border: none;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  opacity: 0.9;
-  background: rgba(0, 0, 0, 0.5);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-control-prev { left: 20px; }
-.carousel-control-next { right: 20px; }
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  width: 20px;
-  height: 20px;
-  background-size: 20px 20px;
-  filter: brightness(0) invert(1);
-}
-
-/* Fix Carousel Images */
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Меняем с cover на contain чтобы вся картинка была видна */
-    object-position: center;
-    background: #f8f9fa; /* Фон если картинка не заполняет всю область */
-}
-
-.carousel-inner {
-  
-    background: #f8f9fa; /* Фон для карусели */
-}
-
-/* Mobile Carousel Fix */
-@media (max-width: 768px) {
-    .carousel-container {
-        margin: 0 15px;
-        padding: 0 15px;
-    }
-    
-    .carousel-inner {
-        height: 400px; /* Уменьшаем высоту для мобильных */
-        
-    }
-    
-    .carousel-item img {
-        object-fit: fill; /* Важно: contain вместо cover */
-        object-position: center;
-    }
-    
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: 40px;
-        height: 40px;
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    
-    .carousel-control-prev {
-        left: 10px;
-    }
-    
-    .carousel-control-next {
-        right: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .carousel-inner {
-        height: 300px; /* Еще меньше для маленьких экранов */
-        
-    }
-    
-    .carousel-container {
-        margin: 0 10px;
-        padding: 0 10px;
-    }
-    
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        width: 14px;
-        height: 14px;
-        background-size: 14px 14px;
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 360px) {
-    .carousel-inner {
-        height: 250px;
-    }
-}
 
 /* ===== MOBILE CALCULATOR BUTTON ===== */
 .mobile-calculator-btn {
@@ -422,11 +260,13 @@ a:focus-visible,
 }
 
 .offers-grid {
-  display: flex;
-  justify-content: center;
-  max-width: 1000px;
-  margin: 30px auto 0;
+    display: grid;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 30px auto 0;
+    gap: 17px;
 }
+
 
 .offer-card {
   background: white;
@@ -3612,7 +3452,7 @@ img, .carousel-container, .room-image {
 .minimal-hero {
        position: relative;
     height: 70vh;
-    min-height: 500px;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3678,11 +3518,15 @@ img, .carousel-container, .room-image {
 
 /* Главный заголовок */
 .main-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    display:inline-flex;
+    font-size: clamp(2rem, 5vw, 4rem); /* Адаптивный размер */
     font-weight: 300;
-    line-height: 1;
-    margin-bottom: 3rem;
+    line-height: 1.1; /* Улучшить межстрочный интервал */
+    margin-bottom: 2rem;
+    margin-top: 20px;
     color: white;
+    text-align: center;
+    word-wrap: break-word; /* Перенос длинных слов */
 }
 
 .title-line {
@@ -3694,6 +3538,7 @@ img, .carousel-container, .room-image {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 400;
+    display: inline-block; /* Чтобы градиент применялся правильно */
 }
 
 /* Живой счетчик */
@@ -3869,6 +3714,7 @@ img, .carousel-container, .room-image {
     }
 }
 
+
 /* Для очень маленьких экранов */
 @media (max-width: 360px) {
     .minimal-hero {
@@ -3879,4 +3725,316 @@ img, .carousel-container, .room-image {
     .counter-number {
         font-size: 2.5rem;
     }
+}
+
+/* ===== CLEAN RESPONSIVE FIXES ===== */
+
+/* Tablets and small desktops */
+@media (max-width: 1200px) {
+    .offers-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .offer-card {
+        width: 100%;
+        max-width: 600px;
+    }
+    
+    .minimal-hero {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+}
+
+/* Large tablets */
+@media (max-width: 1024px) {
+    .minimal-hero {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+    
+    .testimonials-carousel .testimonial-card {
+        flex: 0 0 calc(50% - 15px);
+        min-width: calc(50% - 15px);
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .offers-grid {
+        gap: 25px;
+        padding: 0 20px;
+    }
+    
+    .offer-card {
+        padding: 25px;
+    }
+    
+    .offer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .offer-main {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .offer-features li {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .minimal-hero {
+        margin-left: 30px;
+        margin-right: 30px;
+        height: 50vh;
+    }
+    
+    .main-title {
+        font-size: 2.3rem;
+    }
+    
+    .counter-number {
+        font-size: 3rem;
+    }
+    
+    /* Mobile navigation */
+    .navbar-collapse {
+        background: var(--gradient-dark);
+        padding: 15px;
+        margin-top: 10px;
+    }
+    
+    .room-tabs {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+    }
+    
+    .room-tab {
+        flex-shrink: 0;
+    }
+}
+
+/* Large phones */
+@media (max-width: 576px) {
+    .offers-grid {
+        padding: 0 15px;
+        gap: 20px;
+    }
+    
+    .offer-card {
+        padding: 20px;
+    }
+    
+    .offer-title {
+        font-size: 1.4rem;
+    }
+    
+    .offer-description {
+        font-size: 0.95rem;
+    }
+    
+    .discount-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .discount-amount {
+        font-size: 1.5rem;
+    }
+    
+    .minimal-hero {
+        margin-left: 20px;
+        margin-right: 20px;
+        height: 45vh;
+    }
+    
+    .main-title {
+        font-size: 1.9rem;
+    }
+    
+    .counter-number {
+        font-size: 2.5rem;
+    }
+    
+    .section-title-gold {
+        font-size: 1.8rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .offers-grid {
+        padding: 0 10px;
+        gap: 15px;
+    }
+    
+    .offer-card {
+        padding: 15px;
+    }
+    
+    .offer-title {
+        font-size: 1.3rem;
+    }
+    
+    .offer-description {
+        font-size: 0.9rem;
+    }
+    
+    .offer-features li {
+        font-size: 0.85rem;
+    }
+    
+    .discount-circle {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .discount-amount {
+        font-size: 1.3rem;
+    }
+    
+    .minimal-hero {
+        margin-left: 15px;
+        margin-right: 15px;
+        height: 40vh;
+    }
+    
+    .main-title {
+        font-size: 1.7rem;
+    }
+    
+    .counter-number {
+        font-size: 2.2rem;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 375px) {
+    .offers-grid {
+        padding: 0 8px;
+    }
+    
+    .offer-card {
+        padding: 12px;
+    }
+    
+    .offer-title {
+        font-size: 1.2rem;
+    }
+    
+    .minimal-hero {
+        margin-left: 10px;
+        margin-right: 10px;
+        height: 35vh;
+    }
+    
+    .main-title {
+        font-size: 1.5rem;
+    }
+    
+    .counter-number {
+        font-size: 2rem;
+    }
+}
+
+/* Landscape mobile fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+    .minimal-hero {
+        height: 70vh;
+    }
+}
+
+/* Short screens */
+@media (max-height: 600px) {
+    .minimal-hero {
+        height: 80vh;
+    }
+}
+
+/* Safe global fixes */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Touch friendly */
+@media (max-width: 768px) {
+    .btn-calculator-nav,
+    .btn-offer,
+    .room-tab,
+    .magnetic-btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .form-control {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+  .minimal-hero {
+    min-height: 47vh; /* Уменьшили высоту */
+    padding: 5px 0 20px; /* Уменьшили отступы */
+    display: flex;
+    align-items: center;
+  }
+  
+  .hero-content {
+    transform: scale(0.9); /* Чуть увеличили масштаб */
+    width: 100%;
+    padding-top: 0;
+  }
+  
+  .micro-proof {
+    margin-top: 15px;
+    position: relative;
+  }
+}
+/* Стили для анимированного счетчика */
+.live-counter {
+    transition: all 0.3s ease;
+}
+
+.counter-number {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #be9e34;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.counter-text {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* Цвета для разных состояний счетчика */
+.counter-number.low {
+    color: #ffaa00;
+}
+
+.counter-number.critical {
+    color: #ff4444;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
