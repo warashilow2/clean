@@ -3518,19 +3518,29 @@ img, .carousel-container, .room-image {
 
 /* Главный заголовок */
 .main-title {
-    display:inline-flex;
-    font-size: clamp(2rem, 5vw, 4rem); /* Адаптивный размер */
+    display: flex; /* Изменить на flex вместо inline-flex для лучшего контроля */
+    flex-direction: column; /* Строки одна под другой */
+    align-items: center; /* Центрирование */
+    justify-content: center;
+    font-size: clamp(1.8rem, 8vw, 4rem); /* Уменьшили минимальный размер для мобильных */
     font-weight: 300;
-    line-height: 1.1; /* Улучшить межстрочный интервал */
-    margin-bottom: 2rem;
-    margin-top: 20px;
+    line-height: 1.2; /* Чуть увеличили для воздуха */
+    margin-bottom: 1.5rem; /* Уменьшили отступ */
+    margin-top: 15px;
     color: white;
     text-align: center;
-    word-wrap: break-word; /* Перенос длинных слов */
+    word-break: break-word; /* Лучше чем word-wrap для длинных слов */
+    hyphens: auto; /* Автоматический перенос (работает в большинстве браузеров) */
+    max-width: 90%; /* Ограничить ширину, чтобы текст не вылезал */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .title-line {
-    display: block;
+    display: block; /* Оставляем, но добавляем flex-grow для адаптации */
+    flex-grow: 0; /* Не растягивать */
+    width: fit-content; /* Авто-ширина по контенту */
+    margin: 0 auto; /* Центрирование */
 }
 
 .title-line.accent {
@@ -3538,9 +3548,8 @@ img, .carousel-container, .room-image {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 400;
-    display: inline-block; /* Чтобы градиент применялся правильно */
+    display: block; /* Изменить на block для consistency (было inline-block) */
 }
-
 /* Живой счетчик */
 .live-counter {
     margin: 4rem 0;
@@ -3661,34 +3670,42 @@ img, .carousel-container, .room-image {
 /* Mobile Optimization */
 @media (max-width: 768px) {
     .minimal-hero {
-           margin-left: 20px;
-        margin-right: 20px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        height: 60vh;
-        min-height: 400px;
-        padding: 1rem 0;
-        border-radius: 20px;
-        display: flex ;
+        min-height: auto !important;     /* убираем vh */
+        height: auto !important;
+        padding: 40px 20px !important;   /* фиксированные отступы */
+        margin: 20px auto !important;
+        max-width: 420px !important;     /* жёсткая ширина — спасает от вылезания */
+        width: 96% !important;
+        border-radius: 32px;
+        display: block !important;       /* УБИРАЕМ FLEX НА МОБИЛКЕ */
     }
-    
+
+    .hero-content {
+        transform: none !important;      /* убираем scale */
+        padding: 0 !important;
+        margin: 0 auto !important;
+    }
+
     .main-title {
-        margin-bottom: 3.5rem;
-    }
-    
-    .counter-number {
-        font-size: 3.5rem;
-    }
-    
-    .live-counter {
-        margin: 3rem 0;
-    }
-    
-    .magnetic-btn {
-        padding: 1.2rem 2rem;
-        font-size: 1rem;
+        font-size: clamp(2.1rem, 10.8vw, 4.8rem) !important;
+        line-height: 1.22 !important;
+        padding: 0 8px !important;
+        margin-bottom: 2rem !important;
     }
 }
+
+/* Если хочешь оставить flex только на десктопе — можно так */
+@media (min-width: 769px) {
+    .minimal-hero {
+        display: flex;
+        align-items: center;
+        min-height: 80vh;
+    }
+    .hero-content {
+        transform: scale(1);
+    }
+}
+
 @media (max-width: 576px) {
     .minimal-hero {
         margin-left: 15px;
@@ -3795,7 +3812,15 @@ img, .carousel-container, .room-image {
     }
     
     .main-title {
-        font-size: 2.3rem;
+        font-size: clamp(1.5rem, 10vw, 3rem); /* Ещё больше адаптации */
+        line-height: 1.3;
+        max-width: 100%; /* Полная ширина на мобильных */
+        padding: 0 10px; /* Отступы по бокам */
+    }
+
+    .title-line {
+        text-align: center; /* Принудительное центрирование */
+        white-space: nowrap; /* Запретить перенос внутри строки на узких экранах */
     }
     
     .counter-number {
@@ -3855,7 +3880,12 @@ img, .carousel-container, .room-image {
     }
     
     .main-title {
-        font-size: 1.9rem;
+        font-size: clamp(1.2rem, 12vw, 2.5rem);
+        margin-bottom: 1rem;
+    }
+
+    .hero-content {
+        padding: 0 15px; /* Дополнительные отступы */
     }
     
     .counter-number {
@@ -4037,4 +4067,31 @@ img {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
+}
+
+/* === КНОПКА ПОЗВОНИТЬ — плавающая === */
+.social-phone {
+    background: #25d366;          /* тот же зелёный, что у WhatsApp — узнаваемо */
+    animation-delay: 0.3s;
+}
+
+.social-phone:hover {
+    background: #1ebe57;
+    transform: translateY(-4px) scale(1.1);
+}
+
+.social-phone i {
+    color: white;
+    font-size: 1.4rem;
+}
+
+/* Лёгкая пульсация для привлечения внимания */
+@keyframes pulse-phone {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.social-phone {
+    animation: pulse-phone 2s infinite;
 }
