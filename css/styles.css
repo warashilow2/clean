@@ -4071,7 +4071,7 @@ img {
 
 /* === КНОПКА ПОЗВОНИТЬ — плавающая === */
 .social-phone {
-    background: #25d366;          /* тот же зелёный, что у WhatsApp — узнаваемо */
+    background: green;          /* тот же зелёный, что у WhatsApp — узнаваемо */
     animation-delay: 0.3s;
 }
 
@@ -4095,4 +4095,5 @@ img {
 .social-phone {
     animation: pulse-phone 2s infinite;
 }
+
 
