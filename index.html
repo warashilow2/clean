@@ -2346,33 +2346,110 @@ window.getGlobalSlots = () => {
 // ============================================================
 
     
-    // Создаем частицы как в slogan-banner
+
+function initHeroMagic() {
+    const hero = document.querySelector('.minimal-hero');
+    const particlesContainer = document.getElementById('minimalParticles');
+    if (!hero || !particlesContainer) return;
+
+    // 1. Фоновые точки — вернули и сделали чуть поярче
+    particlesContainer.innerHTML = '';
     for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'minimal-hero-particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 6 + 's';
-        particle.style.animationDuration = (3 + Math.random() * 4) + 's';
-        container.appendChild(particle);
+        const p = document.createElement('div');
+        p.className = 'minimal-hero-particle';
+        p.style.cssText = `
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 6px rgba(255,255,255,0.6);
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation: minimal-float 12s infinite linear;
+            animation-delay: ${Math.random() * 10}s;
+        `;
+        particlesContainer.appendChild(p);
     }
 
+    // 2. Искры — теперь точно под курсором и их больше, но всё ещё элегантно
+    let throttle = false;
 
-// Обновите функцию initMinimalHero
-function initMinimalHero() {
-    initMagneticButton();
-    initSparkleEffect();
-    initSlotsSystem();
-    createMinimalParticles(); // Добавляем создание частиц
-}
+    function createSparkle(x, y) {
+        for (let i = 0; i < 3; i++) {  // 3 искры за раз
+            const sparkle = document.createElement('div');
+            const size = 2.5 + Math.random() * 2;
+            const angle = -1.2 + Math.random() * 2.4; // в основном вверх и в стороны
+            const distance = 25 + Math.random() * 35;
 
-// Инициализация при загрузке
-document.addEventListener('DOMContentLoaded', function() {
-    initMinimalHero();
+            sparkle.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background: white;
+                border-radius: 50%;
+                pointer-events: none;
+                left: ${x}px;
+                top: ${y}px;
+                box-shadow: 0 0 10px rgba(255,255,255,1);
+                transform: translate(-50%, -50%);
+                opacity: 0;
+            `;
+
+            hero.appendChild(sparkle);
+
+            let start = null;
+            const duration = 600 + Math.random() * 300;
+
+            function frame(time) {
+                if (!start) start = time;
+                const t = (time - start) / duration;
+                if (t > 1) {
+                    sparkle.remove();
+                    return;
+                }
+
+                const offsetX = Math.cos(angle) * distance * t;
+                const offsetY = Math.sin(angle) * distance * t - 40 * t * t; // красивая парабола
+
+                sparkle.style.transform = `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px) scale(${1 - t * 0.5})`;
+                sparkle.style.opacity = 1 - t;
+
+                requestAnimationFrame(frame);
+            }
+            requestAnimationFrame(frame);
+        }
+    }
+
+    // Мышка — теперь точно под курсором
+hero.addEventListener('mousemove', (e) => {
+    if (throttle) return;
+    throttle = true;
+    requestAnimationFrame(() => throttle = false);
+
+    const rect = hero.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    if (Math.random() < 0.7) {
+        createSparkle(x, y);
+    }
 });
 
+// Тач — тоже точно под пальцем
+hero.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    const t = e.touches[0];
+    const rect = hero.getBoundingClientRect();
+    const x = t.clientX - rect.left;
+    const y = t.clientY - rect.top;
 
+    createSparkle(x, y);
+}, { passive: false });
+};
 
+document.addEventListener('DOMContentLoaded', initHeroMagic);
    
     </script>   
     
@@ -2385,6 +2462,9 @@ document.addEventListener('DOMContentLoaded', function() {
     </a>
     <a href="https://www.facebook.com/profile.php?id=61576887908338" class="social-fb">
         <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="tel:+353874838743" class="social-phone">
+        <i class="fas fa-phone"></i>
     </a>
 </div>
 
@@ -2480,6 +2560,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 </div>
+
 
     
 </body>
