@@ -1307,7 +1307,7 @@
                 <img src="images/logo.png" alt="Eco Spark Cleaning" class="footer-logo" width="150" height="60">
                 <p class="footer-tagline">Transforming spaces in Dublin with professional cleaning services</p>
                 <div class="footer-social">
-                    <a href="https://wa.me/353874194243" class="social-link" aria-label="WhatsApp">
+                    <a href="https://wa.me/353874838743" class="social-link" aria-label="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                     <a href="https://www.instagram.com/eco.spark.cleaning.ie/" class="social-link" aria-label="Instagram">
@@ -1351,7 +1351,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <a href="tel:+353874194243" itemprop="telephone">+353 87 419 4243</a>
+                            <a href="tel:+353874838743" itemprop="telephone">+35387 483 8743</a>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
@@ -1388,6 +1388,8 @@
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
     
     <script>
         // Smooth scrolling for navigation links
@@ -1466,7 +1468,7 @@ let isFirstOrder = true;
 
 // Telegram Configuration
 const TELEGRAM_BOT_TOKEN = '7977195166:AAE5vFG3KX_gqt4evOdK-YQN9xZtBNcFjAQ';
-const TELEGRAM_CHAT_ID = '435456990';
+const TELEGRAM_CHAT_ID = '-1003389080682';
 
 // Initialize calculator
 function initCalculator() {
@@ -2303,73 +2305,46 @@ function createSparkle(x, y) {
     }, duration * 1000);
 }
 
-// ПРОСТАЯ РУЧНАЯ СИСТЕМА СЛОТОВ
-function calculateLiveSlots() {
-    // Всегда используем ручное значение
-    const manualSlots = localStorage.getItem('manualSlots');
-    if (manualSlots !== null) {
-        return parseInt(manualSlots);
-    }
-    
-    // Если нет ручного значения - ставим 2 (суббота)
-    const defaultSlots = 2;
-    localStorage.setItem('manualSlots', defaultSlots.toString());
-    return defaultSlots;
-}
+// ===== ГЛОБАЛЬНЫЕ СЛОТЫ — РАБОТАЕТ НА ВСЕХ УСТРОЙСТВАХ СРАЗУ =====
+const firebaseConfig = {
+  apiKey: "AIzaSyD00K5QkmU5D3g3NWneoX0alzYGNU3-lw",
+  authDomain: "dublin-cleaning-2025.firebaseapp.com",
+  databaseURL: "https://dublin-cleaning-2025-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "dublin-cleaning-2025",
+  storageBucket: "dublin-cleaning-2025.appspot.com",
+  messagingSenderId: "735214598",
+  appId: "1:735214598:web:588a3d10f5600d93665787"
+};
 
-function initSlotsSystem() {
-    updateLiveCounter();
-}
+firebase.initializeApp(firebaseConfig);
+const slotsRef = firebase.database().ref('slots');
 
-function updateLiveCounter() {
-    const currentSlots = calculateLiveSlots();
-    const counter = document.getElementById('liveCounter');
-    
-    if (counter) {
-        counter.textContent = currentSlots;
-    }
-}
-
-function bookSlot() {
-    // Всегда работаем с ручным значением
-    const currentSlots = parseInt(localStorage.getItem('manualSlots') || '2');
-    const newSlots = Math.max(0, currentSlots - 1);
-    localStorage.setItem('manualSlots', newSlots.toString());
-    updateLiveCounter();
-}
-
-// Инициализация
-document.addEventListener('DOMContentLoaded', function() {
-    initMinimalHero();
+// Автоматически обновляет число на всех устройствах
+slotsRef.on('value', (snap) => {
+  const slots = snap.val() !== null ? snap.val() : 0;
+  const counter = document.getElementById('liveCounter');
+  if (counter) {
+    counter.textContent = slots;
+    counter.classList.toggle('critical', slots === 0);
+    counter.classList.toggle('low', slots > 0 && slots <= 3);
+  }
 });
 
-// Команды для консоли - ТОЛЬКО РУЧНОЕ УПРАВЛЕНИЕ
-window.setManualSlots = function(number) {
-    localStorage.setItem('manualSlots', number.toString());
-    updateLiveCounter();
-    console.log(`✅ Ручное значение установлено: ${number}`);
-}
+// Твои команды (вводишь в консоль браузера на любом устройстве)
+window.setGlobalSlots = (n) => {
+  if (Number.isInteger(Number(n)) && n >= 0) {
+    slotsRef.set(Number(n));
+    console.log(`Глобально установлено: ${n} слотов`);
+  } else {
+    console.error('Введи целое число от 0 и выше');
+  }
+};
 
-window.getCurrentSlots = function() {
-    const slots = localStorage.getItem('manualSlots') || '2';
-    console.log(`📊 Текущее значение: ${slots}`);
-    return slots;
-}
+window.getGlobalSlots = () => {
+  slotsRef.once('value').then(s => console.log('Текущее значение:', s.val()));
+};
+// ============================================================
 
-window.decreaseSlots = function() {
-    bookSlot();
-    console.log('✅ Уменьшено на 1');
-}
-
-window.resetSlots = function() {
-    localStorage.removeItem('manualSlots');
-    updateLiveCounter();
-    console.log('✅ Сброшено к значению по умолчанию (2)');
-}
-
-function createMinimalParticles() {
-    const container = document.getElementById('minimalParticles');
-    if (!container) return;
     
     // Создаем частицы как в slogan-banner
     for (let i = 0; i < 50; i++) {
@@ -2381,7 +2356,7 @@ function createMinimalParticles() {
         particle.style.animationDuration = (3 + Math.random() * 4) + 's';
         container.appendChild(particle);
     }
-}
+
 
 // Обновите функцию initMinimalHero
 function initMinimalHero() {
@@ -2402,7 +2377,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>   
     
    <div class="floating-social">
-    <a href="https://wa.me/353874194243" class="social-wa">
+    <a href="https://wa.me/353874838743" class="social-wa">
         <i class="fab fa-whatsapp"></i>
     </a>
     <a href="https://www.instagram.com/eco.spark.cleaning.ie/" class="social-ig">
