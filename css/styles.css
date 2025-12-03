@@ -2379,6 +2379,7 @@ a:focus-visible,
     background: linear-gradient(135deg, #503737, #2A0F0F); /* Темный как навбар */
     animation: pulse-gold 2s infinite; /* Используй ту же анимацию что у золотого круга */
 }
+
 /* Mobile adjustments for referral circle text */
 @media (max-width: 576px) {
     
@@ -4081,7 +4082,7 @@ img {
 
 /* === КНОПКА ПОЗВОНИТЬ — плавающая === */
 .social-phone {
-    background: green;          /* тот же зелёный, что у WhatsApp — узнаваемо */
+    background: #25d366;          /* тот же зелёный, что у WhatsApp — узнаваемо */
     animation-delay: 0.3s;
 }
 
@@ -4106,6 +4107,24 @@ img {
     animation: pulse-phone 2s infinite;
 }
 
-
-
-
+/* ТОЛЬКО ЗАМЕТНЫЙ СКРОЛЛБАР ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 768px) {
+    .calculator-modal .modal-body {
+        overflow-y: auto !important;
+    }
+    
+    .calculator-modal .modal-body::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .calculator-modal .modal-body::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        border-radius: 4px;
+    }
+    
+    .calculator-modal .modal-body::-webkit-scrollbar-thumb {
+        background: #d4af37;
+        border-radius: 4px;
+    }
+}
+ 
