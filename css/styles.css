@@ -4085,23 +4085,6 @@ img {
     font-size: 1.4rem;
 }
 
-@media (max-width: 768px) {
-  .social-phone {
-    background: green;          /* тот же зелёный, что у WhatsApp — узнаваемо */
-    animation-delay: 0.3s;
-}
-
-.social-phone:hover {
-    background: #1ebe57;
-    transform: translateY(-4px) scale(1.1);
-}
-
-.social-phone i {
-    color: white;
-    font-size: 1.4rem;
-}
-  
-
 /* Лёгкая пульсация для привлечения внимания */
 @keyframes pulse-phone {
     0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
