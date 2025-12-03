@@ -114,7 +114,7 @@
         <div class="hero-content text-center">
             <!-- Главный заголовок - супер минимал -->
             <h1 class="main-title">
-                <span class="title-line">Dublin</span>
+                <span class="title-line">Dublin's</span>
                 <span class="title-line accent">Premium</span>
                 <span class="title-line">Cleaning</span>
             </h1>
@@ -881,6 +881,7 @@
                     </div>
                 </div>
                 
+                
             </div> <!-- End of .modal-body -->
         </div>
     </div>
@@ -1445,8 +1446,8 @@
                 targetMap.removeAttribute('hidden');
             });
         });
-
-       // Modern Calculator
+// Modern Calculator
+// Modern Calculator
 const prices = {
     standard: { bedroom: 20, bathroom: 35 },
     deep: { bedroom: 30, bathroom: 52 },
@@ -1459,6 +1460,11 @@ const fixedPrices = {
     renovation: { livingRoom: 42, kitchen: 80 }
 };
 
+// Telegram Configuration
+const TELEGRAM_BOT_TOKEN = '7977195166:AAE5vFG3KX_gqt4evOdK-YQN9xZtBNcFjAQ';
+const TELEGRAM_CHAT_ID = '-1003389080682';
+
+// Глобальные переменные
 let currentStep = 'step1';
 let selectedServices = [];
 let currentCleaningType = 'standard';
@@ -1466,15 +1472,117 @@ let roomCounts = { bedroom: 0, bathroom: 0, frames: 0 };
 let windowSelection = { inside: null, outside: null };
 let isFirstOrder = true;
 
-// Telegram Configuration
-const TELEGRAM_BOT_TOKEN = '7977195166:AAE5vFG3KX_gqt4evOdK-YQN9xZtBNcFjAQ';
-const TELEGRAM_CHAT_ID = '-1003389080682';
+// Функция сброса калькулятора
+function resetCalculator() {
+    console.log('Calculator reset');
+    
+    // Сброс переменных
+    currentStep = 'step1';
+    selectedServices = [];
+    currentCleaningType = 'standard';
+    roomCounts = { bedroom: 0, bathroom: 0, frames: 0 };
+    windowSelection = { inside: null, outside: null };
+    isFirstOrder = true;
+    
+    // Сброс UI
+    document.querySelectorAll('.cleaning-card').forEach(c => {
+        c.classList.remove('selected');
+        c.setAttribute('aria-pressed', 'false');
+    });
+    
+    document.querySelectorAll('.service-card').forEach(c => {
+        c.classList.remove('selected');
+        c.setAttribute('aria-pressed', 'false');
+    });
+    
+    document.querySelectorAll('.window-option').forEach(c => {
+        c.classList.remove('selected');
+        c.setAttribute('aria-pressed', 'false');
+    });
+    
+    // Сброс счетчиков
+    document.getElementById('bedroomCount').textContent = '0';
+    document.getElementById('bathroomCount').textContent = '0';
+    document.getElementById('framesCount').textContent = '0';
+    
+    // Сброс шагов
+    document.querySelectorAll('.calculator-step').forEach(step => {
+        step.classList.remove('active');
+        step.style.display = 'none';
+        step.setAttribute('hidden', 'true');
+    });
+    
+    // Показать первый шаг
+    document.getElementById('step1').style.display = 'block';
+    document.getElementById('step1').removeAttribute('hidden');
+    setTimeout(() => document.getElementById('step1').classList.add('active'), 50);
+    
+    // Выбрать первую карточку по умолчанию
+    const firstCard = document.querySelector('.cleaning-card[data-type="standard"]');
+    if (firstCard) {
+        firstCard.classList.add('selected');
+        firstCard.setAttribute('aria-pressed', 'true');
+    }
+    
+    // Сброс цены
+    document.getElementById('totalAmount').textContent = '€0';
+    document.getElementById('discountBadge').style.display = 'none';
+    
+    // Сброс summary
+    document.getElementById('summaryContent').innerHTML = '';
+}
 
-// Initialize calculator
+// Функция инициализации калькулятора
 function initCalculator() {
     console.log('Calculator initialized');
     
-    // Cleaning type selection
+    // 1. Очистка старых обработчиков
+    cleanupEventListeners();
+    
+    // 2. Настройка выбора типа уборки
+    setupCleaningTypeSelection();
+    
+    // 3. Настройка счетчиков комнат
+    setupRoomCounters();
+    
+    // 4. Настройка дополнительных услуг
+    setupAdditionalServices();
+    
+    // 5. Настройка выбора окон
+    setupWindowSelection();
+    
+    // 6. Настройка навигации
+    setupNavigation();
+    
+    // 7. Настройка кнопки Confirm Order
+    setupConfirmOrderButton();
+    
+    // 8. Обновление итоговой суммы
+    calculateTotal();
+}
+
+// Очистка старых обработчиков
+function cleanupEventListeners() {
+    // Просто пересоздаем элементы с новыми обработчиками
+    const elementsToRefresh = [
+        '.cleaning-card',
+        '.service-card', 
+        '.window-option',
+        '.counter-btn',
+        '.btn-next',
+        '.btn-prev'
+    ];
+    
+    elementsToRefresh.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+            const newEl = el.cloneNode(true);
+            el.parentNode.replaceChild(newEl, el);
+        });
+    });
+}
+
+// Настройка выбора типа уборки
+function setupCleaningTypeSelection() {
     document.querySelectorAll('.cleaning-card').forEach(card => {
         card.addEventListener('click', function() {
             document.querySelectorAll('.cleaning-card').forEach(c => {
@@ -1494,8 +1602,32 @@ function initCalculator() {
             }
         });
     });
+}
 
-    // Service selection
+// Настройка счетчиков комнат
+function setupRoomCounters() {
+    document.querySelectorAll('.counter-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const target = this.getAttribute('data-target');
+            const action = this.getAttribute('data-action');
+            
+            if (action === 'increase') {
+                roomCounts[target]++;
+            } else if (action === 'decrease' && roomCounts[target] > 0) {
+                roomCounts[target]--;
+            }
+            
+            document.getElementById(`${target}Count`).textContent = roomCounts[target];
+            calculateTotal();
+        });
+    });
+}
+
+// Настройка дополнительных услуг
+function setupAdditionalServices() {
     document.querySelectorAll('.service-card').forEach(card => {
         card.addEventListener('click', function() {
             this.classList.toggle('selected');
@@ -1518,8 +1650,10 @@ function initCalculator() {
             }
         });
     });
+}
 
-    // Windows selection
+// Настройка выбора окон
+function setupWindowSelection() {
     document.querySelectorAll('.window-option').forEach(option => {
         option.addEventListener('click', function() {
             const type = this.getAttribute('data-type');
@@ -1549,8 +1683,10 @@ function initCalculator() {
             }
         });
     });
+}
 
-    // Navigation
+// Настройка навигации
+function setupNavigation() {
     document.querySelectorAll('.btn-next').forEach(btn => {
         btn.addEventListener('click', function() {
             const nextStep = this.getAttribute('data-next');
@@ -1564,119 +1700,19 @@ function initCalculator() {
             showStep(prevStep);
         });
     });
-
-    
-    // Final order - простое модальное окно
-// Final order - всегда показываем модальное окно
-document.getElementById('finalOrder').addEventListener('click', function() {
-    showSimpleModal();
-});
-
-// Функция показа простого модального окна
-function showSimpleModal() {
-    // Очищаем поля в модалке при каждом открытии
-    document.getElementById('modalName').value = '';
-    document.getElementById('modalPhone').value = '';
-    
-    // Убираем возможную подсветку ошибок
-    document.getElementById('modalName').classList.remove('error');
-    document.getElementById('modalPhone').classList.remove('error');
-    
-    // Показываем модальное окно
-    $('#validationModal').modal('show');
 }
 
-// Функция подтверждения заказа из модального окна
-document.getElementById('confirmFromModal').addEventListener('click', function() {
-    const name = document.getElementById('modalName').value.trim();
-    const phone = document.getElementById('modalPhone').value;
-    
-    if (name && phone) {
-        // Закрываем модальное окно
-        $('#validationModal').modal('hide');
-        
-        // Отправляем заказ
-        submitOrder(name, phone);
-    } else {
-        // Подсвечиваем пустые поля в модалке
-        if (!name) {
-            document.getElementById('modalName').classList.add('error');
-        }
-        if (!phone) {
-            document.getElementById('modalPhone').classList.add('error');
-        }
-        
-        alert('Please fill in both name and phone number.');
-    }
-});
-
-// Общая функция отправки заказа
-function submitOrder(name, phone) {
-    const contactData = { name, phone };
-    const orderData = {
-        cleaningType: currentCleaningType,
-        bedrooms: roomCounts.bedroom,
-        bathrooms: roomCounts.bathroom,
-        additionalServices: selectedServices.map(service => getServiceName(service.service)),
-        windows: {
-            inside: windowSelection.inside ? windowSelection.inside.count : 0,
-            outside: windowSelection.outside ? windowSelection.outside.count : 0,
-            frames: roomCounts.frames
-        },
-        contact: contactData
-    };
-
-    // Отправляем в Telegram
-    sendOrderToTelegram(orderData);
-    
-    if(confirm(`Thank you for your order, ${name}!\nWe will contact you shortly at ${phone}.`)) {
-        $('#calculatorModal').modal('hide');
-        resetCalculator();
-    }
-}
-
-// Убираем подсветку при фокусе в модальном окне
-document.getElementById('modalName').addEventListener('focus', function() {
-    this.classList.remove('error');
-});
-
-document.getElementById('modalPhone').addEventListener('focus', function() {
-    this.classList.remove('error');
-});
-
-    // Initialize
-    showStep('step1');
-    document.querySelector('.cleaning-card').classList.add('selected');
-    document.querySelector('.cleaning-card').setAttribute('aria-pressed', 'true');
-    calculateTotal();
-}
-
-// Counter functions
-function setupCounterHandlers() {
-    document.querySelectorAll('.counter-btn').forEach(btn => {
-        btn.replaceWith(btn.cloneNode(true));
-    });
-    
-    document.querySelectorAll('.counter-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const target = this.getAttribute('data-target');
-            const action = this.getAttribute('data-action');
-            
-            if (action === 'increase') {
-                roomCounts[target]++;
-            } else if (action === 'decrease' && roomCounts[target] > 0) {
-                roomCounts[target]--;
-            }
-            
-            document.getElementById(`${target}Count`).textContent = roomCounts[target];
-            calculateTotal();
+// Настройка кнопки Confirm Order
+function setupConfirmOrderButton() {
+    const finalOrderBtn = document.getElementById('finalOrder');
+    if (finalOrderBtn) {
+        finalOrderBtn.addEventListener('click', function() {
+            showSimpleModal();
         });
-    });
+    }
 }
 
+// Показать шаг
 function showStep(step) {
     document.querySelectorAll('.calculator-step').forEach(s => {
         s.classList.remove('active');
@@ -1692,7 +1728,7 @@ function showStep(step) {
     currentStep = step;
     
     if (step === 'step1' || step === 'step3') {
-        setTimeout(setupCounterHandlers, 100);
+        setTimeout(setupRoomCounters, 100);
     }
     
     if (step === 'step4') {
@@ -1700,6 +1736,7 @@ function showStep(step) {
     }
 }
 
+// Расчет общей суммы
 function calculateTotal() {
     let total = 0;
     
@@ -1732,6 +1769,7 @@ function calculateTotal() {
     document.getElementById('totalAmount').textContent = `€${Math.round(total)}`;
 }
 
+// Обновление сводки
 function updateSummary() {
     let subtotal = 0;
     
@@ -1777,17 +1815,189 @@ function updateSummary() {
     document.getElementById('summaryContent').innerHTML = summary;
 }
 
+// ========== ФУНКЦИИ ДЛЯ МОДАЛЬНОГО ОКНА ЗАКАЗА ==========
 
+// Показать модальное окно заказа
+function showSimpleModal() {
+    // Очищаем поля
+    const modalName = document.getElementById('modalName');
+    const modalPhone = document.getElementById('modalPhone');
+    
+    if (modalName) modalName.value = '';
+    if (modalPhone) modalPhone.value = '';
+    
+    // Убираем подсветку ошибок
+    if (modalName) modalName.classList.remove('error');
+    if (modalPhone) modalPhone.classList.remove('error');
+    
+    // Показываем модальное окно
+    $('#validationModal').modal('show');
+}
 
-// Initialize calculator
-let initialized = false;
-document.addEventListener('DOMContentLoaded', function() {
-    if (!initialized) {
-        $('#calculatorModal').on('shown.bs.modal', initCalculator);
-        
-        initialized = true;
+// Отправка заказа
+function submitOrder(name, phone) {
+    const contactData = { name, phone };
+    const orderData = {
+        cleaningType: currentCleaningType,
+        bedrooms: roomCounts.bedroom,
+        bathrooms: roomCounts.bathroom,
+        additionalServices: selectedServices.map(service => getServiceName(service.service)),
+        windows: {
+            inside: windowSelection.inside ? windowSelection.inside.count : 0,
+            outside: windowSelection.outside ? windowSelection.outside.count : 0,
+            frames: roomCounts.frames
+        },
+        contact: contactData
+    };
+
+    // Отправляем в Telegram
+    sendOrderToTelegram(orderData);
+    
+    if(confirm(`Thank you for your order, ${name}!\nWe will contact you shortly at ${phone}.`)) {
+        $('#calculatorModal').modal('hide');
+        resetCalculator();
     }
+}
+
+// ========== TELEGRAM ФУНКЦИИ ==========
+
+function getCleaningTypeName(type) {
+    const types = {
+        'standard': 'Standard Cleaning',
+        'deep': 'Deep Cleaning',
+        'renovation': 'After Renovation'
+    };
+    return types[type] || type;
+}
+
+function getServiceName(service) {
+    const services = {
+        'standard': 'Standard Cleaning',
+        'deep': 'Deep Cleaning',
+        'renovation': 'After Renovation',
+        'windows': 'Window Cleaning',
+        'other': 'Other',
+        'oven': 'Oven Cleaning',
+        'microwave': 'Microwave Cleaning',
+        'fridge': 'Fridge Cleaning',
+        'chemical': 'Chemical Cleaning',
+        'cabinets': 'Kitchen Cabinets',
+        '': 'Not specified'
+    };
+    return services[service] || service;
+}
+
+async function sendOrderToTelegram(orderData) {
+    let subtotal = 0;
+    subtotal += roomCounts.bedroom * prices[currentCleaningType].bedroom;
+    subtotal += roomCounts.bathroom * prices[currentCleaningType].bathroom;
+    subtotal += fixedPrices[currentCleaningType].livingRoom;
+    subtotal += fixedPrices[currentCleaningType].kitchen;
+    
+    selectedServices.forEach(service => {
+        subtotal += service.price;
+    });
+    
+    if (windowSelection.inside) {
+        subtotal += windowSelection.inside.price;
+    }
+    if (windowSelection.outside) {
+        subtotal += windowSelection.outside.price;
+    }
+    subtotal += roomCounts.frames * 10;
+    
+    const discount = isFirstOrder && subtotal > 0 ? subtotal * 0.15 : 0;
+    const finalPrice = subtotal - discount;
+
+    const message = `
+🆕 NEW ORDER FROM WEBSITE
+
+👤 Client: ${orderData.contact.name}
+📞 Phone: ${orderData.contact.phone}
+
+🧹 Cleaning Type: ${getCleaningTypeName(orderData.cleaningType)}
+🏠 Rooms: ${orderData.bedrooms} bedrooms, ${orderData.bathrooms} bathrooms
+➕ Additional Services: ${orderData.additionalServices.join(', ') || 'none'}
+🪟 Windows: ${orderData.windows.inside || 0} inside, ${orderData.windows.outside || 0} outside, ${orderData.windows.frames || 0} frames
+
+💰 Price before discount: €${Math.round(subtotal)}
+🎁 15% Discount: -€${Math.round(discount)}
+💳 Final Price: €${Math.round(finalPrice)}
+
+${isFirstOrder ? '🎉 FIRST ORDER - 15% discount applied!' : ''}
+
+⏰ Order Time: ${new Date().toLocaleString('en-IE')}
+    `;
+
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: message
+            })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Error:', error);
+        return {ok: false};
+    }
+}
+
+// ========== ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ ==========
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Настройка обработчиков для модального окна подтверждения
+    const confirmBtn = document.getElementById('confirmFromModal');
+    if (confirmBtn) {
+        confirmBtn.addEventListener('click', function() {
+            const name = document.getElementById('modalName').value.trim();
+            const phone = document.getElementById('modalPhone').value;
+            
+            if (name && phone) {
+                $('#validationModal').modal('hide');
+                submitOrder(name, phone);
+            } else {
+                if (!name) document.getElementById('modalName').classList.add('error');
+                if (!phone) document.getElementById('modalPhone').classList.add('error');
+                alert('Please fill in both name and phone number.');
+            }
+        });
+    }
+    
+    // 2. Убираем подсветку ошибок при фокусе
+    const modalName = document.getElementById('modalName');
+    const modalPhone = document.getElementById('modalPhone');
+    
+    if (modalName) {
+        modalName.addEventListener('focus', function() {
+            this.classList.remove('error');
+        });
+    }
+    
+    if (modalPhone) {
+        modalPhone.addEventListener('focus', function() {
+            this.classList.remove('error');
+        });
+    }
+    
+    // 3. Обработчики для модального окна калькулятора
+    $('#calculatorModal').on('show.bs.modal', function() {
+        resetCalculator();
+    });
+    
+    $('#calculatorModal').on('shown.bs.modal', function() {
+        setTimeout(initCalculator, 100);
+    });
+    
+    $('#calculatorModal').on('hidden.bs.modal', function() {
+        resetCalculator();
+    });
 });
+       
 
 // Telegram Functions
 function getCleaningTypeName(type) {
@@ -2451,6 +2661,8 @@ hero.addEventListener('touchmove', (e) => {
 
 document.addEventListener('DOMContentLoaded', initHeroMagic);
    
+
+
     </script>   
     
    <div class="floating-social">
@@ -2565,5 +2777,3 @@ document.addEventListener('DOMContentLoaded', initHeroMagic);
     
 </body>
 </html>
-
-
