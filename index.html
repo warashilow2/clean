@@ -73,6 +73,21 @@
 
   gtag('config', 'G-EGYSK3HKDK');
 </script>
+
+<style>
+    /* Блокировка прокрутки для слайдера до/после */
+    .ba-comparison {
+        touch-action: pan-y !important;
+        -ms-touch-action: pan-y !important;
+    }
+    
+    @media (max-width: 768px) {
+        .ba-comparison {
+            touch-action: none !important;
+            -ms-touch-action: none !important;
+        }
+    }
+</style>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -80,77 +95,112 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Navigation Bar -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-burgundy" role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <a class="navbar-brand" href="#home" aria-label="Professional Cleaning Services Dublin - Home">
-                <img src="images/logo.png" alt="Professional Cleaning Services Dublin - Premium Cleaning Services" class="nav-logo" width="120" height="70">
-            </a>
+   <!-- Navigation Bar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-burgundy" role="navigation" aria-label="Main navigation">
+    <div class="container">
+        <!-- Левая часть: логотип -->
+        <a class="navbar-brand" href="#home" aria-label="Professional Cleaning Services Dublin - Home">
+            <img src="images/logo.png" alt="Professional Cleaning Services Dublin - Premium Cleaning Services" class="nav-logo" width="120" height="70">
+        </a>
+        
+        <!-- Центральная часть: телефон (только для мобильных) -->
+        <!-- Центральная часть: телефон (только для мобильных) -->
+<div class="navbar-phone-center">
+    <a href="tel:+353874838743" class="call-btn-mobile">
+        <div class="call-us-block">
+            <i class="fas fa-phone-volume"></i>
+            <span>CALL US</span>
+        </div>
+        <span class="phone-number">+353 87 483 8743</span>
+    </a>
+</div>
+        
+        <!-- Правая часть: бургер и десктопный телефон -->
+        <div class="navbar-right">
+            <!-- Телефон для десктопа (скрыт на мобильных) -->
+           
+            
+            <!-- Кнопка бургер -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
-    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-    <li class="nav-item"><a class="nav-link" href="#before-after">Before & After</a></li>
-    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
-    <li class="nav-item"><a class="nav-link" href="#callback">Callback</a></li>
-    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-               </ul>
-                <div class="calculator-dropdown">
-                    <button class="btn btn-calculator-nav" type="button" data-toggle="modal" data-target="#calculatorModal" aria-label="Open cost calculator">
-                        <i class="fas fa-calculator me-2" aria-hidden="true"></i>
-                        <span class="calculator-text">Cost Calculator</span>
-                        <i class="fas fa-bolt ms-2" aria-hidden="true"></i>
-                    </button>
-                </div>
+        </div>
+        
+        
+        <!-- <div class="phone-mobile d-lg-none ms-auto me-3"> ... </div> -->
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#before-after">Before & After</a></li>
+                <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="#callback">Callback</a></li>
+                <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+             <div class="phone-desktop">
+    <a href="tel:+353874838743" class="call-btn">
+        <div class="call-us-block">
+            <i class="fas fa-phone-volume"></i>
+            <span>CALL US</span>
+        </div>
+        <span class="phone-number">+353 87 483 8743</span>
+    </a>
+</div>
+            <div class="calculator-dropdown">
+                <button class="btn btn-calculator-nav" type="button" data-toggle="modal" data-target="#calculatorModal" aria-label="Open cost calculator">
+                    <i class="fas fa-calculator me-2" aria-hidden="true"></i>
+                    <span class="calculator-text">Cost Calculator</span>
+                    <i class="fas fa-bolt ms-2" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Main Content -->
     <main id="main-content">
         <!-- Home Section with Carousel -->
-        <!-- Minimal Hero with Wow Effect -->
-<section id="home" class="minimal-hero">
-    <div class="hero-background"></div>
-    
-    <!-- Частицы как в slogan-banner -->
-    <div class="minimal-hero-particles" id="minimalParticles"></div>
-    
-    <div class="container">
-        <div class="hero-content text-center">
-            <!-- Главный заголовок - супер минимал -->
-            <h1 class="main-title">
-                <span class="title-line">Dublin</span>
-                <span class="title-line accent">Professional</span>
-                <span class="title-line">Cleaning</span>
-            </h1>
-            
-            <!-- Живой счетчик - максимально просто -->
-            <div class="live-counter">
-                <div class="counter-number" id="liveCounter">-</div>
-                <div class="counter-text">spots left this week</div>
+        
+        <!-- Carousel Hero Section -->
+<section id="home" class="carousel-hero">
+  <div class="carousel-container">
+        <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active" data-color="red">
+                    <img class="d-block w-100" src="images/price.jpg" alt="Red Dragon PC">
+                    <div class="carousel-caption">
+                      
+                    </div>
+                </div>
+                <div class="carousel-item" data-color="green">
+                    <img class="d-block w-100" src="images/2222.png" alt="Green Devil PC">
+                   
+                </div>
+                <div class="carousel-item" data-color="red">
+                    <img class="d-block w-100" src="images/3333.jpg" alt="Game Killer PC">
+                    <div class="carousel-caption">
+                       
+                    </div>
+                </div>
             </div>
-            
-            <!-- Единственная кнопка CTA -->
-            <button class="magnetic-btn" data-toggle="modal" data-target="#calculatorModal">
-                <span class="btn-text">Secure Your Spot</span>
-                <span class="btn-arrow">→</span>
-            </button>
-            
-            <!-- Микро-социальное доказательство -->
-            <div class="micro-proof">
-                ⭐ 4.7 • Booked 187+ times in Dublin
-            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
-    
-    <!-- Интерактивный элемент "вау" -->
-    <div class="floating-sparkle" id="sparkle"></div>
 </section>
-        
 
         <!-- Mobile Calculator Button -->
         <div class="mobile-calculator-btn">
@@ -637,7 +687,7 @@
 
                 <div class="discount-badge" id="discountBadge" style="display: none;">
                     <i class="fas fa-tag me-1" aria-hidden="true"></i>
-                    15% Discount Applied!
+                   
                 </div>
 
                 <!-- Step 1: Cleaning Type -->
@@ -1479,7 +1529,7 @@ let selectedServices = [];
 let currentCleaningType = 'standard';
 let roomCounts = { bedroom: 0, bathroom: 0, frames: 0 };
 let windowSelection = { inside: null, outside: null };
-let isFirstOrder = true;
+
 
 // Функция сброса калькулятора
 function resetCalculator() {
@@ -1746,73 +1796,32 @@ function showStep(step) {
 }
 
 // Расчет общей суммы
-function calculateTotal() {
-    let total = 0;
-    
-    total += roomCounts.bedroom * prices[currentCleaningType].bedroom;
-    total += roomCounts.bathroom * prices[currentCleaningType].bathroom;
-    total += fixedPrices[currentCleaningType].livingRoom;
-    total += fixedPrices[currentCleaningType].kitchen;
-    
-    selectedServices.forEach(service => {
-        total += service.price;
-    });
-    
-    if (windowSelection.inside) {
-        total += windowSelection.inside.price;
-    }
-    if (windowSelection.outside) {
-        total += windowSelection.outside.price;
-    }
-    total += roomCounts.frames * 10;
-    
-    let discount = 0;
-    if (isFirstOrder && total > 0) {
-        discount = total * 0.15;
-        total -= discount;
-        document.getElementById('discountBadge').style.display = 'block';
-    } else {
-        document.getElementById('discountBadge').style.display = 'none';
-    }
-    
-    document.getElementById('totalAmount').textContent = `€${Math.round(total)}`;
-}
 
 // Обновление сводки
+// Обновление сводки
 function updateSummary() {
-    let subtotal = 0;
+    let finalTotal = 0; // Используем subtotal как финальную цену
     
-    subtotal += roomCounts.bedroom * prices[currentCleaningType].bedroom;
-    subtotal += roomCounts.bathroom * prices[currentCleaningType].bathroom;
-    subtotal += fixedPrices[currentCleaningType].livingRoom;
-    subtotal += fixedPrices[currentCleaningType].kitchen;
+    finalTotal += roomCounts.bedroom * prices[currentCleaningType].bedroom;
+    finalTotal += roomCounts.bathroom * prices[currentCleaningType].bathroom;
+    finalTotal += fixedPrices[currentCleaningType].livingRoom;
+    finalTotal += fixedPrices[currentCleaningType].kitchen;
     
     selectedServices.forEach(service => {
-        subtotal += service.price;
+        finalTotal += service.price;
     });
     
     if (windowSelection.inside) {
-        subtotal += windowSelection.inside.price;
+        finalTotal += windowSelection.inside.price;
     }
     if (windowSelection.outside) {
-        subtotal += windowSelection.outside.price;
+        finalTotal += windowSelection.outside.price;
     }
-    subtotal += roomCounts.frames * 10;
-    
-    let discount = 0;
-    let finalTotal = subtotal;
-    if (isFirstOrder && subtotal > 0) {
-        discount = subtotal * 0.15;
-        finalTotal = subtotal - discount;
-    }
+    finalTotal += roomCounts.frames * 10;
     
     const summary = `
         <div class="summary-total">
             <div class="total-label">Your Cleaning Service Total</div>
-            ${discount > 0 ? `
-            <div class="original-price">€${Math.round(subtotal)}</div>
-            <div class="discount-line">-15% First Order Discount: -€${Math.round(discount)}</div>
-            ` : ''}
             <div class="total-amount">€${Math.round(finalTotal)}</div>
             <div class="total-note">
                 Thank you for your order!<br>
@@ -2455,222 +2464,7 @@ document.addEventListener('DOMContentLoaded', initInteractiveBanner);
             }
         });
     });
-
-
-
-
-    // Minimal Hero Interactions
-function initMinimalHero() {
-    initMagneticButton();
-    initSparkleEffect();
-    initSlotsSystem();
-}
-
-// Магнитный эффект кнопки
-function initMagneticButton() {
-    const btn = document.querySelector('.magnetic-btn');
-    if (!btn) return;
     
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const angleX = (y - centerY) / 10;
-        const angleY = (centerX - x) / 10;
-        
-        btn.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-2px)`;
-    });
-    
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-    });
-}
-
-// Эффект искр при движении мыши
-function initSparkleEffect() {
-    const hero = document.querySelector('.minimal-hero');
-    if (!hero) return;
-    
-    hero.addEventListener('mousemove', (e) => {
-        if (Math.random() < 0.2) {
-            createSparkle(e.clientX, e.clientY);
-        }
-    });
-}
-
-function createSparkle(x, y) {
-    const sparkle = document.createElement('div');
-    sparkle.className = 'floating-sparkle';
-    
-    const size = Math.random() * 3 + 2;
-    const duration = Math.random() * 2 + 1;
-    
-    sparkle.style.width = `${size}px`;
-    sparkle.style.height = `${size}px`;
-    sparkle.style.left = `${x}px`;
-    sparkle.style.top = `${y}px`;
-    sparkle.style.animation = `sparkle ${duration}s ease-out forwards`;
-    
-    document.querySelector('.minimal-hero').appendChild(sparkle);
-    
-    setTimeout(() => {
-        if (sparkle.parentNode) {
-            sparkle.parentNode.removeChild(sparkle);
-        }
-    }, duration * 1000);
-}
-
-// ===== ГЛОБАЛЬНЫЕ СЛОТЫ — РАБОТАЕТ НА ВСЕХ УСТРОЙСТВАХ СРАЗУ =====
-const firebaseConfig = {
-  apiKey: "AIzaSyD00K5QkmU5D3g3NWneoX0alzYGNU3-lw",
-  authDomain: "dublin-cleaning-2025.firebaseapp.com",
-  databaseURL: "https://dublin-cleaning-2025-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "dublin-cleaning-2025",
-  storageBucket: "dublin-cleaning-2025.appspot.com",
-  messagingSenderId: "735214598",
-  appId: "1:735214598:web:588a3d10f5600d93665787"
-};
-
-firebase.initializeApp(firebaseConfig);
-const slotsRef = firebase.database().ref('slots');
-
-// Автоматически обновляет число на всех устройствах
-slotsRef.on('value', (snap) => {
-  const slots = snap.val() !== null ? snap.val() : 0;
-  const counter = document.getElementById('liveCounter');
-  if (counter) {
-    counter.textContent = slots;
-    counter.classList.toggle('critical', slots === 0);
-    counter.classList.toggle('low', slots > 0 && slots <= 3);
-  }
-});
-
-// Твои команды (вводишь в консоль браузера на любом устройстве)
-window.setGlobalSlots = (n) => {
-  if (Number.isInteger(Number(n)) && n >= 0) {
-    slotsRef.set(Number(n));
-    console.log(`Глобально установлено: ${n} слотов`);
-  } else {
-    console.error('Введи целое число от 0 и выше');
-  }
-};
-
-window.getGlobalSlots = () => {
-  slotsRef.once('value').then(s => console.log('Текущее значение:', s.val()));
-};
-// ============================================================
-
-    
-
-function initHeroMagic() {
-    const hero = document.querySelector('.minimal-hero');
-    const particlesContainer = document.getElementById('minimalParticles');
-    if (!hero || !particlesContainer) return;
-
-    // 1. Фоновые точки — вернули и сделали чуть поярче
-    particlesContainer.innerHTML = '';
-    for (let i = 0; i < 50; i++) {
-        const p = document.createElement('div');
-        p.className = 'minimal-hero-particle';
-        p.style.cssText = `
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(255,255,255,0.9);
-            border-radius: 50%;
-            pointer-events: none;
-            box-shadow: 0 0 6px rgba(255,255,255,0.6);
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-            animation: minimal-float 12s infinite linear;
-            animation-delay: ${Math.random() * 10}s;
-        `;
-        particlesContainer.appendChild(p);
-    }
-
-    // 2. Искры — теперь точно под курсором и их больше, но всё ещё элегантно
-    let throttle = false;
-
-    function createSparkle(x, y) {
-        for (let i = 0; i < 3; i++) {  // 3 искры за раз
-            const sparkle = document.createElement('div');
-            const size = 2.5 + Math.random() * 2;
-            const angle = -1.2 + Math.random() * 2.4; // в основном вверх и в стороны
-            const distance = 25 + Math.random() * 35;
-
-            sparkle.style.cssText = `
-                position: absolute;
-                width: ${size}px;
-                height: ${size}px;
-                background: white;
-                border-radius: 50%;
-                pointer-events: none;
-                left: ${x}px;
-                top: ${y}px;
-                box-shadow: 0 0 10px rgba(255,255,255,1);
-                transform: translate(-50%, -50%);
-                opacity: 0;
-            `;
-
-            hero.appendChild(sparkle);
-
-            let start = null;
-            const duration = 600 + Math.random() * 300;
-
-            function frame(time) {
-                if (!start) start = time;
-                const t = (time - start) / duration;
-                if (t > 1) {
-                    sparkle.remove();
-                    return;
-                }
-
-                const offsetX = Math.cos(angle) * distance * t;
-                const offsetY = Math.sin(angle) * distance * t - 40 * t * t; // красивая парабола
-
-                sparkle.style.transform = `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px) scale(${1 - t * 0.5})`;
-                sparkle.style.opacity = 1 - t;
-
-                requestAnimationFrame(frame);
-            }
-            requestAnimationFrame(frame);
-        }
-    }
-
-    // Мышка — теперь точно под курсором
-hero.addEventListener('mousemove', (e) => {
-    if (throttle) return;
-    throttle = true;
-    requestAnimationFrame(() => throttle = false);
-
-    const rect = hero.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    if (Math.random() < 0.7) {
-        createSparkle(x, y);
-    }
-});
-
-// Тач — тоже точно под пальцем
-hero.addEventListener('touchmove', (e) => {
-    e.preventDefault();
-    const t = e.touches[0];
-    const rect = hero.getBoundingClientRect();
-    const x = t.clientX - rect.left;
-    const y = t.clientY - rect.top;
-
-    createSparkle(x, y);
-}, { passive: false });
-};
-
-document.addEventListener('DOMContentLoaded', initHeroMagic);
-   
-
 
     </script>   
     
@@ -2786,6 +2580,7 @@ document.addEventListener('DOMContentLoaded', initHeroMagic);
     
 </body>
 </html>
+
 
 
 
