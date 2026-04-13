@@ -1892,46 +1892,74 @@ function showSimpleModal() {
 }
 
 // Отправка заказа
+// ========== ПОЛНАЯ ФИНАЛЬНАЯ ВЕРСИЯ submitOrder с CAPI ==========
 function submitOrder(name, phone) {
-    const contactData = { name, phone };
+    const totalAmount = parseFloat(document.getElementById('totalAmount').textContent.replace('€', '').trim()) || 45;
 
+    // Подготовка данных для Stape CAPI
+    const eventData = {
+        event_name: 'Lead',
+        event_time: Math.floor(Date.now() / 1000),
+        action_source: 'website',
+        event_source_url: window.location.href,
+        user_data: {
+            ph: phone.replace(/\D/g, ''),   // только цифры
+            fn: name.toLowerCase().trim(),
+        },
+        custom_data: {
+            value: totalAmount,
+            currency: 'EUR',
+            content_name: 'Cleaning Booking',
+            content_category: getCleaningTypeName(currentCleaningType) || 'Cleaning Service'
+        }
+    };
+
+    // 1. Браузерный Meta Pixel
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            value: totalAmount,
+            currency: 'EUR',
+            content_name: 'Cleaning Booking',
+            first_name: name,
+            phone: phone
+        });
+    }
+
+    // 2. Отправка через Stape Conversions API
+    fetch('https://capig.stape.pro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(eventData)
+    })
+    .then(r => {
+        if (r.ok) console.log('✅ Lead успешно отправлен через Stape CAPI');
+        else console.warn('⚠️ Stape ответил с ошибкой:', r.status);
+    })
+    .catch(err => console.error('❌ Ошибка отправки в Stape:', err));
+
+    // 3. Отправка в Telegram
     const orderData = {
         cleaningType: currentCleaningType,
         bedrooms: roomCounts.bedroom,
         bathrooms: roomCounts.bathroom,
-        additionalServices: selectedServices.map(service => getServiceName(service.service)),
+        additionalServices: selectedServices.map(s => getServiceName(s.service)),
         windows: {
             inside: windowSelection.inside ? windowSelection.inside.count : 0,
             outside: windowSelection.outside ? windowSelection.outside.count : 0,
             frames: roomCounts.frames
         },
-        contact: contactData
+        contact: { name, phone }
     };
-
-    // META PIXEL - Lead (CAPIG автоматически подхватит это событие)
-    if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead', {
-            value: 45,
-            currency: 'EUR',
-            content_name: 'Cleaning Booking',
-            content_category: getCleaningTypeName(currentCleaningType) || 'Cleaning Service',
-            first_name: name,
-            phone: phone,
-            lead_type: 'Website Form'
-        });
-    }
-
-    // Отправка в Telegram
     sendOrderToTelegram(orderData);
 
-    // Закрываем модальное окно ввода данных
+    // 4. UI — закрываем окна и показываем красивый поп-ап
     $('#validationModal').modal('hide');
     
-    // Показываем красивый поп-ап успеха
+    // Показываем поп-ап успеха
     $('#successModal').modal('show');
 
-    // Сброс калькулятора после закрытия успеха
-    $('#successModal').on('hidden.bs.modal', function() {
+    // После закрытия успеха — полностью сбрасываем калькулятор
+    $('#successModal').one('hidden.bs.modal', function() {
         $('#calculatorModal').modal('hide');
         resetCalculator();
     });
