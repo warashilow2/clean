@@ -1892,74 +1892,57 @@ function showSimpleModal() {
 }
 
 // Отправка заказа
-// ========== ПОЛНАЯ ФИНАЛЬНАЯ ВЕРСИЯ submitOrder с CAPI ==========
-function submitOrder(name, phone) {
-    const totalAmount = parseFloat(document.getElementById('totalAmount').textContent.replace('€', '').trim()) || 45;
 
-    // Подготовка данных для Stape CAPI
-    const eventData = {
-        event_name: 'Lead',
-        event_time: Math.floor(Date.now() / 1000),
-        action_source: 'website',
-        event_source_url: window.location.href,
-        user_data: {
-            ph: phone.replace(/\D/g, ''),   // только цифры
-            fn: name.toLowerCase().trim(),
-        },
-        custom_data: {
-            value: totalAmount,
-            currency: 'EUR',
-            content_name: 'Cleaning Booking',
-            content_category: getCleaningTypeName(currentCleaningType) || 'Cleaning Service'
-        }
-    };
-
-    // 1. Браузерный Meta Pixel
+async function submitOrder(name, phone) {
+    const contactData = { name, phone };
+    
+    // Получаем email если есть
+    const email = document.getElementById('email') ? document.getElementById('email').value : '';
+    
+    // Рассчитываем финальную цену
+    let finalPrice = calculateTotal();
+    
+    // ===== META PIXEL - Lead (только клиентская отправка) =====
     if (typeof fbq !== 'undefined') {
+        const eventId = `lead_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        
         fbq('track', 'Lead', {
-            value: totalAmount,
+            value: finalPrice,
             currency: 'EUR',
             content_name: 'Cleaning Booking',
+            content_category: getCleaningTypeName(currentCleaningType),
             first_name: name,
             phone: phone
-        });
+        }, { eventID: eventId });
+        
+        console.log('✅ Meta Pixel: Lead event sent');
     }
-
-    // 2. Отправка через Stape Conversions API
-    fetch('https://capig.stape.pro', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(eventData)
-    })
-    .then(r => {
-        if (r.ok) console.log('✅ Lead успешно отправлен через Stape CAPI');
-        else console.warn('⚠️ Stape ответил с ошибкой:', r.status);
-    })
-    .catch(err => console.error('❌ Ошибка отправки в Stape:', err));
-
-    // 3. Отправка в Telegram
+    
+    // Отправка в Telegram
     const orderData = {
         cleaningType: currentCleaningType,
         bedrooms: roomCounts.bedroom,
         bathrooms: roomCounts.bathroom,
-        additionalServices: selectedServices.map(s => getServiceName(s.service)),
+        additionalServices: selectedServices.map(service => getServiceName(service.service)),
         windows: {
             inside: windowSelection.inside ? windowSelection.inside.count : 0,
             outside: windowSelection.outside ? windowSelection.outside.count : 0,
             frames: roomCounts.frames
         },
-        contact: { name, phone }
+        contact: contactData,
+        totalPrice: finalPrice
     };
-    sendOrderToTelegram(orderData);
-
-    // 4. UI — закрываем окна и показываем красивый поп-ап
+    
+    await sendOrderToTelegram(orderData);
+    
+    // Закрываем модальное окно ввода данных
     $('#validationModal').modal('hide');
     
-    // Показываем поп-ап успеха
+    // Показываем попап успеха
     $('#successModal').modal('show');
-
-    // После закрытия успеха — полностью сбрасываем калькулятор
-    $('#successModal').one('hidden.bs.modal', function() {
+    
+    // Сброс калькулятора после закрытия успеха
+    $('#successModal').on('hidden.bs.modal', function() {
         $('#calculatorModal').modal('hide');
         resetCalculator();
     });
