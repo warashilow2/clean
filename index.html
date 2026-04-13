@@ -1896,24 +1896,6 @@ function showSimpleModal() {
 function submitOrder(name, phone) {
     const totalAmount = parseFloat(document.getElementById('totalAmount').textContent.replace('€', '').trim()) || 45;
 
-    // Подготовка данных для Stape CAPI
-    const eventData = {
-        event_name: 'Lead',
-        event_time: Math.floor(Date.now() / 1000),
-        action_source: 'website',
-        event_source_url: window.location.href,
-        user_data: {
-            ph: phone.replace(/\D/g, ''),   // только цифры
-            fn: name.toLowerCase().trim(),
-        },
-        custom_data: {
-            value: totalAmount,
-            currency: 'EUR',
-            content_name: 'Cleaning Booking',
-            content_category: getCleaningTypeName(currentCleaningType) || 'Cleaning Service'
-        }
-    };
-
     // 1. Браузерный Meta Pixel
     if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead', {
@@ -1925,19 +1907,7 @@ function submitOrder(name, phone) {
         });
     }
 
-    // 2. Отправка через Stape Conversions API
-    fetch('https://capig.stape.pro', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(eventData)
-    })
-    .then(r => {
-        if (r.ok) console.log('✅ Lead успешно отправлен через Stape CAPI');
-        else console.warn('⚠️ Stape ответил с ошибкой:', r.status);
-    })
-    .catch(err => console.error('❌ Ошибка отправки в Stape:', err));
-
-    // 3. Отправка в Telegram
+    // 2. Отправка в Telegram
     const orderData = {
         cleaningType: currentCleaningType,
         bedrooms: roomCounts.bedroom,
@@ -1952,10 +1922,8 @@ function submitOrder(name, phone) {
     };
     sendOrderToTelegram(orderData);
 
-    // 4. UI — закрываем окна и показываем красивый поп-ап
+    // 3. UI — закрываем окна и показываем красивый поп-ап
     $('#validationModal').modal('hide');
-    
-    // Показываем поп-ап успеха
     $('#successModal').modal('show');
 
     // После закрытия успеха — полностью сбрасываем калькулятор
