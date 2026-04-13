@@ -1892,7 +1892,6 @@ function showSimpleModal() {
 }
 
 // Отправка заказа
-// Отправка заказа + красивый поп-ап
 function submitOrder(name, phone) {
     const contactData = { name, phone };
 
@@ -1909,7 +1908,7 @@ function submitOrder(name, phone) {
         contact: contactData
     };
 
-    // 1. META PIXEL - Lead (браузерный пиксель)
+    // META PIXEL - Lead (CAPIG автоматически подхватит это событие)
     if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead', {
             value: 45,
@@ -1922,49 +1921,21 @@ function submitOrder(name, phone) {
         });
     }
 
-    // 2. CONVERSIONS API - Lead (серверная отправка через Stape)
-    // Это НОВЫЙ блок, который мы добавляем
-    const capiData = {
-        event_name: 'Lead',
-        event_time: Math.floor(Date.now() / 1000),
-        action_source: 'website',
-        event_source_url: window.location.href,
-        user_data: {
-            ph: phone,
-            client_user_agent: navigator.userAgent
-        },
-        custom_data: {
-            value: 45,
-            currency: 'EUR',
-            content_name: 'Cleaning Booking',
-            first_name: name,
-            phone: phone
-        }
-    };
-
-    // Отправляем в твой Gateway
-    fetch('https://jdna-hvte.stape.pro/events', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(capiData)
-    }).catch(e => console.log('CAPI Error:', e));
-
-    // 3. Отправка в Telegram
+    // Отправка в Telegram
     sendOrderToTelegram(orderData);
 
-    // 4. Закрываем модальное окно ввода данных
+    // Закрываем модальное окно ввода данных
     $('#validationModal').modal('hide');
     
-    // 5. Показываем красивый поп-ап успеха
+    // Показываем красивый поп-ап успеха
     $('#successModal').modal('show');
 
-    // 6. Сброс калькулятора после закрытия успеха
+    // Сброс калькулятора после закрытия успеха
     $('#successModal').on('hidden.bs.modal', function() {
         $('#calculatorModal').modal('hide');
         resetCalculator();
     });
 }
-
 // ========== TELEGRAM ФУНКЦИИ ==========
 
 function getCleaningTypeName(type) {
