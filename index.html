@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-IE" itemscope itemtype="http://schema.org/LocalBusiness">
 <head>
+
+    
     <meta charset="utf-8">
+    
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '892305780520567');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=892305780520567&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Primary Meta Tags -->
+
+     <!-- Primary Meta Tags -->
     <title>Professional Cleaning Services Dublin | Home & Office Cleaning</title>
     <meta name="description" content="Premium cleaning services in Dublin. Deep cleaning, after renovation, window cleaning. Fast, reliable, insured cleaners. Get your free quote today!">
     <meta name="keywords" content="cleaning services dublin, house cleaning dublin, office cleaning dublin, deep cleaning, window cleaning, after renovation cleaning">
@@ -54,7 +76,7 @@
     <!-- Google Fonts: Playfair Display -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/styles.css">
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -94,7 +116,7 @@
     <!-- Skip to main content for accessibility -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- Navigation Bar -->
+   
    <!-- Navigation Bar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-burgundy" role="navigation" aria-label="Main navigation">
     <div class="container">
@@ -103,7 +125,7 @@
             <img src="images/logo.png" alt="Professional Cleaning Services Dublin - Premium Cleaning Services" class="nav-logo" width="120" height="70">
         </a>
         
-        <!-- Центральная часть: телефон (только для мобильных) -->
+        
         <!-- Центральная часть: телефон (только для мобильных) -->
 <div class="navbar-phone-center">
     <a href="tel:+353874838743" class="call-btn-mobile">
@@ -1772,6 +1794,7 @@ function setupConfirmOrderButton() {
 }
 
 // Показать шаг
+// Показать шаг
 function showStep(step) {
     document.querySelectorAll('.calculator-step').forEach(s => {
         s.classList.remove('active');
@@ -1780,21 +1803,37 @@ function showStep(step) {
     });
     
     const currentStepElement = document.getElementById(step);
-    currentStepElement.style.display = 'block';
-    currentStepElement.removeAttribute('hidden');
-    setTimeout(() => currentStepElement.classList.add('active'), 50);
+    if (currentStepElement) {
+        currentStepElement.style.display = 'block';
+        currentStepElement.removeAttribute('hidden');
+        
+        setTimeout(() => {
+            currentStepElement.classList.add('active');
+        }, 50);
+    }
     
     currentStep = step;
     
-    if (step === 'step1' || step === 'step3') {
-        setTimeout(setupRoomCounters, 100);
-    }
-    
+    // === META EVENTS ===
     if (step === 'step4') {
         updateSummary();
+        
+        // Событие InitiateCheckout — человек начал оформление заказа
+        if (typeof fbq !== 'undefined') {
+            const totalAmount = document.getElementById('totalAmount') 
+                ? parseFloat(document.getElementById('totalAmount').textContent.replace('€', '').trim()) || 0 
+                : 0;
+
+            fbq('track', 'InitiateCheckout', {
+                value: totalAmount,
+                currency: 'EUR',
+                content_name: 'Cleaning Cost Calculator'
+            });
+        }
     }
 }
-
+    
+ 
 // Расчет общей суммы
 
 // Обновление сводки
@@ -1853,8 +1892,10 @@ function showSimpleModal() {
 }
 
 // Отправка заказа
+// Отправка заказа + красивый поп-ап
 function submitOrder(name, phone) {
     const contactData = { name, phone };
+
     const orderData = {
         cleaningType: currentCleaningType,
         bedrooms: roomCounts.bedroom,
@@ -1868,13 +1909,60 @@ function submitOrder(name, phone) {
         contact: contactData
     };
 
-    // Отправляем в Telegram
+    // 1. META PIXEL - Lead (браузерный пиксель)
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            value: 45,
+            currency: 'EUR',
+            content_name: 'Cleaning Booking',
+            content_category: getCleaningTypeName(currentCleaningType) || 'Cleaning Service',
+            first_name: name,
+            phone: phone,
+            lead_type: 'Website Form'
+        });
+    }
+
+    // 2. CONVERSIONS API - Lead (серверная отправка через Stape)
+    // Это НОВЫЙ блок, который мы добавляем
+    const capiData = {
+        event_name: 'Lead',
+        event_time: Math.floor(Date.now() / 1000),
+        action_source: 'website',
+        event_source_url: window.location.href,
+        user_data: {
+            ph: phone,
+            client_user_agent: navigator.userAgent
+        },
+        custom_data: {
+            value: 45,
+            currency: 'EUR',
+            content_name: 'Cleaning Booking',
+            first_name: name,
+            phone: phone
+        }
+    };
+
+    // Отправляем в твой Gateway
+    fetch('https://jdna-hvte.stape.pro/events', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(capiData)
+    }).catch(e => console.log('CAPI Error:', e));
+
+    // 3. Отправка в Telegram
     sendOrderToTelegram(orderData);
+
+    // 4. Закрываем модальное окно ввода данных
+    $('#validationModal').modal('hide');
     
-    if(confirm(`Thank you for your order, ${name}!\nWe will contact you shortly at ${phone}.`)) {
+    // 5. Показываем красивый поп-ап успеха
+    $('#successModal').modal('show');
+
+    // 6. Сброс калькулятора после закрытия успеха
+    $('#successModal').on('hidden.bs.modal', function() {
         $('#calculatorModal').modal('hide');
         resetCalculator();
-    }
+    });
 }
 
 // ========== TELEGRAM ФУНКЦИИ ==========
@@ -2576,11 +2664,32 @@ document.addEventListener('DOMContentLoaded', initInteractiveBanner);
   </div>
 </div>
 
-
+<!-- Success Popup after order -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content success-modal">
+      <div class="modal-body text-center py-5">
+        <div class="success-icon mb-4">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h4 class="mb-3">Thank you! Your order has been accepted!</h4>
+        <p class="lead mb-4">
+          We will call you back within <strong>10 minutes</strong>
+        </p>
+        <p class="text-muted mb-4">
+          A manager will contact you to confirm the details and cleaning time
+        </p>
+        
+        <button type="button" class="btn btn-success btn-lg px-5" data-dismiss="modal">
+          Okay
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
     
 </body>
 </html>
-
 
 
 
