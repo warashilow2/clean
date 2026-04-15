@@ -3954,3 +3954,102 @@ img {
 .first-order-card {
     display: none !important;
 }
+
+/* Spark Escape Popup */
+.spark-popup {
+  background: #1a0f0f;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(212, 175, 55, 0.4);
+  position: relative;
+}
+
+.spark-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(212,175,55,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Контент */
+.spark-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.spark-close {
+  color: #d4af37;
+  font-size: 2rem;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.spark-close:hover {
+  color: white;
+  opacity: 1;
+}
+
+/* Золоте коло з 15% */
+.spark-discount-circle {
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(135deg, #d4af37, #f0d38a);
+  color: #2A0F0F;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  animation: sparkPulse 2s infinite ease-in-out;
+  font-weight: 700;
+}
+
+.spark-discount-circle .percent {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.spark-discount-circle .label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Анімація пульсації */
+@keyframes sparkPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Spark Yes Button - спеціальний стиль для головної кнопки в поп-апі */
+.spark-yes-btn {
+    background: linear-gradient(135deg, #d4af37, #f0d38a);
+    color: #2A0F0F;
+    font-weight: 700;
+    font-size: 1.12rem;
+    padding: 16px 25px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.spark-yes-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(135deg, #f0d38a, #e6c158);
+}
+
+.spark-yes-btn:active {
+    transform: translateY(-1px);
+}
