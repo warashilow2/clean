@@ -1549,6 +1549,7 @@ const TELEGRAM_CHAT_ID = '-1003389080682';
 // === ВИЗНАЧЕННЯ ДЖЕРЕЛА ТРАФІКУ ТА ЗНИЖКИ ===
 let trafficSource = '';
 let hasDiscount = false;
+let cameFromExitPopup = false;
 
 function detectTrafficSource() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -2136,19 +2137,27 @@ async function sendOrderToTelegram(orderData) {
         sourceText = `\n📍 Source: ${trafficSource} Ads`;
     }
 
+    let popupText = '';
+    if (cameFromExitPopup) {
+        popupText = `\n📌 Came from Exit Popup (applied 15% discount)`;
+    }
+
     const message = `
 🆕 NEW ORDER FROM WEBSITE
 
 👤 Client: ${orderData.contact.name}
 📞 Phone: ${orderData.contact.phone}
 ${sourceText}
+${popupText}
 
 🧹 Cleaning Type: ${getCleaningTypeName(orderData.cleaningType)}
 🏠 Rooms: ${orderData.bedrooms} bedrooms, ${orderData.bathrooms} bathrooms
 ➕ Additional Services: ${orderData.additionalServices.join(', ') || 'none'}
 🪟 Windows: ${orderData.windows.inside || 0} inside, ${orderData.windows.outside || 0} outside, ${orderData.windows.frames || 0} frames
 
-💰 Total Price: €${Math.round(finalPrice)}
+💰 Full Price: €${Math.round(subtotal)}
+${hasDiscount ? `🎁 15% Discount: -€${Math.round(subtotal * 0.15)}` : ''}
+💳 Final Price: €${Math.round(finalPrice)}
 
 ⏰ Order Time: ${new Date().toLocaleString('en-IE')}
     `.trim();
@@ -2580,7 +2589,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="percent" style="font-size:2.1rem;">15</div>
                     <div class="label">% OFF</div>
                 </div>
-                <h4 style="color:#d4af37; margin-bottom:15px;">You're already sparkling!</h4>
+                <h4 style="color:#d4af37; margin-bottom:15px;">You've got a special offer</h4>
                 <p style="color:#ddd; font-size:1.05rem; line-height:1.5; margin-bottom:25px;">
                     Your 15% discount is active.<br>
                     Don't leave without booking.
@@ -2590,7 +2599,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     Yes, book with my discount ✨
                 </button>
                 <button onclick="reloadPage()" class="btn btn-secondary btn-block" style="background:#555; color:#ccc;">
-                    No, close anyway
+                    No, thanks
                 </button>
             `;
         } else {
@@ -2599,14 +2608,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="percent" style="font-size:2.1rem;">15</div>
                     <div class="label">% OFF</div>
                 </div>
-                <h4 style="color:#d4af37; margin-bottom:15px;">Stop! Your sparks are waiting</h4>
+                <h4 style="color:#d4af37; margin-bottom:15px;">Before you go </h4>
                 <p style="color:#ddd; font-size:1.05rem; line-height:1.5; margin-bottom:25px;">
                     We noticed you calculated the price.<br>
                     Grab your special 15% discount.
                 </p>
                 
                 <button onclick="applyDiscountAndProceed()" class="btn btn-block mb-3 spark-yes-btn">
-                    Yes, give me the 15% spark!
+                    Yes, apply the 15% discount!
                 </button>
                 <button onclick="reloadPage()" class="btn btn-secondary btn-block" style="background:#555; color:#ccc;">
                     No, thanks
@@ -2641,16 +2650,25 @@ function reloadPage() {
 }
 
 function proceedWithCurrentDiscount() {
-    $('#exitPopup').modal('hide');
-    setTimeout(() => showSimpleModal(), 300);
-}
-
-function applyDiscountAndProceed() {
-    hasDiscount = true;
+    cameFromExitPopup = true;        // Позначаємо, що прийшов через поп-ап
+    hasDiscount = true;              // Застосовуємо знижку 15%
     if (typeof updateSummary === 'function') updateSummary();
     
     $('#exitPopup').modal('hide');
-    setTimeout(() => showSimpleModal(), 300);
+    setTimeout(() => {
+        showSimpleModal();
+    }, 300);
+}
+
+function applyDiscountAndProceed() {
+    cameFromExitPopup = true;        // Позначаємо, що прийшов через поп-ап
+    hasDiscount = true;              // Застосовуємо знижку 15%
+    if (typeof updateSummary === 'function') updateSummary();
+    
+    $('#exitPopup').modal('hide');
+    setTimeout(() => {
+        showSimpleModal();
+    }, 300);
 }
     
     </script>   
@@ -2796,10 +2814,8 @@ function applyDiscountAndProceed() {
 
       <div class="modal-body p-5 text-center position-relative">
         
-        <!-- Кнопка закриття -->
-        <button type="button" class="close spark-close" data-dismiss="modal" aria-label="Close">
-          &times;
-        </button>
+     
+      
 
         <!-- Основний контент -->
         <div id="popupContent" class="spark-content">
