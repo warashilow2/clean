@@ -1474,6 +1474,8 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
     
     <script>
+
+        let calculatedTotal = 0;
         // Smooth scrolling for navigation links
         document.addEventListener("DOMContentLoaded", function() {
             const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
@@ -1592,6 +1594,7 @@ function calculateTotal() {
     if (typeof updateSummary === 'function') {
         updateSummary();
     }
+    calculatedTotal = Math.round(finalPrice);
 }
 
 // Функция сброса калькулятора
@@ -1964,12 +1967,32 @@ function showSimpleModal() {
 // Отправка заказа
 
 function submitOrder(name, phone) {
-    const totalAmount = parseFloat(document.getElementById('totalAmount').textContent.replace('€', '').trim()) || 0;
+    // === НАДЁЖНОЕ ПОЛУЧЕНИЕ СУММЫ СО СКИДКОЙ ===
+    let totalAmount = 0;
+
+    // 1. Пытаемся взять из основного поля (на всякий случай)
+    const priceEl = document.getElementById('totalAmount');
+    if (priceEl) {
+        totalAmount = parseFloat(priceEl.textContent.replace(/[^0-9.]/g, '')) || 0;
+    }
+
+    // 2. Если 0 — берём финальную цену со скидкой из видимой сводки (самое важное!)
+    if (totalAmount === 0) {
+        const summaryEl = document.querySelector('#summaryContent div[style*="2.7rem"]');
+        if (summaryEl) {
+            totalAmount = parseFloat(summaryEl.textContent.replace(/[^0-9.]/g, '')) || 0;
+        }
+    }
+
+    // 3. Если и это не сработало — берём из последней рассчитанной суммы (запасной вариант)
+    if (totalAmount === 0 && typeof calculatedTotal !== 'undefined') {
+        totalAmount = calculatedTotal;
+    }
 
     // Відправка в Meta Pixel
     if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead', {
-            value: totalAmount,
+            value: totalAmount,           // ← теперь будет правильная сумма
             currency: 'EUR',
             content_name: 'Cleaning Booking',
             first_name: name,
@@ -1998,12 +2021,11 @@ function submitOrder(name, phone) {
     // Показуємо successModal
     $('#successModal').modal('show');
 
-    // ПЕРЕЗАВАНТАЖЕННЯ СТОРІНКИ ТІЛЬКИ ПІСЛЯ НАТИСКАННЯ "Okay" у successModal
+    // ПЕРЕЗАВАНТАЖЕННЯ СТОРІНКИ ТІЛЬКИ ПІСЛЯ НАТИСКАННЯ "Okay"
     $('#successModal').one('hidden.bs.modal', function() {
         window.location.reload();
     });
 }
-
 // ========== TELEGRAM ФУНКЦИИ ==========
 
 function getCleaningTypeName(type) {
