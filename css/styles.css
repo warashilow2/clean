@@ -4053,3 +4053,118 @@ img {
 .spark-yes-btn:active {
     transform: translateY(-1px);
 }
+
+/* Calculator Progress Steps - супер компактная версия */
+.calculator-progress {
+    margin-bottom: 20px;
+}
+
+.progress-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #180A0A, #2A0F0F);
+    padding: 6px 15px;
+    border-radius: 40px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.step-circle {
+    width: 24px;
+    height: 24px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: #aaa;
+    transition: all 0.3s ease;
+}
+
+.progress-step.active .step-circle {
+    background: linear-gradient(135deg, #d4af37, #b8941f);
+    border-color: #d4af37;
+    color: #2A0F0F;
+    box-shadow: 0 0 6px rgba(212, 175, 55, 0.4);
+}
+
+.step-label {
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+}
+
+.progress-step.active .step-label {
+    color: #d4af37;
+}
+
+.progress-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.05));
+    margin: 0 2px;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 576px) {
+    .calculator-progress {
+        margin-bottom: 15px;
+    }
+    
+    .progress-steps {
+        padding: 5px 12px;
+    }
+    
+    .step-circle {
+        width: 20px;
+        height: 20px;
+        font-size: 0.6rem;
+    }
+    
+    .step-label {
+        font-size: 0.45rem;
+    }
+}
+
+/* Popular badge под Deep Cleaning */
+.cleaning-card[data-type="deep"] {
+    position: relative;
+    overflow: visible;
+}
+
+.popular-badge {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: #000000;
+    background: rgba(212, 175, 55, 0.05)
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-top: 12px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    border: 0.5px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Адаптив */
+@media (max-width: 576px) {
+    .popular-badge {
+        font-size: 0.55rem;
+        padding: 4px 8px;
+        margin-top: 10px;
+    }
+}
