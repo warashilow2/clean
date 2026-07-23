@@ -698,6 +698,31 @@
                 </button>
             </div>
             <div class="modal-body">
+                <!-- Progress Steps -->
+<div class="calculator-progress">
+    <div class="progress-steps">
+        <div class="progress-step active" data-step="1">
+            <div class="step-circle">1</div>
+            <div class="step-label">Cleaning Type</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="2">
+            <div class="step-circle">2</div>
+            <div class="step-label">Extra Services</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="3">
+            <div class="step-circle">3</div>
+            <div class="step-label">Windows</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="4">
+            <div class="step-circle">4</div>
+            <div class="step-label">Summary</div>
+        </div>
+    </div>
+</div>
+                
                 
                 <!-- Price Panel -->
                 <div class="price-panel">
@@ -726,14 +751,15 @@
                             <div class="card-price">From €131</div>
                         </div>
                         
-                        <div class="cleaning-card" data-type="deep" role="button" tabindex="0" aria-pressed="false">
-                            <div class="card-icon">
-                                <i class="fas fa-broom" aria-hidden="true"></i>
-                            </div>
-                            <h5>Deep Cleaning</h5>
-                            <p>Thorough detailed cleaning</p>
-                            <div class="card-price">From €196</div>
-                        </div>
+                      <div class="cleaning-card" data-type="deep" role="button" tabindex="0" aria-pressed="false">
+    <div class="card-icon">
+        <i class="fas fa-broom" aria-hidden="true"></i>
+    </div>
+    <h5>Deep Cleaning</h5>
+    <p>Thorough detailed cleaning</p>
+    <div class="card-price">From €196</div>
+    <span class="popular-badge">⭐ Most popular for move-in, move-out and deep home cleaning</span>
+</div>
                         
                         <div class="cleaning-card" data-type="renovation" role="button" tabindex="0" aria-pressed="false">
                             <div class="card-icon">
@@ -934,8 +960,8 @@
                     <!-- Contact Fields -->
                     <!-- Contact Info -->
 <div class="contact-info text-center mb-4">
-    <h5 class="contact-title">Ready to Confirm Your Order?</h5>
-    <p class="text-muted">Click "Confirm Order" to provide your contact details</p>
+    <h5 class="contact-title">Fast callback</h5>
+    <p class="text-muted">Click "Leave your details" to provide your contact details</p>
 </div>
 
                     <!-- Summary Content -->
@@ -948,7 +974,7 @@
                             <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
                         </div>
                         <div class="note-content">
-                            <strong>Note:</strong> This is an approximate price. Final cost may vary depending on additional rooms like hallway, dining room, storage room, etc.
+                            <strong>Note:</strong> Your price will be confirmed before the cleaning starts. No hidden charges. If extra rooms are needed, we will agree everything with you first.
                         </div>
                     </div>
 
@@ -957,7 +983,7 @@
                             <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
                         </button>
                         <button class="btn btn-order" id="finalOrder">
-                            <i class="fas fa-check" aria-hidden="true"></i> Confirm Order
+                            <i class="fas fa-check" aria-hidden="true"></i> Leave your details
                         </button>
                     </div>
                 </div>
@@ -1643,7 +1669,7 @@ function resetCalculator() {
     setTimeout(() => document.getElementById('step1').classList.add('active'), 50);
     
     // Выбрать первую карточку по умолчанию
-    const firstCard = document.querySelector('.cleaning-card[data-type="standard"]');
+   const firstCard = document.querySelector('.cleaning-card[data-type="deep"]');
     if (firstCard) {
         firstCard.classList.add('selected');
         firstCard.setAttribute('aria-pressed', 'true');
@@ -1840,6 +1866,16 @@ function setupConfirmOrderButton() {
 // Показать шаг
 // Показать шаг
 function showStep(step) {
+       // === ОБНОВЛЕНИЕ ПРОГРЕССА (красивое) ===
+    const stepNumber = parseInt(step.replace('step', ''));
+    document.querySelectorAll('.progress-step').forEach((item, idx) => {
+        const itemStep = idx + 1;
+        if (itemStep <= stepNumber) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
     document.querySelectorAll('.calculator-step').forEach(s => {
         s.classList.remove('active');
         s.style.display = 'none';
@@ -2783,7 +2819,7 @@ function applyDiscountAndProceed() {
         </button>
       </div>
       <div class="modal-body">
-        <p>Please fill in your name and phone number to confirm the order:</p>
+        <p><strong>Please leave your name and phone number. We will contact you to confirm the final price and available time:</strong></p>
         
         <div class="form-group">
           <label for="modalName">Your Name *</label>
@@ -2797,7 +2833,7 @@ function applyDiscountAndProceed() {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id="confirmFromModal">Confirm Order</button>
+        <button type="button" class="btn btn-primary" id="confirmFromModal">Leave your details</button>
       </div>
     </div>
   </div>
