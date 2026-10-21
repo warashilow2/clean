@@ -1,0 +1,56 @@
+/* Eco Spark Cleaning - self-hosted webfonts
+
+   Downloaded from Google Fonts and served from our own origin. Two reasons:
+   under GDPR a request to fonts.gstatic.com hands a visitor's IP to a third
+   country before they have consented to anything, and it costs a DNS lookup,
+   a TCP handshake and a TLS negotiation to a second host on every first load.
+
+   These are the VARIABLE cuts, so one file per family per style covers every
+   weight we use - six files instead of the sixteen the static cuts would need.
+   The weight ranges below are what the axis actually supports; asking for a
+   weight inside the range is free.
+
+   To refresh: re-download from fonts.googleapis.com/css2 with a modern browser
+   user agent (an old one gets .ttf instead of .woff2) and keep only the latin
+   and latin-ext subsets. */
+/* Inter normal - latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../fonts/inter-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Inter normal - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../fonts/inter-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Manrope normal - latin-ext. Variable cut: one file covers 200-800, and the
+   headings use 800. Manrope has no italic drawn, so <em> in a heading is a
+   synthetic slant - see the note on .section-title em in styles.css. */
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url(../fonts/manrope-normal-latin-ext.woff2) format(woff2);
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Manrope normal - latin */
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url(../fonts/manrope-normal-latin.woff2) format(woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
