@@ -1,0 +1,12 @@
+# Eco Spark Cleaning
+# One-page site: everything worth indexing is on /.
+
+User-agent: *
+Allow: /
+
+# Nothing here is secret, but there is no reason to spend crawl budget on the
+# raw video or the font files - they are never a search result.
+Disallow: /assets/video/
+Disallow: /assets/fonts/
+
+Sitemap: https://ecospark.ie/sitemap.xml
