@@ -81,10 +81,19 @@
   /* Every request the site can produce leaves through here, and through here
      only. This replaced a direct call to api.telegram.org with the bot token
      written into this file, where anyone opening the source could read it and
-     post as the bot. A webhook URL is meant to be called from a browser, so
+     post as the bot. An endpoint URL is meant to be called from a browser, so
      nothing secret is left in the client - and the standing job of re-issuing
-     that token before launch is gone with it. */
-  var N8N_ENDPOINT = 'https://wara1561.app.n8n.cloud/webhook/ecospark-lead';
+     that token before launch is gone with it.
+
+     MOVED OFF n8n 18.11.2026. The n8n cloud instance was deleted when its
+     trial ran out, and every lead between then and now failed - the visitor
+     saw the "could not send, ring us" fallback instead. This is now a Google
+     Apps Script web app living inside the leads spreadsheet: free, nothing to
+     expire, and the sheet needs no credentials because the script is in it.
+
+     It also answers Telegram's webhook, so the one address serves both; the
+     script tells them apart by `update_id`, which only Telegram sends. */
+  var LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzWM7K27549gcjYhWxvtBb2uVwrxIcehnhSD95ZHoqqBO-6Jrx5AJ2js_hLs4ybiOsE/exec';
 
   /* --------------------------------------------------------------- state */
 
@@ -211,7 +220,7 @@
 
   /* The customer sees one number and only on the final step: no running total
      while picking, no line-by-line breakdown. The itemised list still goes to
-     n8n, so the office knows what the quote is made of.
+     the office, so it knows what the quote is made of.
 
      The hourly branch is the deliberate exception: its total is on the same
      screen as its two inputs, because there the sum *is* the offer and there is
@@ -555,17 +564,25 @@
 
   /* ------------------------------------------------------ lead delivery */
 
-  /* One exit for both branches. n8n answers with whatever the workflow
-     returns, and a workflow that ends without a Respond node replies with an
-     empty body, so success is judged on the HTTP status alone - parsing the
-     reply would turn a delivered lead into a visible error for the client. */
-  function sendLeadToN8n(data) {
-    return fetch(N8N_ENDPOINT, {
+  /* One exit for both branches. Success is judged on the HTTP status alone -
+     the endpoint replies with a short plain-text body that carries nothing we
+     need, and parsing a reply would turn a delivered lead into a visible error
+     for the client.
+
+     THE CONTENT TYPE IS `text/plain` ON PURPOSE AND MUST STAY THAT WAY.
+     `application/json` makes this a non-simple cross-origin request, so the
+     browser sends an OPTIONS preflight first - and an Apps Script web app
+     cannot answer one. The lead would never leave the page. Plain text keeps
+     it a simple request; the body is still JSON and the script still parses
+     it as JSON, because what is inside the body and what the header claims
+     are two different things. */
+  function sendLead(data) {
+    return fetch(LEAD_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(data)
     }).then(function (res) {
-      if (!res.ok) throw new Error('n8n responded ' + res.status);
+      if (!res.ok) throw new Error('lead endpoint responded ' + res.status);
       return res;
     });
   }
@@ -633,7 +650,7 @@
 
      The value is the quoted price, not money taken. It lets Ads weigh leads
      against each other, but it is not revenue: a real return on ad spend would
-     need the finished job sent back into Ads from n8n as an offline
+     need the finished job sent back into Ads from the spreadsheet as an offline
      conversion. */
   function trackLead(value) {
     if (typeof window.esTrack === 'function') window.esTrack('lead', value);
@@ -671,7 +688,7 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
 
-    sendLeadToN8n(leadPayload(state, items, sum, name, phone))
+    sendLead(leadPayload(state, items, sum, name, phone))
       .then(function () {
         orderSent = true;          // no leaving-offer once the request is in
         trackLead(sum);
