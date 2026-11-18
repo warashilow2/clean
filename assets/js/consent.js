@@ -36,8 +36,39 @@
      the bar stops appearing, because then there is nothing to consent to. */
   var ANALYTICS = {
     ga4:  'G-EGYSK3HKDK',      // Google Analytics 4
-    ads:  '',                  // Google Ads conversions, 'AW-...', when there is a campaign
+    ads:  'AW-18388700942',    // Google Ads conversions, live since 17.11.2026
     meta: '892305780520567'    // Meta pixel
+  };
+
+  /* What counts as a conversion, and what each vendor calls it. All three
+     vendors are named here rather than at the call sites, for the same reason
+     the ids are: changing one of them should be one edit in one file.
+
+     `ads` is the half of the Google Ads label that comes after the slash. Ads
+     hands the pair out as 'AW-18388700942/zBdsCO_bxpIdEI6etcBE'; the account
+     part already lives above, and one id in two places is one id too many.
+
+     TWO THINGS ABOUT THE ADS LABELS, both worth knowing before adding more.
+
+     Google sent two labels on 17.11.2026, for actions named "Контакты" and
+     "Контакты (1)" - which reads like the same action created twice. Only one
+     is wired. Firing both on a single submitted form would count every lead
+     twice, and a campaign optimising on a doubled number bids as though leads
+     cost half what they do. If the second really is a duplicate, delete it in
+     Ads rather than finding a use for it here.
+
+     Google's instructions put these snippets in <head> as "conversion page"
+     tags. That is for sites with a separate /thank-you URL. This site is one
+     page and the thank-you screen is a dialog, so pasting them there would
+     have reported a conversion for every visitor who merely opened the site -
+     including the ones who left in three seconds. They fire from real actions
+     instead: a quote request the webhook accepted, a tap to call, a tap to
+     WhatsApp. Call and chat have no label yet because no such action exists in
+     the Ads account; GA4 and Meta still record them. */
+  var EVENTS = {
+    lead: { ga4: 'generate_lead',    meta: 'Lead',    name: 'Cleaning quote', ads: 'zBdsCO_bxpIdEI6etcBE' },
+    call: { ga4: 'contact_call',     meta: 'Contact', name: 'Phone',          ads: '' },
+    chat: { ga4: 'contact_whatsapp', meta: 'Contact', name: 'WhatsApp',       ads: '' }
   };
 
   /* 'basic'    - Google loads only after Accept. Nothing reaches Google from a
@@ -135,8 +166,11 @@
     window.fbq('track', 'PageView');
   }
 
+  var granted = false;
+
   function grant() {
     if (!live) return;
+    granted = true;
     gtag('consent', 'update', {
       ad_storage: 'granted',
       ad_user_data: 'granted',
@@ -149,6 +183,66 @@
 
   // advanced mode loads the tag up front and lets consent mode hold the storage
   if (live && MODE === 'advanced') loadGoogle();
+
+  /* ------------------------------------------------------------- reporting */
+
+  /* The one way anything on the site reports anything, used by the calculator
+     and by the contact links below.
+
+     Everything is gated on `granted`, and the gate is explicit rather than
+     implied. gtag() above is only a dataLayer push, so calling it before the
+     tag has loaded does not fail - it queues, and the hit would then fire the
+     moment someone pressed Accept, carrying the wrong time and attributed to a
+     visit that had not consented when it happened.
+
+     This also replaces the `typeof window.gtag === 'function'` checks the
+     calculator used to make, which could never pass: the gtag helper here is
+     local to this file, and the Google tag script does not create window.gtag
+     of its own - the page is expected to. So the GA4 half of trackLead() had
+     been dead since launch, while the Meta half worked, because window.fbq is
+     assigned explicitly. One reporting function instead of per-vendor guards
+     scattered through the modules.
+
+     `value` is optional and only travels when it is a real positive number. */
+  window.esTrack = function (action, value) {
+    if (!granted) return;
+
+    var e = EVENTS[action];
+    if (!e) return;
+
+    var money = typeof value === 'number' && isFinite(value) && value > 0;
+
+    if (ANALYTICS.ga4) {
+      gtag('event', e.ga4, money ? { value: value, currency: 'EUR' } : {});
+    }
+
+    if (ANALYTICS.meta && typeof window.fbq === 'function') {
+      var m = { content_name: e.name };
+      if (money) { m.value = value; m.currency = 'EUR'; }
+      window.fbq('track', e.meta, m);
+    }
+
+    if (ANALYTICS.ads && e.ads) {
+      var a = { send_to: ANALYTICS.ads + '/' + e.ads };
+      if (money) { a.value = value; a.currency = 'EUR'; }
+      gtag('event', 'conversion', a);
+    }
+  };
+
+  /* Phone and WhatsApp are two of the three ways to get in touch, and on a
+     phone they are the two most people actually use - counting only the form
+     would credit a campaign with a fraction of what it did.
+
+     Delegated from the document because these links appear around twenty times
+     across the hero, header, menu, services, footer, dock and sticky bar;
+     twenty listeners, or twenty onclick attributes, would be twenty places to
+     forget. The navigation into the dialler is not delayed and not waited for:
+     gtag sends with sendBeacon, which outlives it. */
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="tel:"], a[href*="wa.me"]');
+    if (!link) return;
+    window.esTrack(link.getAttribute('href').indexOf('tel:') === 0 ? 'call' : 'chat');
+  });
 
   /* ------------------------------------------------------------------ the bar */
 

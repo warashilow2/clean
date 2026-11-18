@@ -622,14 +622,21 @@
     };
   }
 
+  /* GA4, the Meta pixel and the Google Ads conversion all go through
+     consent.js: it is the only thing that knows whether the visitor agreed,
+     and keeping the vendor names in one file means a change of vendor is one
+     edit rather than a hunt through the modules.
+
+     Called from the success branch only, after the webhook has accepted the
+     request - a conversion reported for a lead that never arrived is worse
+     than a missing one, because the campaign then bids for more of the same.
+
+     The value is the quoted price, not money taken. It lets Ads weigh leads
+     against each other, but it is not revenue: a real return on ad spend would
+     need the finished job sent back into Ads from n8n as an offline
+     conversion. */
   function trackLead(value) {
-    // wired up together with the Meta Pixel / GA4 at launch
-    if (typeof window.fbq === 'function') {
-      window.fbq('track', 'Lead', { value: value, currency: 'EUR', content_name: 'Cleaning quote' });
-    }
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'generate_lead', { value: value, currency: 'EUR' });
-    }
+    if (typeof window.esTrack === 'function') window.esTrack('lead', value);
   }
 
   var submitBtn = document.getElementById('calcSubmit');
