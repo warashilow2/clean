@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="en-IE">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#2A0F0F">
 
 <title>House Cleaning in Dublin | Free Quote | Eco Spark Cleaning</title>
-<meta name="description" content="Professional house cleaning in Dublin. Insured, vetted cleaners, eco products safe for kids and pets, price agreed before we start. Get a free quote today.">
+<meta name="description" content="Deep cleans, end of tenancy and after builders cleaning across Dublin. Eco products safe for kids and pets, fixed price agreed before we start.">
 
-<!-- A paid-traffic landing page, not a page for the index. It says the same
-     things as the home page in fewer words, so letting Google rank both would
-     be asking it to choose between two versions of one business. It is kept
-     out of sitemap.xml for the same reason. Ads does not need a page to be
-     indexable in order to send traffic to it. -->
-<meta name="robots" content="noindex, follow">
+<!-- A page for paid traffic, not for the index: it says the same things as
+     the home page in fewer words, and letting Google rank both would be
+     asking it to choose between two versions of one business. Kept out of
+     sitemap.xml for the same reason. -->
+<meta name="robots" content="noindex">
 
 <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png">
@@ -22,256 +21,501 @@
 
 <link rel="stylesheet" href="landing.css">
 
-<!-- consent.js lives in the head and ahead of everything else for one reason:
-     Consent Mode has to publish its denied defaults BEFORE the Google tag
-     loads, and in 'advanced' mode this file loads that tag itself. It also
-     defines window.esTrack, which the form below calls on a successful send.
-
-     esPrivacyUrl is set because this page sits one level down. The bar links
-     to the privacy page, and a bare "privacy.html" would resolve to
-     /dublin/privacy.html, which does not exist. Declared by the page rather
-     than guessed from location.pathname so it stays right on the apex domain
-     and on the github.io fallback URL alike. -->
+<!-- First script on the page, as on the home page: Consent Mode has to
+     publish its denied defaults before the Google tag loads, and this file
+     loads that tag itself. It also defines window.esTrack, used by the quote
+     form, and tracks every tel: and wa.me click on both pages. -->
 <script>window.esPrivacyUrl = '../privacy.html#cookies';</script>
 <script src="../assets/js/consent.js"></script>
 </head>
 
-<body>
+<body id="top">
 
 <header class="hd">
   <div class="hd__in">
-    <a class="hd__brand" href="../">
+    <a class="hd__brand" href="#top">
       <img src="../assets/img/logo.png" alt="" width="240" height="199" decoding="async">
       Eco Spark Cleaning
     </a>
-    <a class="btn btn--sm" href="tel:+353874838743">Call</a>
+
+    <nav class="hd__nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#included">What's included</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="hd__right">
+      <a class="hd__tel" href="tel:+353874838743">087 483 8743</a>
+      <a class="btn-outline btn-sm" href="quote/">Get a free quote</a>
+    </div>
+
+    <div class="hd__mob">
+      <a class="btn btn-sm" href="tel:+353874838743">Call</a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
+
+  <nav class="menu" id="menu" aria-label="Sections">
+    <a href="#services">Services</a>
+    <a href="#how">How it works</a>
+    <a href="#included">What's included</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a class="btn" href="quote/">Get a free quote</a>
+  </nav>
 </header>
 
 <main>
 
-  <!-- ============================================================ hero ===
-       Everything here has to fit on a 375x812 screen without scrolling:
-       what we do, who vouches for us, and one thing to press. -->
+  <!-- ============================================================ hero -->
   <section class="hero">
     <div class="wrap">
-      <h1>House Cleaning in Dublin</h1>
+      <div class="hero__grid">
+        <div>
+          <h1>Professional House Cleaning in Dublin</h1>
 
-      <p class="hero__sub">
-        Kid &amp; pet safe eco products · Price agreed before we start ·
-        We bring all the kit
-      </p>
+          <p class="hero__lead">
+            Deep cleans, end of tenancy and after-builders cleaning across
+            Dublin city and county. Eco products that are safe for kids and
+            pets, the price agreed before we start, and we bring all the
+            equipment.
+          </p>
 
-      <a class="rating" href="https://maps.app.goo.gl/LbBYRZHXBgVm2bm58" target="_blank" rel="noopener">
-        <span class="rating__stars" aria-hidden="true">
+          <p class="rating">
+            <span class="stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </span>
+            <b>5.0 on Google</b> ·
+            <a href="https://maps.app.goo.gl/LbBYRZHXBgVm2bm58" target="_blank" rel="noopener">22 reviews</a>
+          </p>
+
+          <p><a class="btn btn-full-mob" href="quote/">Get a free quote <span aria-hidden="true">&rarr;</span></a></p>
+
+          <p class="hero__or">or call <a href="tel:+353874838743">087 483 8743</a></p>
+        </div>
+
+        <div class="hero__photo">
+          <img src="../assets/img/album/photo-1.jpg" alt="A cleaner wiping down kitchen units"
+               width="1000" height="1250" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+
+      <ul class="trust">
+        <li>
+          <svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Eco products, safe for kids &amp; pets
+        </li>
+        <li>
+          <svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Insured &amp; vetted cleaners
+        </li>
+        <li>
+          <svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          We bring all the kit
+        </li>
+        <li>
+          <svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Price agreed before we start
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================= reviews
+       Word for word from the Google profile, typos and all. Nothing here is
+       written by us: an invented review on a page that buys clicks is both a
+       lie and a misleading commercial practice. -->
+  <section id="reviews" class="sec-alt">
+    <div class="wrap">
+      <h2>What Dublin customers say</h2>
+
+      <p class="rev-head">
+        <span class="stars" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </span>
-        Rated 5.0 on Google
-      </a>
+        <b>5.0 from 22 Google reviews</b>
+        <a href="https://maps.app.goo.gl/LbBYRZHXBgVm2bm58" target="_blank" rel="noopener">Read all reviews &rarr;</a>
+      </p>
 
-      <a class="btn btn--lg" href="#quote">Get my free quote</a>
+      <div class="grid grid-2">
+        <article class="card rev-card">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </span>
+          <p>I used this cleaning service for the first time, and I’m incredibly happy with the experience. Everything was fast and efficient, and the team arrived with all their own equipment. In just two hours, my apartment was sparkling clean. I’m very pleased and truly grateful. I’ll definitely continue using their services. Thank you so much!</p>
+          <p class="who">Anna Krys<br><span class="small muted">Google review</span></p>
+        </article>
 
-      <p class="hero__or">or call <a href="tel:+353874838743">087 483 8743</a></p>
-    </div>
-  </section>
+        <article class="card rev-card">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </span>
+          <p>Excellent service, friendly reliable staff that are on time do the job you need them to do with no fuss .Never had an issue found the staff honest and extremely good at there job 5*</p>
+          <p class="who">Paul Hayes<br><span class="small muted">Google review</span></p>
+        </article>
 
-  <!-- ============================================================ form === -->
-  <section class="band" id="quote">
-    <div class="wrap">
-      <h2>Get your free quote</h2>
+        <article class="card rev-card">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </span>
+          <p>Ordered deep-cleaning sofa, guys made a greate job, arrived in time, communicate perfectly, behave as professionals, heavily recommend</p>
+          <p class="who">Bohdan Liashenko<br><span class="small muted">Google review</span></p>
+        </article>
 
-      <div id="quoteBox">
-        <form class="form" id="quoteForm" novalidate>
-
-          <div class="field">
-            <label for="qName">Your name</label>
-            <input id="qName" name="name" type="text" autocomplete="name"
-                   enterkeyhint="next" required>
-            <p class="field__note" id="qNameNote"></p>
-          </div>
-
-          <div class="field">
-            <label for="qPhone">Phone number</label>
-            <input id="qPhone" name="phone" type="tel" inputmode="tel"
-                   autocomplete="tel" enterkeyhint="next" required>
-            <p class="field__note" id="qPhoneNote">So we can call you back with the price</p>
-          </div>
-
-          <div class="field">
-            <label for="qService">What do you need?</label>
-            <select id="qService" name="service">
-              <option value="Regular clean">Regular clean</option>
-              <option value="Deep clean" selected>Deep clean</option>
-              <option value="End of tenancy">End of tenancy</option>
-              <option value="After builders">After builders</option>
-              <option value="Not sure">Not sure</option>
-            </select>
-            <p class="field__note">We will talk it through on the call</p>
-          </div>
-
-          <button class="btn btn--lg" type="submit" id="qSend">Get my free quote</button>
-
-          <p class="form__after">
-            We will call you back within 1 hour (Mon-Sat, 8am to 8pm).
-            No obligation. Your name and number are used to ring you back and
-            nothing else - <a href="../privacy.html">what we do with your details</a>
-          </p>
-
-        </form>
+        <article class="card rev-card">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </span>
+          <p>The guys did a fantastic job getting our house to a lovely sparkling clean, it's going to be so much easier keeping things at this level until they come back, and they are definitely coming back!</p>
+          <p class="who">R S<br><span class="small muted">Google review</span></p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ========================================================== perks === -->
-  <section>
+  <!-- ========================================================== how -->
+  <section id="how">
     <div class="wrap">
-      <ul class="perks">
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-          Not happy? We re-clean for free
+      <h2>How it works</h2>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="step__n" aria-hidden="true">1</div>
+          <h3>Tell us what you need</h3>
+          <p>Leave your name and number or give us a call. It takes less than a minute.</p>
+        </article>
+        <article class="card">
+          <div class="step__n" aria-hidden="true">2</div>
+          <h3>We agree the price</h3>
+          <p>We call you back within the hour, ask a few questions and agree a fixed price and a time that suits you.</p>
+        </article>
+        <article class="card">
+          <div class="step__n" aria-hidden="true">3</div>
+          <h3>We clean, you relax</h3>
+          <p>Our team arrives on time with all the equipment and eco products. Not happy with something? We come back and fix it free.</p>
+        </article>
+      </div>
+
+      <p class="center" style="margin-top:32px">
+        <a class="btn" href="quote/">Get a free quote <span aria-hidden="true">&rarr;</span></a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================================================== included
+       Every line below is taken from the Standard and Deep cleaning lists on
+       the home page. Nothing is added: this is a promise of specific work to
+       real customers, and the two pages have to say the same thing. -->
+  <section id="included" class="sec-alt inc">
+    <div class="wrap">
+      <h2>What's included in a deep clean</h2>
+      <p>Every room, top to bottom. Extras can be added when we agree your price.</p>
+
+      <div class="grid">
+        <details open>
+          <summary>General areas</summary>
+          <ul class="ticks">
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Dusting throughout: surfaces, shelves, light switches and handles</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Floors and carpets vacuumed, hard floors mopped in every room</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Skirting boards, door frames, radiators, vents and light fittings washed</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Behind and under furniture and appliances, heavier pieces moved</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Window sills and the room-facing side of window frames</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Switches, sockets, handles and other touch points disinfected</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Bins emptied and re-lined, general tidy as we go</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>Kitchen</summary>
+          <ul class="ticks">
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Worktops, sink and taps, hob and splashback</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Cupboard fronts and the outside of appliances</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Extractor and splashback degreased</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Tops of all cupboards, kitchen included</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Floor washed and the bin cleaned</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>Bathrooms</summary>
+          <ul class="ticks">
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Toilet, shower, bath, sink and taps</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Limescale off taps, shower screens and tiles</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Grout scrubbed rather than wiped</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Mirrors polished</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>Bedrooms &amp; living rooms</summary>
+          <ul class="ticks">
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Surfaces, shelves and furniture dusted</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Tops of all wardrobes and cupboards</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside wardrobes and room cupboards dusted</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Carpets vacuumed, hard floors mopped</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="card extras">
+        <h3>Extras at additional cost</h3>
+        <ul class="ticks" style="padding:0">
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside the oven</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside the fridge</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside kitchen cabinets</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Microwave</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Windows, inside and outside</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Carpets</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Upholstery</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Mattress</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== services -->
+  <section id="services" class="svc">
+    <div class="wrap">
+      <h2>Our cleaning services</h2>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <img src="../assets/img/album/photo-5.jpg" alt="Steam cleaning a hob and the splashback behind it" width="1000" height="1250" loading="lazy" decoding="async">
+          <h3>Deep cleaning</h3>
+          <p>A thorough top-to-bottom clean of every room.</p>
+          <a class="btn-outline" href="quote/?service=deep">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <img src="../assets/img/album/photo-2.jpg" alt="Dusting a framed print in a cleared room" width="1000" height="1250" loading="lazy" decoding="async">
+          <h3>End of tenancy cleaning</h3>
+          <p>Get the place ready for the landlord, the agent or the next tenant.</p>
+          <a class="btn-outline" href="quote/?service=tenancy">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <img src="../assets/img/album/photo-12.jpg" alt="A kitchen handed back at the end of the job" width="1000" height="1250" loading="lazy" decoding="async">
+          <h3>After builders cleaning</h3>
+          <p>Dust and debris removed after renovation or building work.</p>
+          <a class="btn-outline" href="quote/?service=builders">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <img src="../assets/img/album/photo-7.jpg" alt="Wiping down a dining table at the end of a clean" width="1000" height="1250" loading="lazy" decoding="async">
+          <h3>Regular cleaning</h3>
+          <p>Weekly or fortnightly cleans to keep your home in shape.</p>
+          <a class="btn-outline" href="quote/?service=regular">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <img src="../assets/img/album/photo-10.jpg" alt="Hot water extraction on an upholstered headboard" width="1000" height="1250" loading="lazy" decoding="async">
+          <h3>Carpet &amp; upholstery</h3>
+          <p>Hot water extraction for carpets, sofas and mattresses.</p>
+          <a class="btn-outline" href="quote/?service=carpet">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <img src="../assets/img/results/pair-1-after.jpg" alt="An oven cleaned inside at the end of the job" width="560" height="700" loading="lazy" decoding="async">
+          <h3>Oven &amp; kitchen</h3>
+          <p>Ovens, hobs, extractors and cabinets degreased.</p>
+          <a class="btn-outline" href="quote/?service=kitchen">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <img src="../assets/img/album/photo-3.jpg" alt="Washing the outside of a floor-to-ceiling window" width="1000" height="1250" loading="lazy" decoding="async">
+          <h3>Windows</h3>
+          <p>Windows cleaned inside and out.</p>
+          <a class="btn-outline" href="quote/?service=windows">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <img src="../assets/img/album/photo-8.jpg" alt="Eco Spark bottles and microfibre cloths ready for a job" width="1000" height="1250" loading="lazy" decoding="async">
+          <h3>Cleaners by the hour</h3>
+          <p>Book a cleaner by the hour and tell them what to focus on.</p>
+          <a class="btn-outline" href="quote/?service=hourly">Get a quote</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== why -->
+  <section class="sec-alt why">
+    <div class="wrap">
+      <h2>Why choose Eco Spark</h2>
+
+      <ul class="grid" style="padding:0;margin:0">
+        <li class="card">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4c0 8-4.5 12-10 12-2 0-3.5-.6-3.5-.6S5 11 9 8.5 20 4 20 4z"/><path d="M5 20c1-4 3-7 6-9"/></svg>
+          <h3>Safe for kids &amp; pets</h3>
+          <p>We clean with eco products that are gentle on your family and your home.</p>
         </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.9-7 9.5-4.1-1.6-7-5.3-7-9.5V6z"/></svg>
-          Fully insured, vetted cleaners
+        <li class="card">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 13.4 12 22l-9-9V4h9l8.6 8.6a1.4 1.4 0 0 1 0 .8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg>
+          <h3>Price agreed up front</h3>
+          <p>You know the price before we start. No surprises on the day.</p>
         </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4c0 8-4.5 12-10 12-2 0-3.5-.6-3.5-.6S5 11 9 8.5 20 4 20 4z"/><path d="M5 20c1-4 3-7 6-9"/></svg>
-          Eco products, safe for kids &amp; pets
+        <li class="card">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.9-7 9.5-4.1-1.6-7-5.3-7-9.5V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          <h3>Insured &amp; vetted</h3>
+          <p>Every cleaner is vetted and our work is fully insured.</p>
+        </li>
+        <li class="card">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h4v4H9z"/><path d="M11 7v3"/><path d="M6 10h10l1 11H5z"/></svg>
+          <h3>We bring everything</h3>
+          <p>Equipment, cloths and products - you don't need to buy a thing.</p>
+        </li>
+        <li class="card">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg>
+          <h3>Re-clean guarantee</h3>
+          <p>Not happy with an area? Tell us and we come back to fix it free.</p>
+        </li>
+        <li class="card">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <h3>Open every day</h3>
+          <p>We work 8am to 11pm, every day of the week.</p>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- ========================================================= reviews ===
-       All four are copied word for word from the Google profile, typos and
-       all. Nothing here is written by us: an invented review on a page that
-       buys clicks is both a lie and a misleading commercial practice. -->
-  <section class="band">
-    <div class="wrap">
-      <h2>What Dublin customers say</h2>
-      <div class="rev">
-
-        <article>
-          <div class="rev__stars" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          </div>
-          <p>I used this cleaning service for the first time, and I’m incredibly happy with the experience. Everything was fast and efficient, and the team arrived with all their own equipment. In just two hours, my apartment was sparkling clean. I’m very pleased and truly grateful. I’ll definitely continue using their services. Thank you so much!</p>
-          <b>Anna Krys</b>
-          <small>Google review</small>
-        </article>
-
-        <article>
-          <div class="rev__stars" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          </div>
-          <p>Excellent service, friendly reliable staff that are on time do the job you need them to do with no fuss .Never had an issue found the staff honest and extremely good at there job 5*</p>
-          <b>Paul Hayes</b>
-          <small>Google review</small>
-        </article>
-
-        <article>
-          <div class="rev__stars" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          </div>
-          <p>Ordered deep-cleaning sofa, guys made a greate job, arrived in time, communicate perfectly, behave as professionals, heavily recommend</p>
-          <b>Bohdan Liashenko</b>
-          <small>Google review</small>
-        </article>
-
-        <article>
-          <div class="rev__stars" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          </div>
-          <p>The guys did a fantastic job getting our house to a lovely sparkling clean, it's going to be so much easier keeping things at this level until they come back, and they are definitely coming back!</p>
-          <b>R S</b>
-          <small>Google review</small>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================== before/after ===
-       Real jobs, photographed by the cleaners. Both halves of every pair get
+  <!-- ================================================== before/after
+       Real jobs, photographed by the cleaners. Both halves of a pair get
        exactly the same correction: different treatment inside one pair reads
        as a swap rather than as a clean. -->
-  <section>
+  <section class="ba">
     <div class="wrap">
-      <h2>Before and after</h2>
-      <div class="ba">
+      <h2>The difference you can see</h2>
+
+      <div class="grid grid-2">
+        <figure>
+          <div class="ba__pair">
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-4-before.jpg" alt="Kitchen worktop before cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>BEFORE</span>
+            </span>
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-4-after.jpg" alt="The same kitchen worktop after cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>AFTER</span>
+            </span>
+          </div>
+          <figcaption>Worktop</figcaption>
+        </figure>
 
         <figure>
           <div class="ba__pair">
             <span class="ba__shot">
-              <img src="../assets/img/results/pair-1-before.jpg" alt="Oven before cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>Before</span>
+              <img src="../assets/img/results/pair-7-before.jpg" alt="Toilet before cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>BEFORE</span>
             </span>
             <span class="ba__shot">
-              <img src="../assets/img/results/pair-1-after.jpg" alt="The same oven after cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>After</span>
+              <img src="../assets/img/results/pair-7-after.jpg" alt="The same toilet after cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>AFTER</span>
             </span>
           </div>
-          <figcaption>Oven</figcaption>
+          <figcaption>Toilet</figcaption>
+        </figure>
+
+        <figure>
+          <div class="ba__pair">
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-2-before.jpg" alt="Living room carpet before cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>BEFORE</span>
+            </span>
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-2-after.jpg" alt="The same living room carpet after cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>AFTER</span>
+            </span>
+          </div>
+          <figcaption>Living room carpet</figcaption>
         </figure>
 
         <figure>
           <div class="ba__pair">
             <span class="ba__shot">
               <img src="../assets/img/results/pair-9-before.jpg" alt="Kitchen floor before cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>Before</span>
+              <span>BEFORE</span>
             </span>
             <span class="ba__shot">
               <img src="../assets/img/results/pair-9-after.jpg" alt="The same kitchen floor after cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>After</span>
+              <span>AFTER</span>
             </span>
           </div>
           <figcaption>Kitchen floor</figcaption>
         </figure>
-
-        <figure>
-          <div class="ba__pair">
-            <span class="ba__shot">
-              <img src="../assets/img/results/pair-5-before.jpg" alt="Mattress before cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>Before</span>
-            </span>
-            <span class="ba__shot">
-              <img src="../assets/img/results/pair-5-after.jpg" alt="The same mattress after cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>After</span>
-            </span>
-          </div>
-          <figcaption>Mattress</figcaption>
-        </figure>
-
       </div>
     </div>
   </section>
 
-  <!-- ====================================================== closing cta === -->
+  <!-- =========================================================== faq
+       The five questions from the home page, word for word. There is no
+       sixth there, and inventing one on a page that promises specific work
+       would be inventing an answer as well. -->
+  <section id="faq" class="sec-alt faq">
+    <div class="wrap narrow">
+      <h2>Frequently asked questions</h2>
+
+      <details>
+        <summary>What if I am not home?</summary>
+        <p>Most clients leave a key or a door code with us, or a neighbour lets the team in. Tell us what suits when you book and we work around it.</p>
+      </details>
+      <details>
+        <summary>Do you mind pets?</summary>
+        <p>Not at all. Let us know what you have so the team arrives ready, and say if a room needs to stay shut while we work.</p>
+      </details>
+      <details>
+        <summary>What do you clean with?</summary>
+        <p>Eco-certified products, safe around children and pets, and we bring everything with us. If you would rather we used something of your own, leave it out and we will.</p>
+      </details>
+      <details>
+        <summary>Can I move or cancel a visit?</summary>
+        <p>Yes. Give us as much notice as you can and we will find another slot that works for you.</p>
+      </details>
+      <details>
+        <summary>Where do you cover?</summary>
+        <p>Dublin city and county. If you are just outside it, ask anyway and we will tell you straight away whether we can get to you.</p>
+      </details>
+      <details>
+        <summary>When can I reach you?</summary>
+        <p>Every day, 8am to 11pm. Leave your number and we call you back within the hour.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ==================================================== dark band -->
   <section class="band">
     <div class="wrap">
-      <h2>Ready for a clean house?</h2>
-      <a class="btn btn--lg" href="#quote">Get my free quote</a>
-      <p class="hero__or">or call <a href="tel:+353874838743">087 483 8743</a></p>
+      <h2>Ready for a cleaner home?</h2>
+      <p>Leave your number and we'll call you back within the hour with a fixed price.</p>
+      <a class="btn btn-white" href="quote/">Get a free quote <span aria-hidden="true">&rarr;</span></a>
+      <p class="small">or call <a class="tel" href="tel:+353874838743">087 483 8743</a></p>
     </div>
   </section>
 
@@ -279,175 +523,62 @@
 
 <footer class="ft">
   <div class="wrap">
-    <div class="ft__rows">
-      <a href="tel:+353874838743">Call 087 483 8743</a>
-      <a href="https://wa.me/353874838743" target="_blank" rel="noopener">WhatsApp us</a>
+    <div class="ft__grid">
+      <div>
+        <p class="ft__brand">
+          <img src="../assets/img/logo.png" alt="" width="240" height="199" decoding="async">
+          Eco Spark Cleaning
+        </p>
+        <p class="small">Professional home cleaning across Dublin city and county.</p>
+      </div>
+
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="quote/?service=deep">Deep cleaning</a></li>
+          <li><a href="quote/?service=tenancy">End of tenancy</a></li>
+          <li><a href="quote/?service=builders">After builders</a></li>
+          <li><a href="quote/?service=regular">Regular cleaning</a></li>
+          <li><a href="quote/?service=carpet">Carpet &amp; upholstery</a></li>
+          <li><a href="quote/?service=kitchen">Oven &amp; kitchen</a></li>
+          <li><a href="quote/?service=windows">Windows</a></li>
+          <li><a href="quote/?service=hourly">Cleaners by the hour</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+353874838743">087 483 8743</a></li>
+          <li><a href="https://wa.me/353874838743" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li class="small muted">Every day, 8am to 11pm</li>
+          <li class="small muted">Dublin city and county</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Info</h3>
+        <ul>
+          <li><a href="../privacy.html">Privacy</a></li>
+          <li><a href="../privacy.html#cookies">Cookies</a></li>
+          <li><a href="#" data-cookie-settings hidden>Cookie settings</a></li>
+        </ul>
+      </div>
     </div>
-    <p class="ft__fine">
-      Eco Spark Cleaning · Dublin city and county · Every day, 8am to 11pm ·
-      <a href="../privacy.html">Privacy</a> ·
-      <a href="#" data-cookie-settings hidden>Cookies</a>
-    </p>
+
+    <p class="ft__btm">© 2026 Eco Spark Cleaning</p>
   </div>
 </footer>
 
-<div class="dock" id="dock">
+<div class="dock">
   <a href="tel:+353874838743" aria-label="Call Eco Spark Cleaning">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.2 2.4 3.2 4.4 5.6 5.6l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V19c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1z"/></svg>
   </a>
-  <a class="dock--wa" href="https://wa.me/353874838743" target="_blank" rel="noopener" aria-label="WhatsApp Eco Spark Cleaning">
+  <a class="wa" href="https://wa.me/353874838743" target="_blank" rel="noopener" aria-label="WhatsApp Eco Spark Cleaning">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.1 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1a9.6 9.6 0 0 1-4-2.6 9 9 0 0 1-1.8-3c-.2-.6-.1-1.2.2-1.6l.6-.7c.2-.2.5-.2.7.1l.9 1.5c.1.3.1.5 0 .7l-.4.5c-.1.2-.2.4 0 .6.5.9 1.5 1.9 2.5 2.4.2.1.4.1.6-.1l.5-.5c.2-.2.4-.2.7-.1l1.5.9c.3.2.3.5.2.7z"/></svg>
   </a>
 </div>
 
-<script>
-/* The whole page's behaviour. Three things: send the form, keep the dock out
-   of the way, and nothing else. No library, no build step. */
-(function () {
-  'use strict';
-
-  /* The same endpoint and the same transport as the calculator on the home
-     page. 'text/plain' IS DELIBERATE and must stay: with
-     'application/json' the browser treats this as a non-simple request and
-     sends a CORS preflight first, and an Apps Script web app does not answer
-     OPTIONS - the lead would never leave the page. The body is still JSON and
-     the script still parses it as JSON; what the body contains and what the
-     header claims are two different things. */
-  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzWM7K27549gcjYhWxvtBb2uVwrxIcehnhSD95ZHoqqBO-6Jrx5AJ2js_hLs4ybiOsE/exec';
-
-  var CALL = '087 483 8743';
-
-  var box     = document.getElementById('quoteBox');
-  var form    = document.getElementById('quoteForm');
-  var send    = document.getElementById('qSend');
-  var nameEl  = document.getElementById('qName');
-  var phoneEl = document.getElementById('qPhone');
-  var svcEl   = document.getElementById('qService');
-  var nameNote  = document.getElementById('qNameNote');
-  var phoneNote = document.getElementById('qPhoneNote');
-  var PHONE_HINT = phoneNote.textContent;
-
-  function note(el, text, bad) {
-    el.textContent = text;
-    if (bad) el.setAttribute('data-error', '1');
-    else el.removeAttribute('data-error');
-  }
-
-  function digits(s) { return (s.match(/\d/g) || []).length; }
-
-  function checkName(show) {
-    var ok = nameEl.value.trim().length >= 2;
-    nameEl.setAttribute('aria-invalid', ok ? 'false' : 'true');
-    if (show) note(nameNote, ok ? '' : 'Please tell us your name', !ok);
-    return ok;
-  }
-
-  function checkPhone(show) {
-    var ok = digits(phoneEl.value) >= 7;
-    phoneEl.setAttribute('aria-invalid', ok ? 'false' : 'true');
-    if (show) note(phoneNote, ok ? PHONE_HINT : 'Please enter a phone number we can ring', !ok);
-    return ok;
-  }
-
-  nameEl.addEventListener('input', function () { if (nameEl.value.trim().length >= 2) checkName(true); });
-  phoneEl.addEventListener('input', function () { if (digits(phoneEl.value) >= 7) checkPhone(true); });
-
-  /* What the office reads, in the same shape the calculator sends, so the one
-     Apps Script route, the one sheet and the bot's buttons all keep working
-     without a single change on that side. The fields this page cannot know
-     are sent empty rather than guessed: there is no price here, because the
-     page quotes nobody. */
-  function payload() {
-    var service = svcEl.value;
-    return {
-      name: nameEl.value.trim(),
-      phone: phoneEl.value.trim(),
-      email: '',
-      service: service,
-      property_details: '',
-      estimated_price: '',
-      message: 'Landing /dublin - please call back with a quote. Service: ' + service,
-      source: (window.trafficSource || 'website') + ' / landing-dublin'
-    };
-  }
-
-  function thanks(name, phone) {
-    box.innerHTML =
-      '<div class="done"><h2>Thanks, ' + esc(name) + '!</h2>' +
-      '<p>We will call you on ' + esc(phone) + ' shortly.</p></div>';
-  }
-
-  /* Never swallow the lead: if the request failed, the two channels that do
-     not depend on our code are put in front of the person, full size. */
-  function failed() {
-    note(phoneNote, '', false);
-    var box2 = document.createElement('div');
-    box2.className = 'form__after';
-    box2.innerHTML =
-      '<b>Couldn’t send - please call or WhatsApp us</b>' +
-      '<span class="done__row" style="display:grid;gap:10px;margin-top:12px">' +
-        '<a class="btn btn--lg" href="tel:+353874838743">Call ' + CALL + '</a>' +
-        '<a class="btn btn--lg btn--out" href="https://wa.me/353874838743" target="_blank" rel="noopener">WhatsApp</a>' +
-      '</span>';
-    form.appendChild(box2);
-    send.disabled = false;
-    send.textContent = 'Try again';
-  }
-
-  function esc(s) {
-    return String(s).replace(/[&<>"']/g, function (c) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
-    });
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    var okName = checkName(true);
-    var okPhone = checkPhone(true);
-    if (!okName || !okPhone) { (okName ? phoneEl : nameEl).focus(); return; }
-
-    var name = nameEl.value.trim();
-    var phone = phoneEl.value.trim();
-
-    send.disabled = true;
-    send.textContent = 'Sending…';
-
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload())
-    }).then(function (res) {
-      if (!res.ok) throw new Error('lead endpoint responded ' + res.status);
-      /* Reported only after the endpoint accepted it. A conversion counted
-         for a lead that never arrived is worse than a missing one: the
-         campaign then goes looking for more of the same. No value is sent,
-         because this page never puts a price on anything. */
-      if (typeof window.esTrack === 'function') window.esTrack('lead');
-      thanks(name, phone);
-    }).catch(function (err) {
-      console.error('Lead delivery failed:', err);
-      failed();
-    });
-  });
-
-  /* The dock sits over the bottom right corner, which is also where the Send
-     button ends up. Hidden while the form is on screen so it cannot eat that
-     tap. It starts visible and stays visible if this never runs. */
-  var dock = document.getElementById('dock');
-
-  /* The box, not the <section> and not the <form>. The section is tall enough
-     that a sliver of it at the top of the page already crossed the threshold,
-     which hid the dock on the first screen; and the form itself is replaced by
-     the thank-you panel on success, which would leave the observer watching a
-     node that is no longer in the document and the dock hidden for good. */
-  if (window.IntersectionObserver && dock && box) {
-    new IntersectionObserver(function (entries) {
-      dock.hidden = entries[0].isIntersecting;
-    }, { threshold: 0.3 }).observe(box);
-  }
-})();
-</script>
-
+<script src="landing.js"></script>
 </body>
 </html>
