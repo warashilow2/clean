@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2A0F0F">
+
+<title>Get a Free Quote | Eco Spark Cleaning</title>
+<meta name="description" content="Leave your name and number and we call you back within the hour with a fixed price for cleaning anywhere in Dublin. No obligation.">
+
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="../../assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+
+<link rel="stylesheet" href="../landing.css">
+
+<!-- First script on the page, as on the landing page and the home page. -->
+<script>window.esPrivacyUrl = '../../privacy.html#cookies';</script>
+<script src="../../assets/js/consent.js"></script>
+</head>
+
+<body id="top">
+
+<header class="hd">
+  <div class="hd__in">
+    <a class="hd__brand" href="../">
+      <img src="../../assets/img/logo.png" alt="" width="240" height="199" decoding="async">
+      Eco Spark Cleaning
+    </a>
+
+    <nav class="hd__nav" aria-label="Sections">
+      <a href="../#services">Services</a>
+      <a href="../#how">How it works</a>
+      <a href="../#included">What's included</a>
+      <a href="../#reviews">Reviews</a>
+      <a href="../#faq">FAQ</a>
+    </nav>
+
+    <div class="hd__right">
+      <a class="btn-outline btn-sm" href="tel:+353874838743">Call 087 483 8743</a>
+    </div>
+
+    <div class="hd__mob">
+      <a class="btn btn-sm" href="tel:+353874838743">Call</a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="menu" id="menu" aria-label="Sections">
+    <a href="../#services">Services</a>
+    <a href="../#how">How it works</a>
+    <a href="../#included">What's included</a>
+    <a href="../#reviews">Reviews</a>
+    <a href="../#faq">FAQ</a>
+    <a class="btn" href="tel:+353874838743">Call 087 483 8743</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="sec-hero" style="padding:48px 0">
+    <div class="wrap narrow">
+      <h1>Get your free quote</h1>
+      <p>
+        Leave your name and number and we'll call you back within 1 hour to
+        agree a fixed price. We're open every day, 8am to 11pm. No obligation.
+      </p>
+
+      <p class="rating">
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </span>
+        <b>5.0 on Google</b> ·
+        <a href="https://maps.app.goo.gl/LbBYRZHXBgVm2bm58" target="_blank" rel="noopener">22 reviews</a>
+      </p>
+
+      <div class="card" id="quoteBox" style="padding:28px">
+        <form id="quoteForm" novalidate>
+
+          <div class="field">
+            <label for="qName">Your name</label>
+            <input id="qName" name="name" type="text" autocomplete="name" enterkeyhint="next" required>
+            <p class="note" id="qNameNote"></p>
+          </div>
+
+          <div class="field">
+            <label for="qPhone">Phone number</label>
+            <input id="qPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" required>
+            <p class="note" id="qPhoneNote">So we can call you back with the price</p>
+          </div>
+
+          <div class="field">
+            <label for="qService">What do you need?</label>
+            <select id="qService" name="service">
+              <option value="regular">Regular clean</option>
+              <option value="deep" selected>Deep clean</option>
+              <option value="tenancy">End of tenancy</option>
+              <option value="builders">After builders</option>
+              <option value="carpet">Carpet &amp; upholstery</option>
+              <option value="kitchen">Oven &amp; kitchen</option>
+              <option value="windows">Windows</option>
+              <option value="hourly">Cleaners by the hour</option>
+              <option value="notsure">Not sure</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="qMessage">Anything we should know? <span class="small muted">(optional)</span></label>
+            <textarea id="qMessage" name="message" rows="3" placeholder="e.g. 2-bed apartment in Dublin 8, moving out on Friday"></textarea>
+          </div>
+
+          <button class="btn btn-full" type="submit" id="qSend">Get my free quote</button>
+
+          <p class="form-foot">
+            We use your name and number only to call you back.
+            <a href="../../privacy.html">Privacy</a>
+          </p>
+
+        </form>
+      </div>
+
+      <div class="talk">
+        <h2 style="font-size:19px">Prefer to talk?</h2>
+        <div class="row">
+          <a class="btn-outline" href="tel:+353874838743">Call 087 483 8743</a>
+          <a class="btn-outline" href="https://wa.me/353874838743" target="_blank" rel="noopener">WhatsApp us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:48px 0">
+    <div class="wrap narrow">
+      <div class="grid">
+        <article class="card rev-card">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </span>
+          <p>Ordered deep-cleaning sofa, guys made a greate job, arrived in time, communicate perfectly, behave as professionals, heavily recommend</p>
+          <p class="who">Bohdan Liashenko<br><span class="small muted">Google review</span></p>
+        </article>
+
+        <article class="card rev-card">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </span>
+          <p>Excellent service, friendly reliable staff that are on time do the job you need them to do with no fuss .Never had an issue found the staff honest and extremely good at there job 5*</p>
+          <p class="who">Paul Hayes<br><span class="small muted">Google review</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__grid">
+      <div>
+        <p class="ft__brand">
+          <img src="../../assets/img/logo.png" alt="" width="240" height="199" decoding="async">
+          Eco Spark Cleaning
+        </p>
+        <p class="small">Professional home cleaning across Dublin city and county.</p>
+      </div>
+
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="./?service=deep">Deep cleaning</a></li>
+          <li><a href="./?service=tenancy">End of tenancy</a></li>
+          <li><a href="./?service=builders">After builders</a></li>
+          <li><a href="./?service=regular">Regular cleaning</a></li>
+          <li><a href="./?service=carpet">Carpet &amp; upholstery</a></li>
+          <li><a href="./?service=kitchen">Oven &amp; kitchen</a></li>
+          <li><a href="./?service=windows">Windows</a></li>
+          <li><a href="./?service=hourly">Cleaners by the hour</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+353874838743">087 483 8743</a></li>
+          <li><a href="https://wa.me/353874838743" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li class="small muted">Every day, 8am to 11pm</li>
+          <li class="small muted">Dublin city and county</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Info</h3>
+        <ul>
+          <li><a href="../../privacy.html">Privacy</a></li>
+          <li><a href="../../privacy.html#cookies">Cookies</a></li>
+          <li><a href="#" data-cookie-settings hidden>Cookie settings</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="ft__btm">© 2026 Eco Spark Cleaning</p>
+  </div>
+</footer>
+
+<div class="dock">
+  <a href="tel:+353874838743" aria-label="Call Eco Spark Cleaning">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.2 2.4 3.2 4.4 5.6 5.6l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V19c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1z"/></svg>
+  </a>
+  <a class="wa" href="https://wa.me/353874838743" target="_blank" rel="noopener" aria-label="WhatsApp Eco Spark Cleaning">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.1 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1a9.6 9.6 0 0 1-4-2.6 9 9 0 0 1-1.8-3c-.2-.6-.1-1.2.2-1.6l.6-.7c.2-.2.5-.2.7.1l.9 1.5c.1.3.1.5 0 .7l-.4.5c-.1.2-.2.4 0 .6.5.9 1.5 1.9 2.5 2.4.2.1.4.1.6-.1l.5-.5c.2-.2.4-.2.7-.1l1.5.9c.3.2.3.5.2.7z"/></svg>
+  </a>
+</div>
+
+<script src="../landing.js"></script>
+</body>
+</html>
