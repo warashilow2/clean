@@ -1,0 +1,286 @@
+/* Eco Spark Cleaning - Google Ads landing page (/dublin/)
+
+   A deliberately different skin from the home page: white, flat, large type,
+   no video, no animation, no sliders. The home page sells the brand; this page
+   has one job, which is a phone number in the office's hands, and every
+   element that does not serve that job is not here.
+
+   WHY ITS OWN STYLESHEET, and not assets/css/styles.css. That file is the dark
+   design system: 2900 lines of tokens, scroll machinery and section rhythm.
+   Importing it here would mean fighting it, and editing it would risk the
+   home page for the sake of a landing page. Nothing in this file is shared,
+   so nothing here can break anything there.
+
+   The only thing the two pages do share is the cookie bar, and that now
+   carries its own styles inside assets/js/consent.js - it has to look the same
+   on both pages, and neither page can be the owner of the other one's CSS.
+
+   TYPE SIZES ARE A FLOOR, NOT A TASTE. Body text starts at 17px and buttons at
+   18px because the people ringing a cleaning company are frequently not
+   twenty-five, and because iOS zooms the whole page when a focused input is
+   under 16px - which on a form is read as the page breaking.
+*/
+
+:root{
+  --paper:   #ffffff;
+  --paper-2: #f8f9fa;
+  --ink:     #1a1a1a;
+  --muted:   #55595c;
+  --line:    #e4e6e8;
+  --brand:   #2a0f0f;   /* the only large colour area: primary buttons */
+  --gold:    #d4af37;   /* stars and hairlines ONLY - 2.0:1 on white, so it
+                           never carries text */
+  --r:       14px;
+  --r-lg:    20px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; }
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:400 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+       "Helvetica Neue", Arial, sans-serif;
+}
+
+img{ display:block; max-width:100%; height:auto; }
+
+a{ color:#1f4e79; }
+
+.wrap{ width:100%; max-width:640px; margin:0 auto; padding:0 18px; }
+
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* ------------------------------------------------------------------ header */
+
+.hd{ border-bottom:1px solid var(--line); background:var(--paper); }
+.hd__in{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  min-height:62px; padding:9px 18px;
+  width:100%; max-width:640px; margin:0 auto;
+}
+.hd__brand{
+  display:flex; align-items:center; gap:9px;
+  color:var(--ink); text-decoration:none; font-weight:700; font-size:16px;
+  line-height:1.15;
+}
+/* The mark is gold line art drawn for a near-black page: on white it washes
+   out to almost nothing (gold on white is 2.0:1). Rather than recolour the
+   logo, it gets the dark square it was designed for. */
+.hd__brand img{
+  width:40px; height:36px; padding:5px;
+  border-radius:10px; background:var(--brand);
+  object-fit:contain;
+}
+
+/* --------------------------------------------------------------- buttons */
+
+.btn{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  min-height:56px; padding:14px 22px;
+  border:0; border-radius:var(--r);
+  background:var(--brand); color:#fff;
+  font:600 18px/1.2 inherit; text-align:center; text-decoration:none;
+  cursor:pointer;
+}
+.btn--lg{ width:100%; min-height:62px; font-size:19px; }
+.btn--out{
+  background:var(--paper); color:var(--brand);
+  border:1.5px solid var(--brand); font-weight:600;
+}
+.btn--sm{ min-height:44px; padding:9px 16px; font-size:16px; border-radius:11px; }
+.btn[disabled]{ opacity:.6; }
+
+/* ------------------------------------------------------------------- hero */
+
+.hero{ padding:26px 0 30px; }
+.hero h1{
+  margin:0 0 12px;
+  font-size:32px; line-height:1.15; font-weight:800; letter-spacing:-.01em;
+}
+.hero__sub{
+  margin:0 0 18px;
+  font-size:17px; line-height:1.5; color:var(--muted);
+}
+
+/* the rating is the one place gold appears at any size, and it appears as
+   stars rather than as text, which is what keeps it legible on white */
+.rating{
+  display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap;
+  margin:0 0 20px; padding:10px 14px;
+  border:1px solid var(--line); border-radius:999px;
+  background:var(--paper-2);
+  color:var(--ink); font-size:16px; font-weight:600; text-decoration:none;
+}
+.rating__stars{ display:inline-flex; gap:2px; }
+.rating__stars svg{ width:17px; height:17px; fill:var(--gold); }
+.rating span{ font-weight:400; color:var(--muted); }
+
+.hero__or{
+  margin:12px 0 0;
+  font-size:16px; color:var(--muted); text-align:center;
+}
+.hero__or a{ color:var(--ink); font-weight:600; }
+
+/* ----------------------------------------------------------------- blocks */
+
+.band{ background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+
+section{ padding:30px 0; }
+
+h2{
+  margin:0 0 16px;
+  font-size:24px; line-height:1.25; font-weight:700;
+}
+
+/* -------------------------------------------------------------------- form */
+
+.form{
+  padding:20px 18px 22px;
+  border:1px solid var(--line); border-radius:var(--r-lg);
+  background:var(--paper);
+}
+.field{ margin:0 0 16px; }
+.field label{
+  display:block; margin:0 0 6px;
+  font-size:16px; font-weight:600;
+}
+.field input,
+.field select{
+  width:100%; min-height:56px; padding:14px 15px;
+  border:1.5px solid #cfd3d6; border-radius:var(--r);
+  background:var(--paper); color:var(--ink);
+  font:400 17px/1.3 inherit;
+}
+.field select{
+  /* a native select on a phone opens the OS picker, which is the largest and
+     most familiar control available - no custom dropdown here on purpose */
+  appearance:none; -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 14px center;
+  background-size:20px; padding-right:44px;
+}
+.field input:focus,
+.field select:focus{ outline:3px solid rgba(42,15,15,.35); outline-offset:1px; border-color:var(--brand); }
+.field input[aria-invalid="true"]{ border-color:#b3261e; }
+
+/* Hint and error are ONE element, not two stacked paragraphs. Two would each
+   reserve their own height, so an error appearing would shove the Send button
+   down by a line at the exact moment of the tap. */
+.field__note{ margin:6px 0 0; font-size:15px; color:var(--muted); min-height:21px; }
+.field__note[data-error="1"]{ color:#b3261e; font-weight:600; }
+
+.form__after{ margin:14px 0 0; font-size:15px; line-height:1.5; color:var(--muted); }
+
+.done{
+  padding:22px 18px;
+  border:1px solid var(--line); border-radius:var(--r-lg);
+  background:var(--paper-2);
+}
+.done h2{ margin:0 0 8px; }
+.done p{ margin:0; font-size:17px; }
+.done__row{ display:grid; gap:10px; margin:16px 0 0; }
+
+/* ------------------------------------------------------------------- perks */
+
+.perks{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+.perks li{
+  display:flex; align-items:center; gap:13px;
+  padding:15px 16px;
+  border:1px solid var(--line); border-radius:var(--r);
+  background:var(--paper);
+  font-size:17px; font-weight:600; line-height:1.35;
+}
+.perks svg{
+  flex:none; width:26px; height:26px;
+  fill:none; stroke:var(--brand); stroke-width:1.7;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+
+/* ----------------------------------------------------------------- reviews */
+
+.rev{ display:grid; gap:14px; }
+.rev article{
+  padding:16px 17px;
+  border:1px solid var(--line); border-radius:var(--r);
+  background:var(--paper);
+}
+.rev__stars{ display:flex; gap:2px; margin:0 0 9px; }
+.rev__stars svg{ width:16px; height:16px; fill:var(--gold); }
+.rev p{ margin:0 0 10px; font-size:17px; line-height:1.5; }
+.rev b{ font-size:16px; }
+.rev small{ display:block; color:var(--muted); font-size:14px; font-weight:400; }
+
+/* --------------------------------------------------------------- before/after */
+
+.ba{ display:grid; gap:18px; }
+.ba figure{ margin:0; }
+.ba__pair{
+  display:grid; grid-template-columns:1fr 1fr; gap:4px;
+  border-radius:var(--r); overflow:hidden; background:#ddd;
+}
+.ba__shot{ position:relative; }
+.ba__shot img{ width:100%; aspect-ratio:4/5; object-fit:cover; }
+.ba__shot span{
+  position:absolute; left:8px; bottom:8px;
+  padding:4px 9px; border-radius:7px;
+  background:rgba(26,26,26,.82); color:#fff;
+  font-size:13px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+}
+.ba figcaption{ margin:8px 0 0; font-size:16px; color:var(--muted); }
+
+/* -------------------------------------------------------------------- foot */
+
+.ft{ padding:28px 0 36px; border-top:1px solid var(--line); background:var(--paper-2); }
+.ft__rows{ display:grid; gap:10px; margin:0 0 18px; }
+.ft__rows a{ color:var(--ink); font-size:17px; font-weight:600; }
+.ft__fine{ margin:0; font-size:15px; color:var(--muted); }
+.ft__fine a{ color:var(--muted); }
+
+/* -------------------------------------------------------------------- dock
+
+   Two round buttons bottom right. Three things could sit under them, and all
+   three are handled rather than hoped about:
+     - the cookie bar: consent.js puts .has-consent-bar on <html> while the bar
+       is up, and the dock lifts clear of it;
+     - the form: a 56px circle over the right end of a full-width Send button
+       would eat the tap that the whole page exists for, so the dock hides
+       while the form is on screen (see the observer in the page);
+     - the iPhone home bar: safe-area inset.
+   The dock's resting state is VISIBLE: if the observer never runs, the worst
+   case is a button that is always there, not one that never appears. */
+
+.dock{
+  position:fixed; right:14px; z-index:60;
+  bottom:calc(18px + env(safe-area-inset-bottom));
+  display:grid; gap:10px;
+}
+.dock a{
+  display:flex; align-items:center; justify-content:center;
+  width:56px; height:56px; border-radius:50%;
+  background:var(--brand); color:#fff;
+  box-shadow:0 6px 18px -6px rgba(0,0,0,.5);
+}
+.dock a.dock--wa{ background:#25d366; }
+.dock svg{ width:27px; height:27px; fill:#fff; }
+.dock[hidden]{ display:none; }
+
+.has-consent-bar .dock{ bottom:calc(112px + env(safe-area-inset-bottom)); }
+
+/* ------------------------------------------------------------------ 641px+ */
+
+@media (min-width:641px){
+  .hero{ padding:40px 0 38px; }
+  .hero h1{ font-size:40px; }
+  .hero__sub{ font-size:18px; }
+  section{ padding:38px 0; }
+  h2{ font-size:28px; }
+  .rev{ gap:16px; }
+  .done__row{ grid-template-columns:1fr 1fr; }
+}

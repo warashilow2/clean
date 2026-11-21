@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+
+<title>House Cleaning in Dublin | Free Quote | Eco Spark Cleaning</title>
+<meta name="description" content="Professional house cleaning in Dublin. Insured, vetted cleaners, eco products safe for kids and pets, price agreed before we start. Get a free quote today.">
+
+<!-- A paid-traffic landing page, not a page for the index. It says the same
+     things as the home page in fewer words, so letting Google rank both would
+     be asking it to choose between two versions of one business. It is kept
+     out of sitemap.xml for the same reason. Ads does not need a page to be
+     indexable in order to send traffic to it. -->
+<meta name="robots" content="noindex, follow">
+
+<link rel="icon" href="../assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+<link rel="stylesheet" href="landing.css">
+
+<!-- consent.js lives in the head and ahead of everything else for one reason:
+     Consent Mode has to publish its denied defaults BEFORE the Google tag
+     loads, and in 'advanced' mode this file loads that tag itself. It also
+     defines window.esTrack, which the form below calls on a successful send.
+
+     esPrivacyUrl is set because this page sits one level down. The bar links
+     to the privacy page, and a bare "privacy.html" would resolve to
+     /dublin/privacy.html, which does not exist. Declared by the page rather
+     than guessed from location.pathname so it stays right on the apex domain
+     and on the github.io fallback URL alike. -->
+<script>window.esPrivacyUrl = '../privacy.html#cookies';</script>
+<script src="../assets/js/consent.js"></script>
+</head>
+
+<body>
+
+<header class="hd">
+  <div class="hd__in">
+    <a class="hd__brand" href="../">
+      <img src="../assets/img/logo.png" alt="" width="240" height="199" decoding="async">
+      Eco Spark Cleaning
+    </a>
+    <a class="btn btn--sm" href="tel:+353874838743">Call</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================ hero ===
+       Everything here has to fit on a 375x812 screen without scrolling:
+       what we do, who vouches for us, and one thing to press. -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>House Cleaning in Dublin</h1>
+
+      <p class="hero__sub">
+        Kid &amp; pet safe eco products · Price agreed before we start ·
+        We bring all the kit
+      </p>
+
+      <a class="rating" href="https://maps.app.goo.gl/LbBYRZHXBgVm2bm58" target="_blank" rel="noopener">
+        <span class="rating__stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </span>
+        Rated 5.0 on Google
+      </a>
+
+      <a class="btn btn--lg" href="#quote">Get my free quote</a>
+
+      <p class="hero__or">or call <a href="tel:+353874838743">087 483 8743</a></p>
+    </div>
+  </section>
+
+  <!-- ============================================================ form === -->
+  <section class="band" id="quote">
+    <div class="wrap">
+      <h2>Get your free quote</h2>
+
+      <div id="quoteBox">
+        <form class="form" id="quoteForm" novalidate>
+
+          <div class="field">
+            <label for="qName">Your name</label>
+            <input id="qName" name="name" type="text" autocomplete="name"
+                   enterkeyhint="next" required>
+            <p class="field__note" id="qNameNote"></p>
+          </div>
+
+          <div class="field">
+            <label for="qPhone">Phone number</label>
+            <input id="qPhone" name="phone" type="tel" inputmode="tel"
+                   autocomplete="tel" enterkeyhint="next" required>
+            <p class="field__note" id="qPhoneNote">So we can call you back with the price</p>
+          </div>
+
+          <div class="field">
+            <label for="qService">What do you need?</label>
+            <select id="qService" name="service">
+              <option value="Regular clean">Regular clean</option>
+              <option value="Deep clean" selected>Deep clean</option>
+              <option value="End of tenancy">End of tenancy</option>
+              <option value="After builders">After builders</option>
+              <option value="Not sure">Not sure</option>
+            </select>
+            <p class="field__note">We will talk it through on the call</p>
+          </div>
+
+          <button class="btn btn--lg" type="submit" id="qSend">Get my free quote</button>
+
+          <p class="form__after">
+            We will call you back within 1 hour (Mon-Sat, 8am to 8pm).
+            No obligation. Your name and number are used to ring you back and
+            nothing else - <a href="../privacy.html">what we do with your details</a>
+          </p>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== perks === -->
+  <section>
+    <div class="wrap">
+      <ul class="perks">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Not happy? We re-clean for free
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.9-7 9.5-4.1-1.6-7-5.3-7-9.5V6z"/></svg>
+          Fully insured, vetted cleaners
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4c0 8-4.5 12-10 12-2 0-3.5-.6-3.5-.6S5 11 9 8.5 20 4 20 4z"/><path d="M5 20c1-4 3-7 6-9"/></svg>
+          Eco products, safe for kids &amp; pets
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================= reviews ===
+       All four are copied word for word from the Google profile, typos and
+       all. Nothing here is written by us: an invented review on a page that
+       buys clicks is both a lie and a misleading commercial practice. -->
+  <section class="band">
+    <div class="wrap">
+      <h2>What Dublin customers say</h2>
+      <div class="rev">
+
+        <article>
+          <div class="rev__stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <p>I used this cleaning service for the first time, and I’m incredibly happy with the experience. Everything was fast and efficient, and the team arrived with all their own equipment. In just two hours, my apartment was sparkling clean. I’m very pleased and truly grateful. I’ll definitely continue using their services. Thank you so much!</p>
+          <b>Anna Krys</b>
+          <small>Google review</small>
+        </article>
+
+        <article>
+          <div class="rev__stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <p>Excellent service, friendly reliable staff that are on time do the job you need them to do with no fuss .Never had an issue found the staff honest and extremely good at there job 5*</p>
+          <b>Paul Hayes</b>
+          <small>Google review</small>
+        </article>
+
+        <article>
+          <div class="rev__stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <p>Ordered deep-cleaning sofa, guys made a greate job, arrived in time, communicate perfectly, behave as professionals, heavily recommend</p>
+          <b>Bohdan Liashenko</b>
+          <small>Google review</small>
+        </article>
+
+        <article>
+          <div class="rev__stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <p>The guys did a fantastic job getting our house to a lovely sparkling clean, it's going to be so much easier keeping things at this level until they come back, and they are definitely coming back!</p>
+          <b>R S</b>
+          <small>Google review</small>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== before/after ===
+       Real jobs, photographed by the cleaners. Both halves of every pair get
+       exactly the same correction: different treatment inside one pair reads
+       as a swap rather than as a clean. -->
+  <section>
+    <div class="wrap">
+      <h2>Before and after</h2>
+      <div class="ba">
+
+        <figure>
+          <div class="ba__pair">
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-1-before.jpg" alt="Oven before cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>Before</span>
+            </span>
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-1-after.jpg" alt="The same oven after cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>After</span>
+            </span>
+          </div>
+          <figcaption>Oven</figcaption>
+        </figure>
+
+        <figure>
+          <div class="ba__pair">
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-9-before.jpg" alt="Kitchen floor before cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>Before</span>
+            </span>
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-9-after.jpg" alt="The same kitchen floor after cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>After</span>
+            </span>
+          </div>
+          <figcaption>Kitchen floor</figcaption>
+        </figure>
+
+        <figure>
+          <div class="ba__pair">
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-5-before.jpg" alt="Mattress before cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>Before</span>
+            </span>
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-5-after.jpg" alt="The same mattress after cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>After</span>
+            </span>
+          </div>
+          <figcaption>Mattress</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== closing cta === -->
+  <section class="band">
+    <div class="wrap">
+      <h2>Ready for a clean house?</h2>
+      <a class="btn btn--lg" href="#quote">Get my free quote</a>
+      <p class="hero__or">or call <a href="tel:+353874838743">087 483 8743</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__rows">
+      <a href="tel:+353874838743">Call 087 483 8743</a>
+      <a href="https://wa.me/353874838743" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+    <p class="ft__fine">
+      Eco Spark Cleaning · Dublin city and county · Every day, 8am to 11pm ·
+      <a href="../privacy.html">Privacy</a> ·
+      <a href="#" data-cookie-settings hidden>Cookies</a>
+    </p>
+  </div>
+</footer>
+
+<div class="dock" id="dock">
+  <a href="tel:+353874838743" aria-label="Call Eco Spark Cleaning">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.2 2.4 3.2 4.4 5.6 5.6l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V19c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1z"/></svg>
+  </a>
+  <a class="dock--wa" href="https://wa.me/353874838743" target="_blank" rel="noopener" aria-label="WhatsApp Eco Spark Cleaning">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.1 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1a9.6 9.6 0 0 1-4-2.6 9 9 0 0 1-1.8-3c-.2-.6-.1-1.2.2-1.6l.6-.7c.2-.2.5-.2.7.1l.9 1.5c.1.3.1.5 0 .7l-.4.5c-.1.2-.2.4 0 .6.5.9 1.5 1.9 2.5 2.4.2.1.4.1.6-.1l.5-.5c.2-.2.4-.2.7-.1l1.5.9c.3.2.3.5.2.7z"/></svg>
+  </a>
+</div>
+
+<script>
+/* The whole page's behaviour. Three things: send the form, keep the dock out
+   of the way, and nothing else. No library, no build step. */
+(function () {
+  'use strict';
+
+  /* The same endpoint and the same transport as the calculator on the home
+     page. 'text/plain' IS DELIBERATE and must stay: with
+     'application/json' the browser treats this as a non-simple request and
+     sends a CORS preflight first, and an Apps Script web app does not answer
+     OPTIONS - the lead would never leave the page. The body is still JSON and
+     the script still parses it as JSON; what the body contains and what the
+     header claims are two different things. */
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzWM7K27549gcjYhWxvtBb2uVwrxIcehnhSD95ZHoqqBO-6Jrx5AJ2js_hLs4ybiOsE/exec';
+
+  var CALL = '087 483 8743';
+
+  var box     = document.getElementById('quoteBox');
+  var form    = document.getElementById('quoteForm');
+  var send    = document.getElementById('qSend');
+  var nameEl  = document.getElementById('qName');
+  var phoneEl = document.getElementById('qPhone');
+  var svcEl   = document.getElementById('qService');
+  var nameNote  = document.getElementById('qNameNote');
+  var phoneNote = document.getElementById('qPhoneNote');
+  var PHONE_HINT = phoneNote.textContent;
+
+  function note(el, text, bad) {
+    el.textContent = text;
+    if (bad) el.setAttribute('data-error', '1');
+    else el.removeAttribute('data-error');
+  }
+
+  function digits(s) { return (s.match(/\d/g) || []).length; }
+
+  function checkName(show) {
+    var ok = nameEl.value.trim().length >= 2;
+    nameEl.setAttribute('aria-invalid', ok ? 'false' : 'true');
+    if (show) note(nameNote, ok ? '' : 'Please tell us your name', !ok);
+    return ok;
+  }
+
+  function checkPhone(show) {
+    var ok = digits(phoneEl.value) >= 7;
+    phoneEl.setAttribute('aria-invalid', ok ? 'false' : 'true');
+    if (show) note(phoneNote, ok ? PHONE_HINT : 'Please enter a phone number we can ring', !ok);
+    return ok;
+  }
+
+  nameEl.addEventListener('input', function () { if (nameEl.value.trim().length >= 2) checkName(true); });
+  phoneEl.addEventListener('input', function () { if (digits(phoneEl.value) >= 7) checkPhone(true); });
+
+  /* What the office reads, in the same shape the calculator sends, so the one
+     Apps Script route, the one sheet and the bot's buttons all keep working
+     without a single change on that side. The fields this page cannot know
+     are sent empty rather than guessed: there is no price here, because the
+     page quotes nobody. */
+  function payload() {
+    var service = svcEl.value;
+    return {
+      name: nameEl.value.trim(),
+      phone: phoneEl.value.trim(),
+      email: '',
+      service: service,
+      property_details: '',
+      estimated_price: '',
+      message: 'Landing /dublin - please call back with a quote. Service: ' + service,
+      source: (window.trafficSource || 'website') + ' / landing-dublin'
+    };
+  }
+
+  function thanks(name, phone) {
+    box.innerHTML =
+      '<div class="done"><h2>Thanks, ' + esc(name) + '!</h2>' +
+      '<p>We will call you on ' + esc(phone) + ' shortly.</p></div>';
+  }
+
+  /* Never swallow the lead: if the request failed, the two channels that do
+     not depend on our code are put in front of the person, full size. */
+  function failed() {
+    note(phoneNote, '', false);
+    var box2 = document.createElement('div');
+    box2.className = 'form__after';
+    box2.innerHTML =
+      '<b>Couldn’t send - please call or WhatsApp us</b>' +
+      '<span class="done__row" style="display:grid;gap:10px;margin-top:12px">' +
+        '<a class="btn btn--lg" href="tel:+353874838743">Call ' + CALL + '</a>' +
+        '<a class="btn btn--lg btn--out" href="https://wa.me/353874838743" target="_blank" rel="noopener">WhatsApp</a>' +
+      '</span>';
+    form.appendChild(box2);
+    send.disabled = false;
+    send.textContent = 'Try again';
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var okName = checkName(true);
+    var okPhone = checkPhone(true);
+    if (!okName || !okPhone) { (okName ? phoneEl : nameEl).focus(); return; }
+
+    var name = nameEl.value.trim();
+    var phone = phoneEl.value.trim();
+
+    send.disabled = true;
+    send.textContent = 'Sending…';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload())
+    }).then(function (res) {
+      if (!res.ok) throw new Error('lead endpoint responded ' + res.status);
+      /* Reported only after the endpoint accepted it. A conversion counted
+         for a lead that never arrived is worse than a missing one: the
+         campaign then goes looking for more of the same. No value is sent,
+         because this page never puts a price on anything. */
+      if (typeof window.esTrack === 'function') window.esTrack('lead');
+      thanks(name, phone);
+    }).catch(function (err) {
+      console.error('Lead delivery failed:', err);
+      failed();
+    });
+  });
+
+  /* The dock sits over the bottom right corner, which is also where the Send
+     button ends up. Hidden while the form is on screen so it cannot eat that
+     tap. It starts visible and stays visible if this never runs. */
+  var dock = document.getElementById('dock');
+
+  /* The box, not the <section> and not the <form>. The section is tall enough
+     that a sliver of it at the top of the page already crossed the threshold,
+     which hid the dock on the first screen; and the form itself is replaced by
+     the thank-you panel on success, which would leave the observer watching a
+     node that is no longer in the document and the dock hidden for good. */
+  if (window.IntersectionObserver && dock && box) {
+    new IntersectionObserver(function (entries) {
+      dock.hidden = entries[0].isIntersecting;
+    }, { threshold: 0.3 }).observe(box);
+  }
+})();
+</script>
+
+</body>
+</html>
