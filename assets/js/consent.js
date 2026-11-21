@@ -14,15 +14,32 @@
    WHAT HAPPENS NOW, in order:
 
      - Consent Mode v2 defaults are set to denied before anything loads;
-     - the bar appears, with Accept and Decline the same size (the Data
+     - the Google tag loads straight away WITH STORAGE DENIED (MODE below is
+       'advanced' since 21.11.2026): no cookie is written and no identifier is
+       kept, but Ads and GA4 receive cookieless pings they can model from. The
+       Meta pixel is NOT loaded, because Meta has no equivalent;
+     - the bar appears, with Decline and Accept the same size (the Data
        Protection Commission treats a prominent Accept beside a quiet Decline
        as consent that was not freely given);
-     - nothing from Google loads until someone presses Accept;
      - the choice is remembered, and the "Cookies" link in the footer appears
        so it can be changed later - withdrawing has to be as easy as giving;
-     - the Cookies section of privacy.html lists, by name, every cookie each
-       vendor sets and how long it lasts. **Change the vendors here and that
-       table is wrong** - they are one change, not two.
+     - the Cookies section of privacy.html says exactly this and lists, by
+       name, every cookie each vendor sets and how long it lasts. **Change the
+       vendors or the mode here and that page is wrong** - they are one
+       change, not two.
+
+   THE BAR'S OWN CSS LIVES IN THIS FILE, at the bottom. It used to sit in
+   assets/css/styles.css, which worked while there was one page. The Ads
+   landing page at /dublin/ has its own stylesheet and does not load the dark
+   design system at all, and two copies of the bar's styles would be two
+   places to forget. A component that is loaded by every page carries its own
+   appearance.
+
+   Its classes were renamed .consent* -> .es-cookie* at the same time, and
+   that rename is the whole reason this needed no change to styles.css: the
+   old rules are still in that file and would otherwise have fought these for
+   padding, border and width. They now match nothing and can be deleted from
+   it whenever that file is next opened.
 
    Emptying every id in ANALYTICS puts the whole thing back to sleep: no bar,
    no requests, nothing stored. ?consent=preview shows the bar regardless.
@@ -76,9 +93,21 @@
      'advanced' - Google loads straight away with storage denied, and sends
                   cookieless pings that let Ads model the conversions it cannot
                   see. Better numbers, more exposure.
-     Basic is the default here because the brief was "no questions from the
-     Irish side". Switch it only knowing what it buys. */
-  var MODE = 'basic';
+
+     ADVANCED SINCE 21.11.2026, and the reason is the Ads campaign. Under basic
+     mode a visitor who ignores the bar is invisible: Smart Bidding gets no
+     signal at all from them, so a campaign paying for clicks learns from only
+     the fraction of people who press Accept. Advanced mode still writes
+     nothing to the device until Accept - that is what ad_storage: 'denied'
+     means, and it is why consent mode exists - it just lets Google count an
+     anonymous event.
+
+     What it costs: the Google tag is fetched on every visit, so Google sees
+     the visitor's IP address before they have answered. That is a legitimate
+     interest argument rather than a consent one, and privacy.html now says so
+     in plain words instead of promising that nothing is sent. Switching back
+     is this one word plus that paragraph. */
+  var MODE = 'advanced';
 
   var STORE_KEY = 'es-consent';     // remembering the answer is itself
                                     // strictly necessary, so it needs no consent
@@ -203,26 +232,36 @@
      assigned explicitly. One reporting function instead of per-vendor guards
      scattered through the modules.
 
+     WHO GETS WHAT, and why they differ. In 'advanced' mode the Google events
+     go out whether or not the bar was answered: consent mode is already
+     holding ad_storage and analytics_storage at 'denied', so what leaves is a
+     cookieless ping with no identifier in it - which is the whole point of
+     running advanced mode, and a conversion Ads cannot see is a conversion it
+     cannot learn from. In 'basic' mode nothing has loaded, so the same gate as
+     before applies. Meta is gated on Accept either way: its pixel is not even
+     fetched until then, so there is nothing to send to.
+
      `value` is optional and only travels when it is a real positive number. */
   window.esTrack = function (action, value) {
-    if (!granted) return;
-
     var e = EVENTS[action];
     if (!e) return;
 
+    var google = live && (granted || MODE === 'advanced');
+    if (!google && !granted) return;
+
     var money = typeof value === 'number' && isFinite(value) && value > 0;
 
-    if (ANALYTICS.ga4) {
+    if (google && ANALYTICS.ga4) {
       gtag('event', e.ga4, money ? { value: value, currency: 'EUR' } : {});
     }
 
-    if (ANALYTICS.meta && typeof window.fbq === 'function') {
+    if (granted && ANALYTICS.meta && typeof window.fbq === 'function') {
       var m = { content_name: e.name };
       if (money) { m.value = value; m.currency = 'EUR'; }
       window.fbq('track', e.meta, m);
     }
 
-    if (ANALYTICS.ads && e.ads) {
+    if (google && ANALYTICS.ads && e.ads) {
       var a = { send_to: ANALYTICS.ads + '/' + e.ads };
       if (money) { a.value = value; a.currency = 'EUR'; }
       gtag('event', 'conversion', a);
@@ -248,10 +287,16 @@
 
   var bar = null;
 
+  /* A STRIP, NOT A PANEL. It is 70-90px of the bottom of a phone screen and
+     two lines of text, because every pixel it takes is a pixel of the page
+     someone came to read, and a box that fills a third of the screen is the
+     thing that teaches people to click Accept without reading. The detail is
+     one tap away in privacy.html, which is where the full list belongs. */
   function close() {
     if (!bar) return;
     bar.remove();
     bar = null;
+    document.documentElement.classList.remove('has-consent-bar');
   }
 
   function decide(answer) {
@@ -263,20 +308,30 @@
 
   function build() {
     if (bar) return;
+    styles();
 
     bar = document.createElement('div');
-    bar.className = 'consent';
+    bar.className = 'es-cookie';
     bar.setAttribute('role', 'dialog');
     bar.setAttribute('aria-label', 'Cookies');
+
+    /* On a phone the home page keeps a sticky Call / WhatsApp / Get a price
+       bar at the bottom. A strip sitting on top of those is both bad manners
+       and a reason to tap the wrong thing, so it is lifted clear of them.
+       Asked of the page rather than hard-coded per page: the landing page has
+       no such bar and gets the bottom of the screen. */
+    if (document.getElementById('callbar')) bar.className += ' es-cookie--lift';
+
     bar.innerHTML =
-      '<p class="consent__text">' +
-        'We use cookies to see how the site is used and to measure our ads. ' +
-        'Nothing is set and nothing is sent unless you agree. ' +
-        '<a href="privacy.html#cookies">What we collect</a>' +
-      '</p>' +
-      '<div class="consent__actions">' +
-        '<button type="button" class="consent__btn" data-consent="none">Only what is needed</button>' +
-        '<button type="button" class="consent__btn consent__btn--yes" data-consent="all">Accept</button>' +
+      '<div class="es-cookie__in">' +
+        '<p class="es-cookie__text">' +
+          'We use cookies to measure our ads. ' +
+          '<a href="' + (window.esPrivacyUrl || 'privacy.html#cookies') + '">Details</a>' +
+        '</p>' +
+        '<div class="es-cookie__actions">' +
+          '<button type="button" class="es-cookie__btn" data-consent="none">Decline</button>' +
+          '<button type="button" class="es-cookie__btn" data-consent="all">Accept</button>' +
+        '</div>' +
       '</div>';
 
     bar.addEventListener('click', function (e) {
@@ -284,7 +339,65 @@
       if (btn) decide(btn.getAttribute('data-consent'));
     });
 
-    document.body.appendChild(bar);   // the slide-up is a keyframe in the CSS
+    document.body.appendChild(bar);
+    document.documentElement.classList.add('has-consent-bar');
+  }
+
+  /* ---------------------------------------------------------------- styles
+
+     Injected once, from here, so that the bar looks the same on a page that
+     loads the dark design system and on one that does not. Literal colours
+     rather than custom properties for exactly that reason: a var() would
+     resolve to nothing on /dublin/, and a cookie bar with no background is a
+     cookie bar nobody can read.
+
+     NO ENTRANCE ANIMATION, and that is the decision, not an omission. Every
+     version of it left the bar off-screen in some failure mode: a class
+     toggled on the next frame needs requestAnimationFrame to fire; a keyframe
+     with `both` holds its from-state if animations never start; and even
+     without a fill-mode the element reports the first keyframe while the
+     compositor is stalled - measured here at 808..888px down an 800px
+     viewport, i.e. completely unreachable. Everything else on the site may
+     animate in, because the worst case there is a heading that arrives
+     plainly. This is the one thing standing between a visitor and a choice
+     the law says they must be able to make, so it has no moving parts. */
+  var styled = false;
+
+  function styles() {
+    if (styled) return;
+    styled = true;
+
+    var css =
+    '.es-cookie{position:fixed;left:0;right:0;bottom:0;z-index:120;' +
+      'background:#131110;border-top:1px solid rgba(244,243,241,.14);' +
+      'box-shadow:0 -8px 24px -16px rgba(0,0,0,.9);' +
+      'font:400 13px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;' +
+      'padding-bottom:env(safe-area-inset-bottom)}' +
+    '.es-cookie__in{display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;' +
+      'max-width:920px;margin:0 auto;padding:10px 14px}' +
+    '.es-cookie__text{flex:1 1 180px;margin:0;color:rgba(244,243,241,.78)}' +
+    '.es-cookie__text a{color:#e8cf7a;text-decoration:underline;text-underline-offset:2px}' +
+    '.es-cookie__actions{display:flex;gap:8px;flex:0 0 auto}' +
+    /* identical box for both answers - same size, same weight, same colour.
+       The only honest way to ask. */
+    '.es-cookie__btn{min-width:88px;min-height:38px;padding:8px 14px;' +
+      'border:1px solid rgba(244,243,241,.28);border-radius:999px;' +
+      'background:rgba(244,243,241,.06);' +
+      'font:600 13px/1.2 inherit;color:#f4f3f1;cursor:pointer;' +
+      'box-sizing:border-box}' +
+    '.es-cookie__btn:hover{border-color:rgba(212,175,55,.55);background:rgba(212,175,55,.1)}' +
+    '@media (max-width:640px){' +
+      '.es-cookie__in{padding:9px 12px;gap:8px 10px}' +
+      '.es-cookie__text{flex:1 1 100%}' +
+      '.es-cookie__actions{width:100%}' +
+      '.es-cookie__btn{flex:1 1 0;min-width:0}' +
+      '.es-cookie--lift{bottom:calc(88px + env(safe-area-inset-bottom))}' +
+    '}';
+
+    var tag = document.createElement('style');
+    tag.id = 'consent-css';
+    tag.textContent = css;
+    document.head.appendChild(tag);
   }
 
   /* The way back in. Hidden in the markup so it never appears while there is
