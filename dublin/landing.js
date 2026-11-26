@@ -241,7 +241,7 @@
   function thanks(name, phone) {
     box.innerHTML =
       '<h2>Thanks, ' + esc(name) + '!</h2>' +
-      '<p>We’ll call you on ' + esc(phone) + ' within the hour.</p>' +
+      "<p>We'll call you on " + esc(phone) + ' within the hour.</p>' +
       '<div class="done__row"><a class="btn-outline" href="../">Back to the main page</a></div>';
     box.setAttribute('tabindex', '-1');
     box.scrollIntoView({ block: 'center' });
@@ -259,7 +259,7 @@
       failBox.className = 'fail';
       failBox.setAttribute('role', 'alert');
       failBox.innerHTML =
-        'Sorry, we couldn’t send that. Please call or WhatsApp us - we answer every day, 8am to 11pm.' +
+        "Sorry, we couldn't send that. Please call or WhatsApp us - we answer every day, 8am to 11pm." +
         '<div class="row">' +
           '<a class="btn" href="' + SITE.tel + '">Call ' + SITE.phone + '</a>' +
           '<a class="btn-outline" href="' + SITE.whatsapp + '" target="_blank" rel="noopener">WhatsApp</a>' +
