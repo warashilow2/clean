@@ -33,6 +33,71 @@
     });
   }
 
+  /* ----------------------------------------------- where the visit came from
+
+     The office gets a row in a spreadsheet saying someone wants a quote, and
+     until now every row said the same thing: "website". Which advert, which
+     keyword, which campaign - gone. These are the parameters Google, Bing and
+     Meta hang on the click, and they arrive on the FIRST page only.
+
+     They are carried to the quote page by rewriting the links, NOT by storing
+     them. Storage on the visitor's device is exactly what the cookie bar is
+     about, and campaign attribution is not "strictly necessary", so writing
+     it to sessionStorage before anyone has answered the bar would make the
+     privacy page wrong. A query string travels with the click and disappears
+     with the tab. */
+  var TRACK_KEYS = ['gclid', 'gbraid', 'wbraid', 'msclkid', 'fbclid',
+                    'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+  var params = new URLSearchParams(window.location.search);
+  var traffic = {};
+  TRACK_KEYS.forEach(function (k) {
+    var v = params.get(k);
+    if (v) traffic[k] = v.slice(0, 120);   // a click id is ~90 chars; junk is not
+  });
+
+  /* Short enough for a spreadsheet column, specific enough to act on. */
+  function trafficLabel() {
+    if (traffic.gclid || traffic.gbraid || traffic.wbraid) return 'Google Ads';
+    if (traffic.msclkid) return 'Bing Ads';
+    if (traffic.fbclid) return 'Facebook';
+    if (traffic.utm_source) {
+      return traffic.utm_source + (traffic.utm_medium ? ' / ' + traffic.utm_medium : '');
+    }
+    if (document.referrer) {
+      try {
+        var h = new URL(document.referrer).hostname.replace(/^www\./, '');
+        if (h && h !== window.location.hostname) return h;
+      } catch (e) {}
+    }
+    return 'direct';
+  }
+
+  /* The campaign name is the part a person can act on: it says which advert
+     paid for this call. The click id stays out of the message - it is 90
+     characters of machine code and the office does not bid on it. */
+  function campaignNote() {
+    var bits = [];
+    if (traffic.utm_campaign) bits.push('campaign: ' + traffic.utm_campaign);
+    if (traffic.utm_term) bits.push('keyword: ' + traffic.utm_term);
+    if (traffic.utm_content) bits.push('ad: ' + traffic.utm_content);
+    return bits.length ? '. ' + bits.join(', ') : '';
+  }
+
+  /* The landing page and the form are two pages, so the parameters have to
+     survive one click. Every link into the quote page gets them. */
+  (function carryToQuote() {
+    var keys = Object.keys(traffic);
+    if (!keys.length) return;
+    $$('a[href]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (!href || !/(^|\/)quote\/|^\.\/\?service=/.test(href)) return;
+      var url = new URL(href, window.location.href);
+      keys.forEach(function (k) { if (!url.searchParams.has(k)) url.searchParams.set(k, traffic[k]); });
+      a.setAttribute('href', url.pathname + url.search);
+    });
+  })();
+
   /* ------------------------------------------------------- burger menu */
 
   var burger = $('#burger');
@@ -124,7 +189,7 @@
      string. Only a value the <select> actually has is accepted - anything
      else is someone else's link, and a silent mismatch would put the wrong
      job in front of the office. */
-  var wanted = new URLSearchParams(window.location.search).get('service');
+  var wanted = params.get('service');
   if (wanted && $('option[value="' + CSS.escape(wanted) + '"]', svcEl)) svcEl.value = wanted;
 
   function note(el, text, bad) {
@@ -168,8 +233,8 @@
       property_details: '',
       estimated_price: '',
       message: 'Landing /dublin - call back with a quote. Service: ' + serviceText +
-               (extra ? '. Note: ' + extra : ''),
-      source: (window.trafficSource || 'website') + ' / landing-dublin'
+               (extra ? '. Note: ' + extra : '') + campaignNote(),
+      source: trafficLabel() + ' / landing-dublin'
     };
   }
 

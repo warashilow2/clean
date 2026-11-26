@@ -14,6 +14,24 @@
      sitemap.xml for the same reason. -->
 <meta name="robots" content="noindex">
 
+<!-- noindex keeps this page out of search; it does not keep it out of a
+     WhatsApp message, and the ad link gets forwarded by hand all the time.
+     Absolute URLs: crawlers do not resolve relative ones, which is how the
+     home page once ended up sharing with no picture at all. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Eco Spark Cleaning">
+<meta property="og:url" content="https://ecospark.ie/dublin/">
+<meta property="og:locale" content="en_IE">
+<meta property="og:title" content="House Cleaning in Dublin | Eco Spark Cleaning">
+<meta property="og:description" content="Deep cleans, end of tenancy and after builders cleaning across Dublin. Free quote, fixed price agreed before we start.">
+<meta property="og:image" content="https://ecospark.ie/assets/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="House Cleaning in Dublin | Eco Spark Cleaning">
+<meta name="twitter:description" content="Free quote, fixed price agreed before we start. Dublin city and county.">
+<meta name="twitter:image" content="https://ecospark.ie/assets/img/og-cover.jpg">
+
 <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png">
@@ -39,10 +57,10 @@
     </a>
 
     <nav class="hd__nav" aria-label="Sections">
-      <a href="#services">Services</a>
       <a href="#how">How it works</a>
-      <a href="#included">What's included</a>
+      <a href="#services">Services</a>
       <a href="#reviews">Reviews</a>
+      <a href="#included">What's included</a>
       <a href="#faq">FAQ</a>
     </nav>
 
@@ -60,17 +78,16 @@
   </div>
 
   <nav class="menu" id="menu" aria-label="Sections">
-    <a href="#services">Services</a>
     <a href="#how">How it works</a>
-    <a href="#included">What's included</a>
+    <a href="#services">Services</a>
     <a href="#reviews">Reviews</a>
+    <a href="#included">What's included</a>
     <a href="#faq">FAQ</a>
     <a class="btn" href="quote/">Get a free quote</a>
   </nav>
 </header>
 
 <main>
-
   <!-- ============================================================ hero -->
   <section class="hero">
     <div class="wrap">
@@ -79,7 +96,7 @@
           <h1>Professional House Cleaning in Dublin</h1>
 
           <p class="hero__lead">
-            Deep cleans, end of tenancy and after-builders cleaning across
+            Deep cleans, end of tenancy and after builders cleaning across
             Dublin city and county. Eco products that are safe for kids and
             pets, the price agreed before we start, and we bring all the
             equipment.
@@ -103,8 +120,8 @@
         </div>
 
         <div class="hero__photo">
-          <img src="../assets/img/album/photo-1.jpg" alt="A cleaner wiping down kitchen units"
-               width="1000" height="1250" loading="eager" fetchpriority="high" decoding="async">
+          <img src="../assets/img/team-crew.jpg" alt="The Eco Spark team with their equipment outside a Dublin home"
+               width="760" height="942" loading="eager" fetchpriority="high" decoding="async">
         </div>
       </div>
 
@@ -129,13 +146,221 @@
     </div>
   </section>
 
+  <!-- ========================================================== how -->
+  <section id="how" class="sec-alt">
+    <div class="wrap">
+      <h2>How it works</h2>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="step__n" aria-hidden="true">1</div>
+          <h3>Tell us what you need</h3>
+          <p>Leave your name and number or give us a call. It takes less than a minute.</p>
+        </article>
+        <article class="card">
+          <div class="step__n" aria-hidden="true">2</div>
+          <h3>We agree the price</h3>
+          <p>We call you back within the hour, ask a few questions and agree a fixed price and a time that suits you.</p>
+        </article>
+        <article class="card">
+          <div class="step__n" aria-hidden="true">3</div>
+          <h3>We clean, you relax</h3>
+          <p>Our team arrives on time with all the equipment and eco products. Not happy with something? We come back and fix it free.</p>
+        </article>
+      </div>
+
+      <p class="center" style="margin-top:32px">
+        <a class="btn" href="quote/">Get a free quote <span aria-hidden="true">&rarr;</span></a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================================================== services -->
+  <section id="services" class="svc">
+    <div class="wrap">
+      <h2>Our cleaning services</h2>
+      <p>Tap the one you need and the form opens with it already chosen.</p>
+
+      <!-- Icons, not photographs. Eight photographs of eight different rooms
+           read as eight random pictures rather than as a list of services,
+           and the one thing a service card has to do is let someone find
+           their job at a glance. They are drawn here, inline: no stock
+           library (someone else's cleaners presented as ours), no icon font,
+           no extra request, and nothing to load before the list is usable. -->
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="svc__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 9h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"/><path d="M10 9V5h3v4"/><path d="M13 6h3.5"/><path d="M19.6 9.4l.7 1.6 1.6.7-1.6.7-.7 1.6-.7-1.6-1.6-.7 1.6-.7z"/></svg>
+          </span>
+          <h3>Deep cleaning</h3>
+          <p>Top to bottom, every room.</p>
+          <a class="btn-outline" href="quote/?service=deep">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <span class="svc__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="3.6"/><path d="M11.6 12H21"/><path d="M18.5 12v3"/><path d="M15.5 12v2.4"/></svg>
+          </span>
+          <h3>End of tenancy cleaning</h3>
+          <p>Cleaned to deposit standard.</p>
+          <a class="btn-outline" href="quote/?service=tenancy">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <span class="svc__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 18h18"/><path d="M5.5 18v-3a6.5 6.5 0 0 1 13 0v3"/><path d="M10 5.2V8"/><path d="M14 5.2V8"/><path d="M9.6 5h4.8"/></svg>
+          </span>
+          <h3>After builders cleaning</h3>
+          <p>Dust and debris after the works.</p>
+          <a class="btn-outline" href="quote/?service=builders">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <span class="svc__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M9 15.5l2 2 4-4"/></svg>
+          </span>
+          <h3>Regular cleaning</h3>
+          <p>Weekly or fortnightly visits.</p>
+          <a class="btn-outline" href="quote/?service=regular">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <span class="svc__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M5 11a2.5 2.5 0 0 0-2.5 2.5V17h19v-3.5A2.5 2.5 0 0 0 19 11"/><path d="M7 17v2.5"/><path d="M17 17v2.5"/><path d="M7.5 11h9"/></svg>
+          </span>
+          <h3>Carpet &amp; upholstery</h3>
+          <p>Carpets, sofas and mattresses.</p>
+          <a class="btn-outline" href="quote/?service=carpet">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <span class="svc__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M12 3.5v17"/><path d="M3.5 12h17"/><path d="M15.5 8.5l3-3"/></svg>
+          </span>
+          <h3>Windows</h3>
+          <p>Inside and out, frames included.</p>
+          <a class="btn-outline" href="quote/?service=windows">Get a quote</a>
+        </article>
+
+        <article class="card">
+          <span class="svc__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.6 2.1"/></svg>
+          </span>
+          <h3>Cleaners by the hour</h3>
+          <p>You decide what to focus on.</p>
+          <a class="btn-outline" href="quote/?service=hourly">Get a quote</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== crew
+       People, in one place and as a series. The service cards lost their
+       photographs because eight unrelated rooms read as clutter; that is an
+       argument against photographs scattered one per card, not against
+       showing the people who turn up. Four frames of the same crew, same
+       size, same crop, say what a stock smile cannot. All from our own jobs. -->
+  <section class="crew sec-alt">
+    <div class="wrap">
+      <div class="crew__grid">
+        <div class="crew__pics">
+          <img src="../assets/img/crew-panel.jpg" alt="An Eco Spark cleaner wiping down a wall panel" width="430" height="538" loading="lazy" decoding="async">
+          <img src="../assets/img/crew-wall.jpg" alt="An Eco Spark cleaner dusting picture frames in a living room" width="430" height="538" loading="lazy" decoding="async">
+          <img src="../assets/img/crew-window.jpg" alt="An Eco Spark cleaner washing a floor-to-ceiling window in a Dublin apartment" width="430" height="538" loading="lazy" decoding="async">
+          <img src="../assets/img/album/photo-9.jpg" alt="An Eco Spark cleaner polishing a bathroom mirror" width="1000" height="1250" loading="lazy" decoding="async">
+        </div>
+
+        <div>
+          <h2>Who turns up at your door</h2>
+          <p>
+            We are our own crew, not an agency rota. You see our faces before
+            you book, and you get the same people next time.
+          </p>
+          <ul class="ticks ticks--plain">
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> We are all vetted, and our work is fully insured</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> We bring everything we need with us</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> We work to our own checklist, room by room</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================== before/after
+       Real jobs, photographed by the cleaners. Both halves of a pair get
+       exactly the same correction: different treatment inside one pair reads
+       as a swap rather than as a clean. -->
+  <section class="ba">
+    <div class="wrap">
+      <h2>Before and after</h2>
+
+      <div class="grid grid-2">
+        <figure>
+          <div class="ba__pair">
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-4-before.jpg" alt="Kitchen worktop before cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>BEFORE</span>
+            </span>
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-4-after.jpg" alt="The same kitchen worktop after cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>AFTER</span>
+            </span>
+          </div>
+          <figcaption>Worktop</figcaption>
+        </figure>
+
+        <figure>
+          <div class="ba__pair">
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-7-before.jpg" alt="Toilet before cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>BEFORE</span>
+            </span>
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-7-after.jpg" alt="The same toilet after cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>AFTER</span>
+            </span>
+          </div>
+          <figcaption>Toilet</figcaption>
+        </figure>
+
+        <figure>
+          <div class="ba__pair">
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-2-before.jpg" alt="Living room carpet before cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>BEFORE</span>
+            </span>
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-2-after.jpg" alt="The same living room carpet after cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>AFTER</span>
+            </span>
+          </div>
+          <figcaption>Living room carpet</figcaption>
+        </figure>
+
+        <figure>
+          <div class="ba__pair">
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-9-before.jpg" alt="Kitchen wall tiles before cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>BEFORE</span>
+            </span>
+            <span class="ba__shot">
+              <img src="../assets/img/results/pair-9-after.jpg" alt="The same kitchen wall tiles after cleaning" width="560" height="700" loading="lazy" decoding="async">
+              <span>AFTER</span>
+            </span>
+          </div>
+          <figcaption>Kitchen wall tiles</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ========================================================= reviews
        Word for word from the Google profile, typos and all. Nothing here is
        written by us: an invented review on a page that buys clicks is both a
        lie and a misleading commercial practice. -->
   <section id="reviews" class="sec-alt">
     <div class="wrap">
-      <h2>What Dublin customers say</h2>
+      <h2>What our customers say</h2>
 
       <p class="rev-head">
         <span class="stars" aria-hidden="true">
@@ -201,173 +426,8 @@
     </div>
   </section>
 
-  <!-- ========================================================== how -->
-  <section id="how">
-    <div class="wrap">
-      <h2>How it works</h2>
-
-      <div class="grid grid-3">
-        <article class="card">
-          <div class="step__n" aria-hidden="true">1</div>
-          <h3>Tell us what you need</h3>
-          <p>Leave your name and number or give us a call. It takes less than a minute.</p>
-        </article>
-        <article class="card">
-          <div class="step__n" aria-hidden="true">2</div>
-          <h3>We agree the price</h3>
-          <p>We call you back within the hour, ask a few questions and agree a fixed price and a time that suits you.</p>
-        </article>
-        <article class="card">
-          <div class="step__n" aria-hidden="true">3</div>
-          <h3>We clean, you relax</h3>
-          <p>Our team arrives on time with all the equipment and eco products. Not happy with something? We come back and fix it free.</p>
-        </article>
-      </div>
-
-      <p class="center" style="margin-top:32px">
-        <a class="btn" href="quote/">Get a free quote <span aria-hidden="true">&rarr;</span></a>
-      </p>
-    </div>
-  </section>
-
-  <!-- ====================================================== included
-       Every line below is taken from the Standard and Deep cleaning lists on
-       the home page. Nothing is added: this is a promise of specific work to
-       real customers, and the two pages have to say the same thing. -->
-  <section id="included" class="sec-alt inc">
-    <div class="wrap">
-      <h2>What's included in a deep clean</h2>
-      <p>Every room, top to bottom. Extras can be added when we agree your price.</p>
-
-      <div class="grid">
-        <details open>
-          <summary>General areas</summary>
-          <ul class="ticks">
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Dusting throughout: surfaces, shelves, light switches and handles</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Floors and carpets vacuumed, hard floors mopped in every room</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Skirting boards, door frames, radiators, vents and light fittings washed</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Behind and under furniture and appliances, heavier pieces moved</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Window sills and the room-facing side of window frames</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Switches, sockets, handles and other touch points disinfected</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Bins emptied and re-lined, general tidy as we go</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>Kitchen</summary>
-          <ul class="ticks">
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Worktops, sink and taps, hob and splashback</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Cupboard fronts and the outside of appliances</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Extractor and splashback degreased</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Tops of all cupboards, kitchen included</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Floor washed and the bin cleaned</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>Bathrooms</summary>
-          <ul class="ticks">
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Toilet, shower, bath, sink and taps</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Limescale off taps, shower screens and tiles</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Grout scrubbed rather than wiped</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Mirrors polished</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>Bedrooms &amp; living rooms</summary>
-          <ul class="ticks">
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Surfaces, shelves and furniture dusted</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Tops of all wardrobes and cupboards</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside wardrobes and room cupboards dusted</li>
-            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Carpets vacuumed, hard floors mopped</li>
-          </ul>
-        </details>
-      </div>
-
-      <div class="card extras">
-        <h3>Extras at additional cost</h3>
-        <ul class="ticks" style="padding:0">
-          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside the oven</li>
-          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside the fridge</li>
-          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside kitchen cabinets</li>
-          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Microwave</li>
-          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Windows, inside and outside</li>
-          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Carpets</li>
-          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Upholstery</li>
-          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Mattress</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================================================== services -->
-  <section id="services" class="svc">
-    <div class="wrap">
-      <h2>Our cleaning services</h2>
-
-      <div class="grid grid-3">
-        <article class="card">
-          <img src="../assets/img/album/photo-5.jpg" alt="Steam cleaning a hob and the splashback behind it" width="1000" height="1250" loading="lazy" decoding="async">
-          <h3>Deep cleaning</h3>
-          <p>A thorough top-to-bottom clean of every room.</p>
-          <a class="btn-outline" href="quote/?service=deep">Get a quote</a>
-        </article>
-
-        <article class="card">
-          <img src="../assets/img/album/photo-2.jpg" alt="Dusting a framed print in a cleared room" width="1000" height="1250" loading="lazy" decoding="async">
-          <h3>End of tenancy cleaning</h3>
-          <p>Get the place ready for the landlord, the agent or the next tenant.</p>
-          <a class="btn-outline" href="quote/?service=tenancy">Get a quote</a>
-        </article>
-
-        <article class="card">
-          <img src="../assets/img/album/photo-12.jpg" alt="A kitchen handed back at the end of the job" width="1000" height="1250" loading="lazy" decoding="async">
-          <h3>After builders cleaning</h3>
-          <p>Dust and debris removed after renovation or building work.</p>
-          <a class="btn-outline" href="quote/?service=builders">Get a quote</a>
-        </article>
-
-        <article class="card">
-          <img src="../assets/img/album/photo-7.jpg" alt="Wiping down a dining table at the end of a clean" width="1000" height="1250" loading="lazy" decoding="async">
-          <h3>Regular cleaning</h3>
-          <p>Weekly or fortnightly cleans to keep your home in shape.</p>
-          <a class="btn-outline" href="quote/?service=regular">Get a quote</a>
-        </article>
-
-        <article class="card">
-          <img src="../assets/img/album/photo-10.jpg" alt="Hot water extraction on an upholstered headboard" width="1000" height="1250" loading="lazy" decoding="async">
-          <h3>Carpet &amp; upholstery</h3>
-          <p>Hot water extraction for carpets, sofas and mattresses.</p>
-          <a class="btn-outline" href="quote/?service=carpet">Get a quote</a>
-        </article>
-
-        <article class="card">
-          <img src="../assets/img/results/pair-1-after.jpg" alt="An oven cleaned inside at the end of the job" width="560" height="700" loading="lazy" decoding="async">
-          <h3>Oven &amp; kitchen</h3>
-          <p>Ovens, hobs, extractors and cabinets degreased.</p>
-          <a class="btn-outline" href="quote/?service=kitchen">Get a quote</a>
-        </article>
-
-        <article class="card">
-          <img src="../assets/img/album/photo-3.jpg" alt="Washing the outside of a floor-to-ceiling window" width="1000" height="1250" loading="lazy" decoding="async">
-          <h3>Windows</h3>
-          <p>Windows cleaned inside and out.</p>
-          <a class="btn-outline" href="quote/?service=windows">Get a quote</a>
-        </article>
-
-        <article class="card">
-          <img src="../assets/img/album/photo-8.jpg" alt="Eco Spark bottles and microfibre cloths ready for a job" width="1000" height="1250" loading="lazy" decoding="async">
-          <h3>Cleaners by the hour</h3>
-          <p>Book a cleaner by the hour and tell them what to focus on.</p>
-          <a class="btn-outline" href="quote/?service=hourly">Get a quote</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- =========================================================== why -->
-  <section class="sec-alt why">
+  <section class="why">
     <div class="wrap">
       <h2>Why choose Eco Spark</h2>
 
@@ -390,11 +450,11 @@
         <li class="card">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h4v4H9z"/><path d="M11 7v3"/><path d="M6 10h10l1 11H5z"/></svg>
           <h3>We bring everything</h3>
-          <p>Equipment, cloths and products - you don't need to buy a thing.</p>
+          <p>Equipment, cloths and products all come with us.</p>
         </li>
         <li class="card">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg>
-          <h3>Re-clean guarantee</h3>
+          <h3>We come back free</h3>
           <p>Not happy with an area? Tell us and we come back to fix it free.</p>
         </li>
         <li class="card">
@@ -406,70 +466,73 @@
     </div>
   </section>
 
-  <!-- ================================================== before/after
-       Real jobs, photographed by the cleaners. Both halves of a pair get
-       exactly the same correction: different treatment inside one pair reads
-       as a swap rather than as a clean. -->
-  <section class="ba">
+  <!-- ====================================================== included
+       Every line below is taken from the Standard and Deep cleaning lists on
+       the home page. Nothing is added: this is a promise of specific work to
+       real customers, and the two pages have to say the same thing. -->
+  <section id="included" class="sec-alt inc">
     <div class="wrap">
-      <h2>The difference you can see</h2>
+      <h2>What's included in a deep clean</h2>
+      <p>Some of the points from the checklist our cleaners work from and tick
+         off as they go. Extras can be added when we agree your price.</p>
 
-      <div class="grid grid-2">
-        <figure>
-          <div class="ba__pair">
-            <span class="ba__shot">
-              <img src="../assets/img/results/pair-4-before.jpg" alt="Kitchen worktop before cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>BEFORE</span>
-            </span>
-            <span class="ba__shot">
-              <img src="../assets/img/results/pair-4-after.jpg" alt="The same kitchen worktop after cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>AFTER</span>
-            </span>
-          </div>
-          <figcaption>Worktop</figcaption>
-        </figure>
+      <div class="grid">
+        <details open>
+          <summary>General areas</summary>
+          <ul class="ticks">
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Dusting throughout: surfaces, shelves, light switches and handles</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Floors and carpets vacuumed, hard floors mopped in every room</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Skirting boards, door frames, radiators and light fittings washed</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Behind and under furniture and appliances, heavier pieces moved</li>
+            <li class="more">and the rest of the list for this room</li>
+          </ul>
+        </details>
 
-        <figure>
-          <div class="ba__pair">
-            <span class="ba__shot">
-              <img src="../assets/img/results/pair-7-before.jpg" alt="Toilet before cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>BEFORE</span>
-            </span>
-            <span class="ba__shot">
-              <img src="../assets/img/results/pair-7-after.jpg" alt="The same toilet after cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>AFTER</span>
-            </span>
-          </div>
-          <figcaption>Toilet</figcaption>
-        </figure>
+        <details>
+          <summary>Kitchen</summary>
+          <ul class="ticks">
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Worktops, sink and taps, hob and splashback</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Cupboard fronts and the outside of appliances</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Extractor hood degreased, tops of all cupboards washed</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Floor washed and the bin cleaned</li>
+            <li class="more">and the rest of the list for this room</li>
+          </ul>
+        </details>
 
-        <figure>
-          <div class="ba__pair">
-            <span class="ba__shot">
-              <img src="../assets/img/results/pair-2-before.jpg" alt="Living room carpet before cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>BEFORE</span>
-            </span>
-            <span class="ba__shot">
-              <img src="../assets/img/results/pair-2-after.jpg" alt="The same living room carpet after cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>AFTER</span>
-            </span>
-          </div>
-          <figcaption>Living room carpet</figcaption>
-        </figure>
+        <details>
+          <summary>Bathrooms</summary>
+          <ul class="ticks">
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Toilet, shower, bath, sink and taps</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Limescale off taps, shower screens and tiles</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Grout scrubbed rather than wiped</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Mirrors polished</li>
+            <li class="more">and the rest of the list for this room</li>
+          </ul>
+        </details>
 
-        <figure>
-          <div class="ba__pair">
-            <span class="ba__shot">
-              <img src="../assets/img/results/pair-9-before.jpg" alt="Kitchen floor before cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>BEFORE</span>
-            </span>
-            <span class="ba__shot">
-              <img src="../assets/img/results/pair-9-after.jpg" alt="The same kitchen floor after cleaning" width="560" height="700" loading="lazy" decoding="async">
-              <span>AFTER</span>
-            </span>
-          </div>
-          <figcaption>Kitchen floor</figcaption>
-        </figure>
+        <details>
+          <summary>Bedrooms &amp; living rooms</summary>
+          <ul class="ticks">
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Surfaces, shelves and furniture dusted</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Tops of all wardrobes and cupboards</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside wardrobes and room cupboards dusted</li>
+            <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Carpets vacuumed, hard floors mopped</li>
+            <li class="more">and the rest of the list for this room</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="card extras">
+        <h3>Extras at additional cost</h3>
+        <ul class="ticks" style="padding:0">
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside the fridge</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Inside kitchen cabinets</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Microwave</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Windows, inside and outside</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Carpets</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Upholstery</li>
+          <li><svg class="ico ico-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Mattress</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -478,7 +541,7 @@
        The five questions from the home page, word for word. There is no
        sixth there, and inventing one on a page that promises specific work
        would be inventing an answer as well. -->
-  <section id="faq" class="sec-alt faq">
+  <section id="faq" class="faq">
     <div class="wrap narrow">
       <h2>Frequently asked questions</h2>
 
@@ -492,7 +555,7 @@
       </details>
       <details>
         <summary>What do you clean with?</summary>
-        <p>Eco-certified products, safe around children and pets, and we bring everything with us. If you would rather we used something of your own, leave it out and we will.</p>
+        <p>Certified eco products, safe around children and pets, and we bring everything with us. If you would rather we used something of your own, leave it out and we will.</p>
       </details>
       <details>
         <summary>Can I move or cancel a visit?</summary>
@@ -540,7 +603,6 @@
           <li><a href="quote/?service=builders">After builders</a></li>
           <li><a href="quote/?service=regular">Regular cleaning</a></li>
           <li><a href="quote/?service=carpet">Carpet &amp; upholstery</a></li>
-          <li><a href="quote/?service=kitchen">Oven &amp; kitchen</a></li>
           <li><a href="quote/?service=windows">Windows</a></li>
           <li><a href="quote/?service=hourly">Cleaners by the hour</a></li>
         </ul>
