@@ -9,9 +9,9 @@
      office reads. If a number changes it changes here and in the two HTML
      files - grep for it, do not trust memory. */
   var SITE = {
-    phone:    '087 483 8743',
-    tel:      'tel:+353874838743',
-    whatsapp: 'https://wa.me/353874838743',
+    phone:    '01 265 8205',
+    tel:      'tel:+35312658205',
+    whatsapp: 'https://wa.me/35312658205',
     hours:    '8am to 11pm, every day'
   };
 
@@ -242,7 +242,11 @@
     box.innerHTML =
       '<h2>Thanks, ' + esc(name) + '!</h2>' +
       "<p>We'll call you on " + esc(phone) + ' within the hour.</p>' +
-      '<div class="done__row"><a class="btn-outline" href="../">Back to the main page</a></div>';
+      "<p>We'll call you shortly from 01 265 8205 (Eco Spark Cleaning) - please pick up!</p>" +
+      '<div class="done__row">' +
+        '<a class="btn-outline" href="../../assets/eco-spark-cleaning.vcf" download>Save our number</a>' +
+        '<a class="btn-outline" href="../">Back to the main page</a>' +
+      '</div>';
     box.setAttribute('tabindex', '-1');
     box.scrollIntoView({ block: 'center' });
     box.focus({ preventScroll: true });
